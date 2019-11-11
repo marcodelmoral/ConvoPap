@@ -141,10 +141,10 @@ través del Océano Atlántico mediante cable submarino, mientras que equipo
 especializado decodificaba la imagen y era capaz de imprimirla
 
 No solo se transmitían imágenes mediante telégrafo, sino también eran
-almacenadas en tarjetas perforadas, por lo que la manipulación y almacenamiento
-de imágenes mediante lenguajes de programación son ubicuas a la técnica. Estas
-primitivas imágenes digitales podían ser codificadas en escalas de grises
-solamente
+almacenadas en tarjetas perforadas, ya que la computación también tiene sus
+orígenes en tarjetas perforadas la manipulación y almacenamiento de imágenes
+mediante lenguajes de programación son ubicuas a ambos temas. Estas primitivas
+imágenes digitales podían ser codificadas en escalas de grises solamente
 
 \begin{figure}[H]
     \centering
@@ -206,7 +206,7 @@ gráficos..
 \subsubsection{Espacios de color}
 
 Una matriz de \(n \times n\) solo es capaz de representar una imagen en escala
-de grises. Por lo que requerimos de más información para poder generar una
+de grises y debido a ello se requiere de más información para poder generar una
 imagen a color.
 
 Una imagen a color es un \emph{Tensor}, es decir, un arreglo de matrices \(m
@@ -651,12 +651,12 @@ tiene las siguientes dos aplicaciones (\autoref{fig:cluster}):
 
 Tenemos muchísimos algoritmos para realizar la misma tarea que podríamos llegar
 a pensar que existe una manera fácil o intuitiva para seleccionar el mejor de
-todos para un problema dado. Lamentablemente el Teorema de no almuerzo gratis (No Free Lunch)
-dice que no existe un modelo que funcione mejor para cada problema. Por lo que
-es necesario hacer una búsqueda y probar todos los algoritmos que nuestros
-recursos nos permitan. Es por ello que posteriormente haremos una búsqueda entre
-todo el muchas arquitecturas neuronales distintas para encontrar aquella que
-tenga el mejor rendimiento para el problema a resolver. 
+todos para un problema dado. Lamentablemente el Teorema de no almuerzo gratis
+(No Free Lunch) dice que no existe un modelo que funcione mejor para cada
+problema. Es necesario hacer una búsqueda y probar todos los algoritmos que
+nuestros recursos nos permitan. Es por ello que posteriormente haremos una
+búsqueda entre todo el muchas arquitecturas neuronales distintas para encontrar
+aquella que tenga el mejor rendimiento para el problema a resolver. 
 
 El rendimiento de un algoritmo $a$ iterado $m$ veces bajo una función de pérdida
 $f$ se mide con la probabilidad condicional de obtener una muestra particular
@@ -1196,16 +1196,16 @@ El \hyperlink{abbr}{DL} ofreció mejor rendimiento en muchas tareas distintas, p
 En el 2011, los mejores resultados en el reto de \emph{ImageNet} (clasificar
 miles de imágenes en cientos de clases), la exactitud rondaba solo el 74.3\%. En
 2012 un equipo logró mejorar esta exactitud a 83.6\%. Para el 2015, el ganador
-manejaba una precisión del 96.4\% utilizando ConvNets, por lo que en la
-actualidad \emph{ImageNet} se considera un problema resuelto.
+manejaba una precisión del 96.4\% utilizando ConvNets, en la actualidad
+\emph{ImageNet} se considera un problema resuelto.
 
 Las dos ideas claves para el \hyperlink{abbr}{DL} aplicado a
 \hyperlink{abbr}{VC} fueron las \hyperlink{abbr}{ConvNet}s y el \emph{Algoritmo
 de Retro-propagación} (Backpropagation) ya existían hace 30 años. Debido a que
 el campo es experimental y no teórico, los avances en algoritmos son posibles
-solo cuando hay suficientes datos y Hardware. Por lo que estas ideas estuvieron
-en letargo, esperando avances en Hardware para ser posibles técnicamente y en la
-maduración del concepto de almacenamiento y recopilación de datos \cite{Chollet2018}.
+solo cuando hay suficientes datos y Hardware. Estas ideas estuvieron en letargo,
+esperando avances en Hardware para ser posibles técnicamente y en la maduración
+del concepto de almacenamiento y recopilación de datos \cite{Chollet2018}.
 
 \subsubsection{Hardware}
 
@@ -1556,11 +1556,6 @@ como \emph{max pooling} y su fórmula se muestra en la \autoref{MaxPooling2D}.
 
 \ecuacion{h^{n}_{j}(x) = max_{\bar{x} \in N(x), \bar{y} \in N(y)} h^{n-1}_{j} (\bar{x}, \bar{y})}{MaxPooling2D}
 
-% \begin{equation}
-%     \label{eq:pool}
-%     h^{n}_{j}(x) = max_{\bar{x} \in N(x), \bar{y} \in N(y)} h^{n-1}_{j} (\bar{x}, \bar{y})
-% \end{equation}
-
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.4\textwidth]{capitulo_marcoteorico/maxpool}
@@ -1585,10 +1580,6 @@ clase y el valor en una probabilidad de pertenecer o no pertenecer.
 
 \ecuacion{\textsigma(z)_{i} = \frac{e^{z_{i}}}{\sum_{j=1}^{K}}}{Softmax}
 
-% \begin{equation}
-%     \label{eq:softmax}
-%     \textsigma(z)_{i} = \frac{e^{z_{i}}}{\sum_{j=1}^{K}}
-% \end{equation}
 \subsubsection{Entrenamiento}
 
 Para alcanzar una precisión aplicable al mundo real, se requiere durante el
@@ -1596,8 +1587,8 @@ entrenamiento una base de datos robusta y que represente fervientemente la
 realidad de los datos del problema. Para enriquecer estas bases de datos, se
 aplica un pre-proceso sobre las mismas para aumentar la calidad y el tamaño del
 conjunto de entrenamiento. Rotando imágenes, generando imágenes espejo,
-cambiando contrastes son operaciones básicas a realizar; sin embargo, otras
-medidas más complejas son necesarias: poner imágenes en la misma escala,
+cambiando contrastes son operaciones básicas a realizar; esto hace que otras
+medidas más complejas sean necesarias: poner imágenes en la misma escala,
 normalizar mediante medias y desviaciones estándar, aplicación de filtros
 gaussianos y afinar proporciones. Esto es conocido como aumentación de datos.
 
@@ -1866,8 +1857,8 @@ Las ventajas de U-net son las siguientes:
     información contextual de la parte de expansión para obtener información
     general combinando ambas, lo cual es necesario para predecir un buen mapa
     de segmentación.
-    \item No cuenta con una capa densa, por lo que imágenes de distinto tamaño pueden
-    ser usados como entrada.
+    \item No cuenta con una capa densa, esto permite que imágenes de distinto
+    tamaño pueden ser usados como entrada.
     \item Se apoya muchísimo de la aumentación de datos.
     \item El modelo es relativamente pequeño (512 $\times$ 512 U-net - ca. 89mb).
     \item Cuenta son solo 2,164,593 parámetros totales.

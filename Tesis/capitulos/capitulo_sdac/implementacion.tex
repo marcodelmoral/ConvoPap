@@ -5,9 +5,9 @@ programación para usar el modelo de manera directa.
 
 Implementar se refiere a tomar el modelo y convertirlo en un sistema de software
 capaz. También se refiere a la forma en que el sistema será usado por el
-usuario. Se refiere a las disposiciones técnicas para hacer llegar el modelo
-a donde va a ser usado y se constituye de disciplinas como la ingeniería de software,
-redes computacionales e internet o hardware y electrónica. 
+usuario. Se refiere a las disposiciones técnicas para hacer llegar el modelo a
+donde va a ser usado y se constituye de disciplinas como la ingeniería de
+software, redes computacionales e internet o hardware y electrónica. 
 
 Este concepto puede ir desde programar una interface sencilla basada en terminal
 para su utilización por usuarios con conocimientos computacionales o integrado
@@ -69,6 +69,7 @@ el sistema.
 \end{itemize}
 
 \subsubsection{Condiciones de uso}
+
 Como mencionamos anteriormente, debemos de generar una solución capaz de ser
 usada dentro de un laboratorio de análisis citológico por un experto
 cito-tecnólogo para poder asistirlo a clasificar células dentro de un examen
@@ -80,7 +81,7 @@ comúnmente \emph{Windows}. Esto no solo conlleva una complejidad extra puesto
 que hay distintas versiones en el mercado y habría que adecuar el sistema a cada
 una de ellas. También tendríamos que desarrollar el software tanto en
 \emph{macOS} o \emph{Linux}. Otro problema es que tanto \emph{Windows} como
-\emph{macOS} son de paga por lo que se incurriría en costos extra.
+\emph{macOS} son de paga y esto incurriría en costos extra.
 
 El uso de la nube también se descarta puesto que se tienen que analizar grandes
 volúmenes de datos pesados difíciles de transmitir con la rapidez necesaria
@@ -107,8 +108,8 @@ ya vienen integrados dentro de una placa pequeña que incluye todas las
 conexiones necesarias para ser usada en muchísimas aplicaciones como captura de
 imagen, lectura de sensores o inclusive como computadora personal
 
-Se consideraron los \hyperlink{abbr}{SE}s como plataforma final debido a que cumplen
-con las siguientes características:
+Se consideraron los \hyperlink{abbr}{SE}s como plataforma final debido a que
+cumplen con las siguientes características:
 
 \begin{enumerate}
     \item{\textbf{Bajo costo: }} Estos dispositivos difícilmente cuestan más de
@@ -128,23 +129,24 @@ con las siguientes características:
 
 El poder computacional no solo es crucial en la fase de entrenamiento de una
 \hyperlink{abbr}{ConvNet}, sino también lo es durante el despliegue del modelo a
-su uso final. Un modelo lento resulta poco práctico, por lo que el rendimiento
-debe ser uno de los enfoques principales.
+su uso final. Un modelo lento resulta poco práctico, debito a esto el
+rendimiento debe ser uno de los enfoques principales.
 
 En un laboratorio citológico es difícil poder encontrar el poder necesario para
-desplegar una solución basada en \hyperlink{abbr}{DL}. Otra restricción que se presenta radica en
-la poco practicidad de implementar soluciones basadas en la nube, debido al gran
-volumen de datos que representan las imágenes y video, por lo que subirlas a un
-sistema remoto incide negativamente en el rendimiento de la solución final. 
+desplegar una solución basada en \hyperlink{abbr}{DL}. Otra restricción que se
+presenta radica en la poco practicidad de implementar soluciones basadas en la
+nube, debido al gran volumen de datos que representan las imágenes y video, por
+lo que subirlas a un sistema remoto incide negativamente en el rendimiento de la
+solución final. 
 
 Es por ello que se recurrió al uso de los \hyperlink{abbr}{SE} para desplegar la
 solución en las condiciones necesarias para maximizar su uso. Hasta hace unos
 meses, se tuvo la idea de desplegar el modelo dentro de un \hyperlink{abbr}{SE}
 llamado \emph{Raspberry Pi}. Sin embargo, en Marzo de 2019, Nvidia lanzó al
-mercado un \hyperlink{abbr}{SE} conocido como \emph{Jetson Nano} (\autoref{fig:jetson}), basado en
-las potentes y caras soluciones que ofrece Nvidia para el mercado de los carros
-autónomos, pero enfocado a un público con restricciones de presupuesto o que
-buscan ligereza.
+mercado un \hyperlink{abbr}{SE} conocido como \emph{Jetson Nano}
+(\autoref{fig:jetson}), basado en las potentes y caras soluciones que ofrece
+Nvidia para el mercado de los carros autónomos, pero enfocado a un público con
+restricciones de presupuesto o que buscan ligereza.
 
 \begin{figure}[H]
     \centering
@@ -165,9 +167,9 @@ Unet resultarán cruciales en el desarrollo de esta tesis.
 \end{figure}
 
 Jetson Nano fungirá como cerebro en la creación de un dispositivo de hardware
-que despliegue un modelo de \hyperlink{abbr}{ConvNet} para la clasificación de células
-cérvico-uterinas. Que contará en primera instancia una cámara para capturar
-imagen y video de un microscopio y de una pantalla táctil para su fácil
+que despliegue un modelo de \hyperlink{abbr}{ConvNet} para la clasificación de
+células cérvico-uterinas. Que contará en primera instancia una cámara para
+capturar imagen y video de un microscopio y de una pantalla táctil para su fácil
 operación. Este se conectará a un microscopio mediante un adaptador que será
 impreso en 3D. Lo que conformará el \hyperlink{abbr}{SDAC} y solución final.
 
@@ -371,7 +373,8 @@ hace muy eficiente energéticamente. Cuenta con las siguientes características:
 En la \autoref{fig:prototipo_ventilador} podemos ver la placa Jetson ya con el
 ventilador Noctua integrado. Los agujeros del disipador ya estaban perforados
 con las dimensiones precisas pero no contaban con estrías para asegurar el
-tornillo, por lo que se tuvo que usar una herramienta para abrirlas.
+tornillo, re recurrió al uso de una herramienta especializada para crear estas
+estrías y asegurar firmemente el ventilador al disipador.
 
 \begin{figure}[H]
     \centering
@@ -407,8 +410,8 @@ del prototipo y la impresión 3d. El centro cuenta con dos tipos de impresora 3D
     \item{\textbf{Pro2 Plus de Raise3D: }} Es una impresora de filamento
     plástico (\autoref{fig:plastico}) capaz de alcanzar una resolución de
     0.01mm. Es rápida que la de resina y cuenta con dos cabezales de
-    alimentación de filamento. Por lo que puede imprimir una pieza con distintos
-    colores, uno por cada rollo de filamento. 
+    alimentación de filament y permite imprimir una pieza con distintos colores,
+    uno por cada rollo de filamento. 
 \end{enumerate}
 
 \begin{figure}[H]
@@ -428,8 +431,8 @@ dispositivos creados con Raspberry Pi usando la cámara oficial de Raspberry por
 el usuario \hyperlink{https://www.thingiverse.com/luisibanez/about}{Luis Ibanez}
 en el sitio \hyperlink{https://www.thingiverse.com/}{Thingiverse}. El modelo de
 cámara usado con Jetson Nano difiere un poco comparado con la cámara de
-Raspberry, por lo que se tuvo que modificar el modelo para poder adaptarlo a la
-cámara a utilizar utilizando el software OpenSCAD para diseño asistido por
+Raspberry, debido a esto se tuvo que modificar el modelo para poder adaptarlo a
+la cámara a utilizar utilizando el software OpenSCAD para diseño asistido por
 computadora. En la \autoref{fig:adaptador_final} vemos un ejemplo del uso final
 del adaptador, para acoplar la cámara al objetivo del microscopio
 
@@ -611,7 +614,7 @@ continua una reacción química por lo que es necesario lavarla en alcohol
 isopropílico para detenerla y disolver todo resto de resina líquida que quede
 sobre la superficie, posteriormente se necesita un periodo de curación mediante
 rayos UV para alcanzar la integridad física normal del material; este proceso
-opaca la resina por lo que se nota de un color blancuzco.
+opaca la resina lo cual dota de la pieza de un color blancuzco.
 
 \begin{figure}[H]
     \centering
@@ -755,8 +758,9 @@ Kivy es un módulo de Python para desarrollo rápido de aplicaciones que usan
 interfaces innovadoras, como aquellas que requieren dispositivos táctiles. Kivy
 puede ser usado en todos los sistemas operativos incluyendo el de Jetson Nano y
 maneja muchos protocolos de ingreso de impulsos táctiles. Es 100\% libre bajo
-una licencia del MIT y cuenta con desarrollo profesional. Por lo que es la única
-opción de framework para crear la interface gráfica.
+una licencia del MIT y cuenta con desarrollo profesional. Analizando estos
+argumento se concluye que Kivy es la única opción de framework para crear la
+interface gráfica.
 
 Kivy funciona dividiendo el desarrollo de la interface en dos capas. La primera
 es aquella que provee la funcionalidad de backend, es decir, todo lo que va a

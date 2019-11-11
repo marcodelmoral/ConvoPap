@@ -331,12 +331,14 @@ conforme pasan las épocas del entrenamiento, esto se puede ver en la~\autoref{t
     \caption{Tabla de resultados ResNet50}\label{tabla:resnet}
     \end{table}
 \section{VGG16}
+
 Esta red tuvo un rendimiento excepcional tanto en validación como en entrenamiento, alcanzando
 el 98\% de exactitud en pocas épocas. En la~\autoref{fig:vgg16_total} se ve que ambas
 métricas se mantienen muy cerca la una a la otra tanto en validación como en entrenamiento.
 La~\autoref{tabla:vgg16} muestra claramente que incrementar el número de épocas mejorará
 considerablemente el algoritmo, sin embargo, también podemos inferir que a partir de ciertas
 épocas más entrenamiento será redundante.
+
 \begin{figure}[H]
     \centering
     \begin{subfigure}[b]{0.8\textwidth}
@@ -372,13 +374,16 @@ considerablemente el algoritmo, sin embargo, también podemos inferir que a part
     \caption{Tabla de resultados VGG16}\label{tabla:vgg16}
     \end{table}
 \section{VGG19}
-Como su hermana menos compleja, esta arquitectura tuvo un rendimiento increíble en el experimento como
-podemos ver en la~\autoref{fig:vgg19_total}. Lo ideal es que los valores de exactitud y validación
-estén muy cercanos el uno del otro, por lo que esta arquitectura promete bastante para candidato a solución.
-Más entrenamiento incide directamente en el rendimiento de esta arquitectura como se ve
-en la~\autoref{tabla:vgg19}, donde alcanzamos una exactitud bastante buena del 99\%, lo más
-importante es que la diferencia entre ambas métricas en validación y entrenamiento se mantuvieron
-bastante cercanas.
+
+Como su hermana menos compleja, esta arquitectura tuvo un rendimiento increíble
+en el experimento como podemos ver en la~\autoref{fig:vgg19_total}. Lo ideal es
+que los valores de exactitud y validación estén muy cercanos el uno del otro,
+por lo que esta arquitectura promete bastante para candidato a solución. Más
+entrenamiento incide directamente en el rendimiento de esta arquitectura como se
+ve en la~\autoref{tabla:vgg19}, donde alcanzamos una exactitud bastante buena
+del 99\%, lo más importante es que la diferencia entre ambas métricas en
+validación y entrenamiento se mantuvieron bastante cercanas.
+
 \begin{figure}[H]
     \centering
     \begin{subfigure}[b]{0.8\textwidth}

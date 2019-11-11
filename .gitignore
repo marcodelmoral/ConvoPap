@@ -1,6 +1,10 @@
 ## tesis pdf
 
 Tesis_Implementacion_Marco.pdf
+_minted-Tesis_Implementacion_Marco/
+Code/Experimentos/
+Code/__pycache__/
+Code/.ipynb_checkpoints/
 
 ## Core latex/pdflatex auxiliary files:
 *.aux

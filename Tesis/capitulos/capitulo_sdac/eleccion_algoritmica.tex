@@ -3,24 +3,24 @@ Aquí se realizará una exploración general de soluciones para indagar su
 efectividad, esta exploración va guiada por el conocimiento del dominio y del
 experto para asegurar su aplicabilidad final. No es necesario buscar en todo el
 espectro de modelos, por ejemplo, el análisis de lenguaje natural se puede
-resolver eficazmente con las Redes Neuronales, por lo que el universo a explorar
-será de arquitecturas. Esta fase puede ser muy intensiva computacionalmente, así
-que la cantidad de iteraciones está limitada, como ya sabemos el problema radica
-en que no existe una forma de determinar que modelo será el mejor para un
-problema en particular.
+resolver eficazmente con las Redes Neuronales,  gracias a esto el universo a
+explorar será de arquitecturas. Esta fase puede ser muy intensiva
+computacionalmente, así que la cantidad de iteraciones está limitada, como ya
+sabemos el problema radica en que no existe una forma de determinar que modelo
+será el mejor para un problema en particular.
 
 En nuestro caso, ya hemos delimitado el tipo de algoritmo a utilizar. Si se
 tiene \hyperlink{abbr}{BD} tabular, se procedería a: Probar modelos lineales,
 bayesianos, Máquinas de Soporte Vectorial, Árboles Aleatorios, Redes Neuronales
 y demás, usando parámetros estándar para estimar su rendimiento.
 
-Para cada modelo, es preferible utilizar una validación cruzada y comparar
-tanto la media como la desviación estándar. En algoritmos como las \hyperlink{abbr}{ConvNet}s,
-esto puede ser difícil debido a la complejidad computacional. También
-lo es determinar el tipo de error estadístico de cada modelo para corroborar el
-impacto que tendrá tal error en el rendimiento del algoritmo en situaciones de
-la vida real, por ejemplo, en el área médica es importante la tasa de falsos
-positivos y falsos negativos.
+Para cada modelo, es preferible utilizar una validación cruzada y comparar tanto
+la media como la desviación estándar. En algoritmos como las
+\hyperlink{abbr}{ConvNet}s, esto puede ser difícil debido a la complejidad
+computacional. También lo es determinar el tipo de error estadístico de cada
+modelo para corroborar el impacto que tendrá tal error en el rendimiento del
+algoritmo en situaciones de la vida real, por ejemplo, en el área médica es
+importante la tasa de falsos positivos y falsos negativos.
 
 Este proceso es naturalmente iterativo. Donde cambios en algoritmos,
 arquitecturas e hiperparámetros obviamente modifican el rendimiento de los
@@ -79,8 +79,7 @@ mismos hiperparámetros y el mismo número de épocas
                             EPOCHS = 20
                             DROPOUT = 0.5
     \end{minted}
-     \caption{Hiperparámetros para búsqueda de algoritmos}
-     \label{fig:hiper_transfer}
+    \caption{Hiperparámetros para búsqueda de algoritmos}\label{fig:hiper_transfer}
 \end{figure}
 
 \subsection{Comparar rendimiento}
@@ -106,36 +105,30 @@ comportaban peor al pasar las épocas.
     \begin{subfigure}[b]{0.8\textwidth}
         \centering
        \includegraphics[width=1\textwidth]{capitulo_sdac/exactitud_entrenamiento.pdf}
-       \caption{Exactitud en entrenamiento}
-       \label{fig:comp_ent} 
+       \caption{Exactitud en entrenamiento}\label{fig:comp_ent} 
     \end{subfigure}
 
     \begin{subfigure}[b]{0.8\textwidth}
         \centering
        \includegraphics[width=1\textwidth]{capitulo_sdac/exactitud_validacion.pdf}
-       \caption{Exactitud en validación}
-       \label{fig:comp_val}
+       \caption{Exactitud en validación}\label{fig:comp_val}
     \end{subfigure}
-    \caption{Gráfica de comparativa de exactitud}
-    \label{fig:comp_total}
+    \caption{Gráfica de comparativa de exactitud}\label{fig:comp_total}
 \end{figure}
 \begin{figure}[H]
     \centering
     \begin{subfigure}[b]{0.8\textwidth}
         \centering
        \includegraphics[width=1\textwidth]{capitulo_sdac/perdida_entrenamiento.pdf}
-       \caption{Pérdida en entrenamiento}
-       \label{fig:comp_entloss} 
+       \caption{Pérdida en entrenamiento}\label{fig:comp_entloss} 
     \end{subfigure}
 
     \begin{subfigure}[b]{0.8\textwidth}
         \centering
        \includegraphics[width=1\textwidth]{capitulo_sdac/perdida_validacion.pdf}
-       \caption{Pérdida en validación}
-       \label{fig:comp_valloss}
+       \caption{Pérdida en validación}\label{fig:comp_valloss}
     \end{subfigure}
-    \caption{Gráfica de comparativa de pérdida}
-    \label{fig:comp_totalloss}
+    \caption{Gráfica de comparativa de pérdida}\label{fig:comp_totalloss}
 \end{figure}
 
 \subsection{Seleccionar los mejores algoritmos}

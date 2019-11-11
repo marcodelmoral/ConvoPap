@@ -34,10 +34,10 @@ someterán a varias pruebas y validaciones:
 \subsection{Implementar validación cruzada}
 
 Se cuenta con un archivo .csv que concentra la ruta de la imagen, la clase y la
-categoría a la que pertenece. Por lo que implementar validación cruzada se
-reduce a dividir aleatoriamente los índices de cada fila de tal archivo. Para
-ello se utilizará el módulo \emph{Pandas} para manejar los datos tabulares para
-implementar la validación cruzada mediante el módulo \emph{Sklearn} y su función
+categoría a la que pertenece. Implementar validación cruzada se reduce a dividir
+aleatoriamente los índices de cada fila de tal archivo. Para ello se utilizará
+el módulo \emph{Pandas} para manejar los datos tabulares para implementar la
+validación cruzada mediante el módulo \emph{Sklearn} y su función
 \mintinline{latex}{Kfold}.
 
 La fase de segmentación semántica no cuenta con gráfica de validación cruzada ya
@@ -50,7 +50,7 @@ opción para validar este trabajo.
 
 \subsubsection{Clasificación binaria}
 
-En la~\autoref{fig:kfold} se observa la planeación de la validación cruzada,
+En la~\autoref{fig:kfold} se representa la planeación de la validación cruzada,
 las dos clases, sus índices y como el algoritmo escoge aleatoriamente
 subconjuntos (índices) aleatoriamente en cada iteración, para asegurar una
 correcta validación del algoritmo. Se decidió por 10 iteraciones debido a la
@@ -65,10 +65,10 @@ complejidad computacional, tardando esta fase 22 horas en completarse.
 \subsubsection{Clasificación multi-clase}
 
 La~\autoref{fig:kfold_7} muestra la validación cruzada aplicada al problema de 7
-clases. Se observa que existe discrepancia en la cantidad de elementos por cada
-una de las clases, es decir, es un entrenamiento desbalanceado y procederemos a
-evaluar el impacto de ello en el experimento. Este entrenamiento fue sumamente
-tardado: 44 horas, ya que duplicamos el número de épocas de entrenamiento.
+clases. Existe discrepancia en la cantidad de elementos por cada una de las
+clases, es decir, es un entrenamiento desbalanceado y procederemos a evaluar el
+impacto de ello en el experimento. Este entrenamiento fue sumamente tardado: 44
+horas, ya que duplicamos el número de épocas de entrenamiento.
 
 \begin{figure}[H]
     \centering
@@ -84,7 +84,8 @@ funcione o tenga un comportamiento errático.
 
 \begin{itemize}
     \item El tamaño de lote o \mintinline{latex}{BATCH_SIZE} se dejó como máximo
-    en $64$. Más grande hacía que el \hyperlink{abbr}{GPU} se quedara sin memoria antes de terminar.
+    en $64$. Más grande hacía que el \hyperlink{abbr}{GPU} se quedara sin
+    memoria antes de terminar.
     \item Las neuronas de la capa densa o totalmente conectada
     \mintinline{latex}{FC_LAYERS} se dejan en $1024$ neuronas en comparación a
     las $4096$ que tiene VGG original.
@@ -329,8 +330,8 @@ probar con otro optimizador.
 
 Los resultados de la validación cruzada de 10 iteraciones para el experimento
 multi-clase se ven en la~\autoref{tabla:validacion7}. La iteración con mejor
-rendimiento fue la número 1, alcanzando una exactitud del 99.72\%. Se observa
-un fenómeno donde la pérdida de la iteración 0 es mejor que la 1. Esto puede
+rendimiento fue la número 1, alcanzando una exactitud del 99.72\%. Se manifiesta
+cierto fenómeno donde la pérdida de la iteración 0 es mejor que la 1. Esto puede
 ser debido a fluctuaciones del generador de números aleatorios.
 
 \begin{table}[H]
@@ -383,8 +384,8 @@ error de generalización total del modelo es de 0.42\%.
 
 La pérdida cayó abruptamente antes de las 10 épocas, después de las cuales se
 estabilizó alcanzando cierto límite asintótico; Cuando se analiza la diferencia
-entre la pérdida en entrenamiento y validación, estas se observan muy cercanas
-casi iguales lo cual es lo ideal, quiere decir que nuestro modelo puede capturar
+entre la pérdida en entrenamiento y validación, estas se encuentran muy cercanas
+y casi iguales lo cual es ideal, quiere decir que nuestro modelo puede capturar
 muy bien las complejidades de la clasificación citológica multi-clase
 (\autoref{fig:perdida_total_7}).
 
@@ -571,11 +572,11 @@ diferencia es una cantidad negligible.
 
 La~\autoref{fig:matrices} nos muestra las matrices de confusión; la matriz
 normalizada no se aprecia bien por el redondeo y se puede interpretar que el
-sistema tiene un poder de clasificación perfecto, sin embargo podemos ver en la
-matriz no normalizada que un total de 8 elementos fueron mal clasificados, un
-ejemplo normal clasificado como anormal y siete anormales clasificados como
-normales, esto puede suponer un problema ya que es peligroso diagnosticar la
-ausencia de lesión citológica cuando si está presente.
+sistema tiene un poder de clasificación perfecto, pero podemos ver en la matriz
+no normalizada que un total de 8 elementos fueron mal clasificados, un ejemplo
+normal clasificado como anormal y siete anormales clasificados como normales,
+esto puede suponer un problema ya que es peligroso diagnosticar la ausencia de
+lesión citológica cuando si está presente.
 
 \begin{figure}[H]
     \centering
@@ -651,9 +652,9 @@ un excelente rendimiento en estas métricas, todas arriba de 0.997.
     \caption{Reporte de clasificación binario para métricas que deben tender a 1}\label{fig:reporte_2_1}
 \end{figure}
 
-La \autoref{fig:roc_auc} nos muestra la curva Receiver Operating Characteristic y su
-métrica derivada, el área bajo su curva o AUC. Como podemos ver, la tasa de
-falsos positivos y falsos negativos es bastante baja, por lo que nuestra AUC se
+La \autoref{fig:roc_auc} nos muestra la curva Receiver Operating Characteristic
+y su métrica derivada, el área bajo su curva o AUC. Como podemos ver, la tasa de
+falsos positivos y falsos negativos es bastante baja, es por ello que el AUC se
 aproxima a uno.
 
 \begin{figure}[H]
@@ -875,12 +876,13 @@ cáncer habitualmente.
 \end{figure}
 
 La curva ROC y AUC generalmente se utilizan para problemas de clasificación
-binarios, sin embargo, realizando una cruza todos contra todos de los valores de
-validación podemos generar las métricas y grafica multi-clase. El macro-promedio
-computa la métrica independiente para cada clase y luego toma el promedio;
-mientras que el micro-promedio agrega las contribuciones de todas las clases y
-computa el promedio, este ultimo es significativo para pruebas multi-clase
-debido a que toma en cuenta la falta de balance entre las clases.
+binarios, se pudo adaptar al problema multi-clase  realizando una cruza todos
+contra todos de los valores de validación podemos generar las métricas y grafica
+multi-clase. El macro-promedio computa la métrica independiente para cada clase
+y luego toma el promedio; mientras que el micro-promedio agrega las
+contribuciones de todas las clases y computa el promedio, este ultimo es
+significativo para pruebas multi-clase debido a que toma en cuenta la falta de
+balance entre las clases.
 
 \begin{figure}[H]
     \centering
@@ -955,8 +957,8 @@ demostrando el buen entrenamiento del modelo.
 \end{figure}
 
 En la~\autoref{fig:caja_total_seg} observamos que la variabilidad es bastante
-baja comparando validación y entrenamiento, por lo que podemos inferir que el
-modelo generaliza correctamente. Los picos en variación corresponden a los picos
+baja comparando validación y entrenamiento, podemos inferir que el modelo
+generaliza correctamente. Los picos en variación corresponden a los picos
 observados en la fase de entrenamiento. La métrica IOU varía más puesto que es
 un análisis de todos los pixeles en una imagen.
 
@@ -973,7 +975,7 @@ un análisis de todos los pixeles en una imagen.
        \includegraphics[width=1\textwidth]{capitulo_sdac/box_mejorada_loss.pdf}
        \caption{Variación en la pérdida}\label{fig:caja_loss_seg}
     \end{subfigure}
-    \caption{Gráfica de caja de la variación entre dos métricas en validación y en entrenamiento del mejor modelo.}\label{fig:caja_total_seg}
+    \caption{Gráfica de caja de la variación en segmentación}\label{fig:caja_total_seg}
 \end{figure}
 
 El modelo se comporta mejor conforme pasan las épocas y es posible mejorar el
@@ -997,8 +999,7 @@ entre núcleo y resto de manera muy eficaz.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{capitulo_sdac/muestreo_mascaras_segmentacion}
-    \caption{Muestreo de máscaras de validación. Se observan la imagen original, la máscara original,
-    la predicción, los pixeles verdaderos positivos, falsos positivos y falsos negativos}\label{fig:mascaras}
+    \caption{Muestreo de máscaras de validación}\label{fig:mascaras}
 \end{figure}
 
 Estas pruebas fueron realizadas en un conjunto de datos externo que contiene
@@ -1120,14 +1121,14 @@ En la~\autoref{fig:inter} se pueden ver las activaciones de todas las capas de
 \emph{Max Pooling} de todos los bloques convolucionales que componen nuestra
 arquitectura. Se probaron estas activaciones con una célula cancerígena
 aleatoria. Se repite el patrón que hemos visto desde las secciones anteriores,
-cada capa captura elementos cada vez más abstractos de la imagen. En la capa
-\emph{Block1\_pool} se observa la potencia del algoritmo, pudiendo segmentar
+cada capa captura elementos cada vez más abstractos de la imagen. La capa
+\emph{Block1\_pool} evidencia la potencia del algoritmo, pudiendo segmentar
 correctamente las partes como el núcleo. Los filtros de la capa
-\emph{Block5\_pool} se activan en su mayoría, por lo que podemos concluir que el
-modelo no es ni tan sencillo ni tan complejo, en dado caso que hubiesen muchos
-filtros sin activar, el modelo sería demasiado complejo para la tarea. Quizás
-sea esta la razón por la cual otras arquitecturas más grandes no funcionaron
-para este problema.
+\emph{Block5\_pool} se activan en su mayoría, se concluye que el modelo no es ni
+tan sencillo ni tan complejo, en dado caso que hubiesen muchos filtros sin
+activar, el modelo sería demasiado complejo para la tarea. Quizás sea esta la
+razón por la cual otras arquitecturas más grandes no funcionaron para este
+problema.
 
   \begin{figure}[H] % "[t!]" placement specifier just for this example
     \begin{subfigure}{0.40\textwidth}
@@ -1186,9 +1187,9 @@ neuronal para clasificar. Lo que nos permitirá observar si efectivamente el
 núcleo forma parte de la clasificación y si el aumento de datos incide en la
 misma.
 
-El método es estocástico e iterativo, por lo que cierta variación y discrepancia
-es de esperarse. También se cuenta con tres variantes de cada método que por si
-solas no ofrecen la claridad buscada, por lo que se aplicarán todas en la
+El método es estocástico e iterativo, cierta variación y discrepancia es de
+esperarse. También se cuenta con tres variantes de cada método que por si solas
+no ofrecen la claridad buscada, en consecuencia se aplicarán todas en la
 comparativa. Estos mapas nos permiten determinar el grado de importancia en la
 decisión de cada pixel que compone la imagen.
 
