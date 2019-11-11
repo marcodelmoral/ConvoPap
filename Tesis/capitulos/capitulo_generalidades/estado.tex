@@ -1,0 +1,347 @@
+% Poner los abstract, creo que hay que volverlo a hacer
+
+Existen aplicaciones tradicionales de \hyperlink{abbr}{RNA} y Aprendizaje
+Automático o Machine Learning (\hyperlink{abbr}{ML}\nomenclature{ML}{Machine
+Learning}) en los temas relacionados al diagnóstico y detección de
+\hyperlink{abbr}{CCU}. Inclusive algunos realizan el análisis de sus técnicas en
+países en vías de desarrollo con situaciones similares a
+México.~\cite{HussainWanandIshakWanandFadzilah1994}
+
+Dentro del área de cito-patología, la mayoría de las aplicaciones de RNA han
+sido en el área de cito-patología en general, no solo para la detección de
+cáncer, por lo tanto se tienen precedentes de una buena interacción entre la
+técnica propuesta y el problema a solucionar. Por lo cual podemos decir que las
+herramientas de asistencia al diagnóstico son ubicuas al dominio
+analizado.~\cite{Pouliakis2016}
+
+También se ha encontrado que distintas técnicas de \hyperlink{abbr}{DL} mejoran
+la eficiencia del diagnóstico y permiten reducir la complejidad de los datos de
+entrenamiento y también, las ConvNets permiten la reducción considerable de
+falsos positivos y falsos negativos en el análisis de
+imágenes.~\cite{Khosravi2017}
+
+Dentro del área específica de la búsqueda de cáncer cérvico-uterino, se ha
+encontrado que distintos algoritmos pueden alcanzar grados de asertividad lo
+suficientemente buenos. Lo cual es indicación de que el problema puede ser
+resuelto con la técnica propuesta. Si tomamos en cuenta el método de toma de la
+muestra, también encontramos uso de \hyperlink{abbr}{RNA} para  la
+clasificación de las mismas.~\cite{Ampazis2004}
+
+Implementar técnicas como Transfer Learning
+(\hyperlink{abbr}{TL}\nomenclature{TL}{Transfer Learning}) están permitiendo
+precisiones superiores a las antes alcanzadas, mediante la particularización de
+modelos capaces de clasificar cientos de clases distintas y ajustar ese
+entrenamiento al diagnóstico
+médico.~\cite{Sarwar2013}\cite{Sarwar2015}\cite{Zhang2017}
+
+\begin{enumerate}[label=\textbf{\arabic*}]
+    \item \textbf{Artificial Intelligence in Medical Application: An Exploration}~\cite{HussainWanandIshakWanandFadzilah1994}
+    \begin{itemize} 
+        \item{\textbf{Autores:}} Wan Hussain Wan Ishak, Fadzilah Siraj
+        \item{\textbf{Abstract:}} \textit{The advancement in computer technology has
+        encouraged the researchers to develop software for assisting doctors in
+        making decision without consulting the specialists directly. The
+        software development exploits the potential of human intelligence such
+        as reasoning, making decision, learning (by experiencing) and many
+        others. Artificial intelligence is not a new concept, yet it has been
+        accepted as a new technology in computer science. It has been applied in
+        many areas such as education, business, medical and manufacturing. This
+        paper explores the potential of artificial intelligence techniques
+        particularly for web-based medical applications. In addition, a model
+        for web-based medical diagnosis and prediction is proposed. }
+        \item{\textbf{Problemática:}} Los países en vías de desarrollo carecen
+        de médicos suficientes por lo que la mortandad de muchas enfermedades es
+        mayor en tales países
+        \item{\textbf{Técnicas:}}  \hyperlink{abbr}{IA}, RNA,
+        ingeniería de software, lógica difusa
+        \item{\textbf{Aporte:}} Sistema web para diagnóstico y predicción
+    \end{itemize}
+    \item \textbf{Artificial Neural Networks as Decision Support Tools in Cytopathology: Past, Present, and Future}~\cite{Pouliakis2016}
+    \begin{itemize} 
+        \item{\textbf{Autores:}} Pouliakis, A Karakitsou, E Margari, N Bountris,
+        P Haritou, M Panayiotides, J Koutsouris, D Karakitsos, P
+        \item{\textbf{Abstract:}} \textit{OBJECTIVE: This study aims to analyze the role
+        of artificial neural networks (ANNs) in cytopathology. More
+        specifically, it aims to highlight the importance of employing ANNs in
+        existing and future applications and in identifying unexplored or poorly
+        explored research topics. STUDY DESIGN: A systematic search was
+        conducted in scientific databases for articles related to cytopathology
+        and ANNs with respect to anatomical places of the human body where
+        cytopathology is performed. For each anatomic system/organ, the major
+        outcomes described in the scientific literature are presented and the
+        most important aspects are highlighted. RESULTS: The vast majority of
+        ANN applications are related to cervical cytopathology, specifically for
+        the ANN-based, semiautomated commercial diagnostic system PAPNET. For
+        cervical cytopathology, there is a plethora of studies relevant to the
+        diagnostic accuracy; in addition, there are also efforts evaluating
+        cost-effectiveness and applications on primary, secondary, or hybrid
+        screening. For the rest of the anatomical sites, such as the
+        gastrointestinal system, thyroid gland, urinary tract, and breast, there
+        are significantly less efforts relevant to the application of ANNs.
+        Additionally, there are still anatomical systems for which ANNs have
+        never been applied on their cytological material. CONCLUSIONS:
+        Cytopathology is an ideal discipline to apply ANNs. In general,
+        diagnosis is performed by experts via the light microscope. However,
+        this approach introduces subjectivity, because this is not a universal
+        and objective measurement process. This has resulted in the existence of
+        a gray zone between normal and pathological cases. From the analysis of
+        related articles, it is obvious that there is a need to perform more
+        thorough analyses, using extensive number of cases and particularly for
+        the non explored organs. Efforts to apply such systems within the
+        laboratory test environment are required for future uptake.}
+        \item{\textbf{Problemática:}} Analizar el rol de la técnica RNA en la
+        citopatología
+        \item{\textbf{Técnicas:}}  \hyperlink{abbr}{IA}, RNA
+        \item{\textbf{Aporte:}} Se determinó que la mayoría de los usos de redes
+        neuronales para cito-patología son en el área cervicouterina
+    \end{itemize}
+    \item \textbf{Using Deep Learning to enhance cancer diagnosis and classification}~\cite{Fakoor2013}
+    \begin{itemize} 
+        \item{\textbf{Autores:}} Fakoor, Rasool Ladhak, Faisal Nazi, Azade
+        Huber, Manfred
+        \item{\textbf{Abstract:}} \textit{Using automated computer tools and in particular machine learning to facilitate and enhance medical analysis and diagnosis is a promising and important area. In this paper, we show that how unsupervised feature learn-ing can be used for cancer detection and can-cer type analysis from gene expression data. The main advantage of the proposed method over previous cancer detection approaches is the possibility of applying data from various types of cancer to automatically form fea-tures which help to enhance the detection and diagnosis of a specific one. The technique is here applied to the detection and classifica-tion of cancer types based on gene expression data. In this domain we show that the per-formance of this method is better than that of previous methods, therefore promising a more comprehensive and generic approach for cancer detection and diagnosis.}
+        \item{\textbf{Problemática:}} Se require mejorar la precisión de los
+        sistemas de diagnóstico de cáncer basados en técnicas de  \hyperlink{abbr}{IA}
+        \item{\textbf{Técnicas:}} DL, ConvNvets, Autoencoders, ML, Principal Component analysis
+        \item{\textbf{Aporte:}} Se mejoró la eficiencia del diagnóstico y se
+        logró reducir la complejidad de los datos
+    \end{itemize}
+    \item \textbf{Pap-Smear Classification Using Efficient Second Order Neural Network Training Algorithms}~\cite{Ampazis2004}
+    \begin{itemize} 
+        \item{\textbf{Autores:}} Ampazis, Nikolaos Dounias, George Jantzen, Jan
+        \item{\textbf{Abstract:}} \textit{In this paper we make use of two highly efficient second
+         or- der neural network training algorithms, namely the LMAM (Levenberg- Marquardt 
+         with Adaptive Momentum) and OLMAM (Optimized Levenberg-Marquardt with Adaptive Momentum), 
+         for the construction of an efficient pap-smear test classifier. The algorithms are methodologically 
+         similar, and are based on iterations of the form employed in the Levenberg-Marquardt (LM) 
+         method for non-linear least squares problems with the inclusion of an
+         additional adaptive momentum term 
+         arising from the formulation of the training task as a constrained optimization problem. The classification 
+         results obtained from the application of the algorithms on a standard benchmark pap-smear data set reveal 
+         the power of the two methods to obtain excellent solutions in difficult classification problems whereas other
+          standard computational intelligence techniques achieve inferior performances.}
+        \item{\textbf{Problemática:}} Detectar CCU mediante el análisis de
+        citología PAP.
+        \item{\textbf{Técnicas:}} Algoritmos de entrenamiento, ANFIS, NeuroFuzzy
+        \item{\textbf{Aporte:}} Se logró detectar displasia mediante la
+        combinación de varias técnicas de  \hyperlink{abbr}{IA}
+    \end{itemize}
+    \item \textbf{Deep Learning in Medical Imaging: General Overview}~\cite{Lee2017}
+    \begin{itemize} 
+        \item{\textbf{Autores:}} Lee, June-Goo Jun, Sanghoon Cho, Young-Won Lee,
+        Hyunna Kim, Guk Bae Seo, Joon Beom Kim, Namkug
+        \item{\textbf{Abstract:}} \textit{The artificial neural network (ANN)-a machine 
+        learning technique inspired by the human neuronal synapse system-was introduced in
+         the 1950s. However, the ANN was previously limited in its ability to solve actual 
+         problems, due to the vanishing gradient and overfitting problems with training of de
+         ep architecture, lack of computing power, and primarily the absence of sufficient data
+          to train the computer system. Interest in this concept has lately resurfaced, due to 
+          the availability of big data, enhanced computing power with the current graphics processing
+           units, and novel algorithms to train the deep neural network. Recent studies on this technology
+           suggest its potentially to perform better than humans in some visual and auditory recognition 
+           tasks, which may portend its applications in medicine and healthcare, especially in medical
+            imaging, in the foreseeable future. This review article offers perspectives on the history, 
+            development, and applications of deep learning technology, particularly regarding its 
+            applications in medical imaging.}
+        \item{\textbf{Problemática:}} Mejorar la precisión de los algoritmos de
+        ML para diagnóstico médico mediante imágenes
+        \item{\textbf{Técnicas:}} DL, ML
+        \item{\textbf{Aporte:}} El uso de DL en el diagnóstico médico
+        puede escalar fácilmente y tiene resultados superiores a los métodos previos.
+    \end{itemize}
+    \item \textbf{Intelligent Screening Systems for Cervical Cancer}~\cite{Jusman2014}
+    \begin{itemize} 
+        \item{\textbf{Autores:}} Yessi Jusman, Siew Cheok Ng, and Noor Azuan Abu
+        Osman
+        \item{\textbf{Abstract:}} \textit{Advent of medical image digitalization leads to 
+        image processing and computer-aided diagnosis systems in numerous clinical applications.
+         These technologies could be used to automatically diagnose patient or serve as second opinion
+          to pathologists. This paper briefly reviews cervical screening techniques, advantages, and disadvantages. 
+          The digital data of the screening techniques are used as data for the computer screening system as replaced 
+          in the expert analysis. Four stages of the computer system are enhancement, features extraction, feature selection,
+           and classification reviewed in detail. The computer system based on cytology data and electromagnetic spectra data
+            achieved better accuracy than other data.}
+        \item{\textbf{Problemática:}} Analizar los algoritmos inteligentes
+        para diagnosticar CCU mediante software
+        \item{\textbf{Técnicas:}} ML
+        \item{\textbf{Aporte:}} Sea el algoritmo que se use, se pueden alcanzar
+        altos niveles de asertividad y rapidez
+    \end{itemize}
+    \item \textbf{Hybrid ensemble learning technique for screening of cervical cancer using Papanicolaou smear image analysis}~\cite{Sarwar2015}
+    \begin{itemize} 
+        \item{\textbf{Autores:}} Sarwar, Abid Sharma, Vinod Gupta, Rajeev
+        \item{\textbf{Abstract:}} \textit{OBJECTIVE This paper presents an innovative 
+        idea of applying a hybrid ensemble technique i.e. ensemble of ensemble methods 
+        for improving the predictive performance of Artificial intelligence based system 
+        for screening of cervical cancer by characterization and classification of Pap 
+        smear images. METHODOLOGY Papanicolaou smear (also referred to as Pap smear) 
+        is a microscopic examination of samples of human cells scraped from the lower, 
+        narrow part of the uterus, called the cervix. A sample of cells after being stained
+        by using Papanicolaou method is analyzed under microscope for the presence of any unusual 
+        developments indicating any precancerous and potentially precancerous changes. 
+        Abnormal findings, if observed are subjected to further precise diagnostic subroutines. 
+        Examining the cell images for abnormalities in the cervix provides grounds for provision
+        of prompt action and thus reducing incidence and deaths from cervical cancer. 
+        It is the most popular technique used for screening of cervical cancer. Pap smear test, 
+        if done with a regular screening programs and proper follow-up, can reduce cervical cancer 
+        mortality by up to 80\%. The contribution of this paper is that we have pioneered to apply 
+        hybrid ensemble technique to screen cervical cancer by classification of Pap smear data. The 
+        hybrid ensemble designed in this work has also presented an idea to use an ensemble of ensemble 
+        techniques. Using such a technique, the classification potentials of individual algorithms are fused
+        together to gain greater classification accuracy. In addition to this we have also presented a 
+        comparative analysis of various artificial intelligence based algorithms for screening of cervical cancer.
+        RESULTS The results indicate that hybrid ensemble technique is an efficient 
+        method for classification of Pap smear images and hence can be effectively used for
+        diagnosis of cervical cancer. Among all the algorithms implemented, the hybrid ensemble
+        approach outperformed and expressed an efficiency of about 96\% for 2-class problem and 
+        about 78\% for 7-class problem. The results when compared with the all the standalone 
+        classifiers were significantly better for both 2-class and 7-class problems.}
+        \item{\textbf{Problemática:}} Diagnosticar CCU con análisis de
+        imágenes mediante  \hyperlink{abbr}{IA}
+        \item{\textbf{Técnicas:}} Ensamble de modelos
+        \item{\textbf{Aporte:}} Utilizar métodos combinados eleva la precisión
+        arriba del 90\%
+    \end{itemize}
+    \item \textbf{Artificial Intelligence Based Semi-automated Screening of Cervical Cancer using a Primary Training Database}~\cite{Sarwar2016}
+    \begin{itemize} 
+        \item{\textbf{Autores:}} Sarwar, Abid
+        \item{\textbf{Abstract:}} \textit{Objective: The primary objective of
+        this research work is to develop a novel benchmark database of digitized
+        and calibrated, cervical cells obtained from slides of Papanicolaou
+        smear test, which is done for screening of cervical cancer. This
+        database can serve as a potential tool for designing, developing,
+        training, testing and validating various Artificial intelligence based
+        systems for prognosis of cervical cancer by characterization and
+        classification of Papanicolaou smear images. The database can also be
+        used by other researchers for comparative analysis of working
+        efficiencies of various machine learning and image processing
+        algorithms. The database can be obtained by sending a request to the
+        corresponding author. Besides developing a rich machine learning
+        database we have also presented a novel artificial intelligence based
+        hybrid ensemble technique for efficient screening of cervical cancer by
+        automated analysis of Papanicolaou smear images. Methodology: The
+        correct and timely diagnosis of cervical cancer is one of the major
+        problems in the medical world. From the literature it has been found
+        that different pattern recognition techniques can help them to improve
+        in this domain. Papanicolaou smear (also referred to as Pap smear) is a
+        microscopic examination of samples of human cells scraped from the
+        lower, narrow part of the uterus, called cervix. A sample of cells after
+        being stained by using Papanicolaou method is analyzed under microscope
+        for the presence of any unusual developments indicating any precancerous
+        and potentially precancerous developments. Abnormal findings, if
+        observed are subjected to further precise diagnostic subroutines.
+        Examining the cell images for abnormalities in the cervix provides
+        grounds for provision of prompt action and thus reducing incidence and
+        deaths from cervical cancer. It is the most popular technique used for
+        screening of cervical cancer. Pap smear test, if done with a regular
+        screening programs and proper follow-up, can reduce cervical cancer
+        mortality by up to 80\%. The contribution of this paper is that we have
+        created a rich machine learning database of quantitatively profiled and
+        calibrated cervical cells obtained from Pap- smear test slides. The
+        database so created consists of data of about 200 clinical cases (8091
+        cervical cells), which have been obtained from multiple health care
+        centers, so as to ensure diversity in data. The slides were processed
+        using a multi-headed digital microscope and images of cervical cells
+        were obtained, which were passed through various data preprocessing
+        subroutines. After preprocessing the cells were morphologically profiled
+        and scaled to obtain separate quantitative measurements of various
+        features of cytoplasm and nucleus respectively. The cells in the
+        database were carefully classified in different corresponding classes
+        according to latest 2001-Bethesda system of classification, by
+        technicians. In addition to this, we have also pioneered to apply a
+        novel hybrid ensemble system to this database in order to evaluate the
+        effectiveness of both novel database and novel hybrid ensemble technique
+        to screen cervical cancer by categorization of Pap smear data. The paper
+        also presents a comparative analysis of multiple artificial intelligence
+        based classification algorithms for prognosis of cervical cancer.
+        Results: For evaluating the effectiveness and correctness of the digital
+        database prepared in this work, authors implemented this database for
+        training, testing and validating fifteen different artificial
+        intelligence based machine learning algorithms. All algorithms trained
+        with this database presented commendable efficiency in screening of
+        cervical cancer. For two-class problem all the algorithms trained with
+        the digital database showed the efficiencies in range of about 93-95\%
+        while as in case of multi class problem algorithms expressed the
+        efficiencies in the range of about 69-78\%. The results indicate that
+        the novel digital database prepared in this work can be efficiently used
+        for developing new machine learning based techniques for automated
+        screening of cervical cancer. The results also indicate that hybrid
+        ensemble technique is an efficient method for classification of
+        pap-smear images and hence can be effectively used for diagnosis of
+        cervical cancer. Among all the algorithms implemented, the hybrid
+        ensemble approach outperformed and expressed an efficiency of about 98\%
+        for 2-class problem and about 86\% for 7-class problem. The results when
+        compared with the all the standalone classifiers were significantly
+        better for both two- class and multi-class problems.}
+        \item{\textbf{Problemática:}} Desarrollar una base de datos novedosa
+        para calibrar y probar algoritmos de inteligencia artificial dedicados
+        al diagnóstico de CC mediante el análisis de imágenes citológicas de pap
+        \item{\textbf{Técnicas:}} Minería de datos
+        \item{\textbf{Aporte:}} La base de datos es capaz de entrenar bastantes
+        algoritmos distintos con precisión arriba del 90\% sin overfitting
+    \end{itemize}
+    \item \textbf{Transfer Learning with Partial Observability Applied to Cervical Cancer Screening}~\cite{Fernandes2017}
+    \begin{itemize} 
+        \item{\textbf{Autores:}} Fernandes, Kelwin Cardoso, Jamie Fernandes,
+        Jessica        
+        \item{\textbf{Abstract:}} \textit{Cervical cancer remains a significant cause of mortality in low-income countries. 
+        As in many other diseases, the existence of several screening/diagnosis methods and subjective physician preferences 
+        creates a complex ecosystem for automated methods. In order to diminish the amount of labeled data from each 
+        modality/expert we propose a regularization-based transfer learning strategy that encourages source and target models 
+        to share the same coefficient signs. We instantiated the proposed framework to predict cross-modality individual risk 
+        and cross-expert subjective quality assessment of colposcopic images for different modalities. Thus, we are able to transfer 
+        knowledge gained from one one expert/modality to another.}
+        \item{\textbf{Problemática:}} La existencia de varios métodos y la
+        subjetividad de los expertos reducen la eficacia del diagnóstico de CC
+        \item{\textbf{Técnicas:}} TL
+        \item{\textbf{Aporte:}} Se mejoró la precisión de los algoritmos
+        inclusive utilizando modelos previamente entrenados para otro tipo de clasificación
+    \end{itemize}
+    \item \textbf{Efficient False Positive Reduction in Computer-Aided Detection Using Convolutional Neural Networks and Random View Aggregation}~\cite{Lu}
+    \begin{itemize} 
+        \item{\textbf{Autores:}} Holger R. Roth, Le Lu, Jiamin Liu, Jianhua Yao,
+        Ari Seff, Kevin Cherry, Lauren Kim and Ronald M. Summers
+        \item{\textbf{Abstract:}} \textit{In clinical practice and medical
+        imaging research, automated computer- aided detection (CADe) is an
+        important tool. While many methods can achieve high sensitivities, they
+        typically suffer from high false positives (FP) per patient. In this
+        study, we describe a two-stage coarse-to-fine approach using CADe
+        candidate generation systems that operate at high sensitivity rates
+        (close to 100\% recall). In a second stage, we reduce false positive
+        numbers using state-of-the-art machine learn- ing methods, namely deep
+        convolutional neural networks (ConvNet). The ConvNets are trained to
+        differentiate hard false positives from true-positives utilizing a set
+        of2D (two-dimensional) or 2.5D re-sampled views comprising random
+        translations, rotations, and multi-scale observations around a
+        candidate’s center coordinate. During the test phase, we apply the
+        ConvNets on unseen patient data and aggregate all probability scores
+        for lesions (or pathology). We found that this second stage is a highly
+        selective classifier that is able to reject difficult false positives
+        while retaining good sensitivity rates. The method was evaluated on
+        three data sets (sclerotic metastases, lymph nodes, colonic polyps) with
+        varying numbers patients (59, 176, and 1,186, respectively). Experiments
+        show that the method is able to generalize to different applications and
+        increasing data set sizes. Marked improvements are observed in all
+        cases: sensitivities increased from 57 to 70\%, from 43 to 77\% and from
+        58 to 75\% for sclerotic metastases, lymph nodes and colonic polyps,
+        respectively, at low FP rates per patient (3 FPs/patient).}
+        \item{\textbf{Problemática:}} Se encuentran muchos falsos positivos en
+        los diagnósticos realizados mediante técnicas de ML
+        \item{\textbf{Técnicas:}} ConvNets
+        \item{\textbf{Aporte:}} El uso de DL en 20\% la
+        sensibilidad de los sistemas de diagnóstico.
+    \end{itemize}
+    \item \textbf{DeepPap: Deep Convolutional Networks for Cervical Cell Classification}~\cite{Zhang2017}
+    \begin{itemize} 
+        \item{\textbf{Autores:}} Ling Zhang, Le Lu, Senior Member, IEEE,
+        Isabella Nogues, Ronald M. Summers, Shaoxiong Liu, and Jianhua Yao
+        \item{\textbf{Abstract:}} \textit{Automation-assisted cervical screening via Pap smear or liquid-based cytology (LBC) is a highly effective cell imaging based cancer detection tool, where cells are partitioned into "abnormal" and "normal" categories. However, the success of most traditional classification methods relies on the presence of accurate cell segmentations. Despite sixty years of research in this field, accurate segmentation remains a challenge in the presence of cell clusters and pathologies. Moreover, previous classification methods are only built upon the extraction of hand-crafted features, such as morphology and texture. This paper addresses these limitations by proposing a method to directly classify cervical cells without prior segmentation based on deep features, using convolutional neural networks (ConvNets). First, the ConvNet is pretrained on a natural image dataset. It is subsequently finetuned on a cervical cell dataset consisting of adaptively resampled image patches coarsely centered on the nuclei. In the testing phase, aggregation is used to average the prediction scores of a similar set of image patches. The proposed method is evaluated on both Pap smear and LBC datasets. Results show that our method outperforms previous algorithms in classification accuracy (98.3\%), area under the curve (AUC) (0.99) values, and especially specificity (98.3\%), when applied to the Herlev benchmark Pap smear dataset and evaluated using five fold cross-validation. Similar superior performances are also achieved on the HEMLBC (H\&E stained manual LBC) dataset. Our method is promising for the development of automation-assisted reading systems in primary cervical screening.}
+        \item{\textbf{Problemática:}} Las aplicaciones anteriores de análisis
+        requieren una segmentación muy precisa de la célula
+        \item{\textbf{Técnicas:}} DL, ConvNets
+        \item{\textbf{Aporte:}} Las ConvNets aplicadas con TL generan un
+        rendimiento muy superior inclusive cuando hay incertidumbre en la
+        segmentación citológica
+    \end{itemize}
+\end{enumerate}
+

@@ -1,0 +1,454 @@
+
+En este anexo se mostrarán los resultados de los experimentos para buscar el
+mejor algoritmo para TL aplicado al análisis de imágenes citológicas de  \hyperlink{abbr}{CCU}. 
+
+\section{DenseNet201}
+En la~\autoref{fig:DenseNet201_total} las gráficas de exactitud y pérdida tanto
+en entrenamiento como en validación. Se nota que el modelo se desempeña bien en
+ambas métricas en la fase de entrenamiento, sin embargo, la exactitud en
+validación se estanca en 86\%.
+
+La~\autoref{tabla:densenet} muestra época por época los valores de cada métrica
+de evaluación. Podemos ver claramente que la exactitud en validación alcanza su
+meseta a partir de la época número dos. Quizás con mayor entrenamiento pueda
+alcanzar mejores exactitudes.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.8\textwidth}
+        \centering
+       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/DenseNet201/accuracy.pdf}
+       \caption{Exactitud}\label{fig:accuracy_dense} 
+    \end{subfigure}
+
+    \begin{subfigure}[b]{0.8\textwidth}
+        \centering
+       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/DenseNet201/perdida.pdf}
+       \caption{Pérdida}\label{fig:perdida_dense}
+    \end{subfigure}
+    \caption{Gráfica de resultados DenseNet201}\label{fig:DenseNet201_total}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{@{}lllll@{}}
+    \toprule
+    epoch & acc & loss & val\_acc & val\_loss \\ \midrule
+    0 & 0.8816813261163735 & 0.28077716838079475 & 0.8452333860759493 & 0.33892060240989996 \\
+    1 & 0.9350262178619756 & 0.1519903604430178 & 0.8452333860759493 & 0.40150484546453136 \\
+    2 & 0.9559651275999663 & 0.10801195268323688 & 0.8614787541048861 & 0.3644524866436854 \\
+    3 & 0.9641407307171854 & 0.08995626396367248 & 0.8640229430379747 & 0.3811593785693374 \\
+    4 & 0.972554911337763 & 0.07088062347590966 & 0.8609811921584237 & 0.41602436602575316 \\
+    5 & 0.9769325101488497 & 0.05883671183527242 & 0.868868670886076 & 0.41559964578740205 \\
+    6 & 0.982225231706801 & 0.04784070313050306 & 0.8667529107373868 & 0.4215865283122002 \\
+    7 & 0.9841635656292287 & 0.043350681534959495 & 0.8659018987341772 & 0.42896874621510506 \\
+    8 & 0.9877904270176479 & 0.03282767813877416 & 0.8650612001194149 & 0.4881055260050984 \\
+    9 & 0.9886882611637348 & 0.03197787917585834 & 0.8682753164556962 & 0.47052457004408293 \\ \bottomrule
+    \end{tabular}%
+    }
+    \caption{Tabla de resultados DenseNet201}\label{tabla:densenet}
+    \end{table}
+\section{InceptionResNetV2}
+En la~\autoref{fig:InceptionResNetV2_total} las gráficas de exactitud y pérdida
+tanto en entrenamiento como en validación. Vemos que el modelo se desempeña
+bastante similar al anterior, con la exactitud alcanzando un máximo en
+aproximadamente 86\%. En la~\autoref{tabla:incepres} podemos ver época por época
+los valores de cada métrica de evaluación. Podemos ver claramente que la
+exactitud en validación alcanza su meseta a partir de la época número dos.
+Quizás con mayor entrenamiento pueda alcanzar mejores exactitudes, ya que en las
+épocas finales tenemos una mejoría considerable.
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.8\textwidth}
+        \centering
+       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/InceptionResNetV2/accuracy.pdf}
+       \caption{Exactitud}\label{fig:accuracy_incepres} 
+    \end{subfigure}
+    \begin{subfigure}[b]{0.8\textwidth}
+        \centering
+       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/InceptionResNetV2/perdida.pdf}
+       \caption{Pérdida}\label{fig:perdida_incepres}
+    \end{subfigure}
+    \caption{Gráfica de resultados InceptionResNetV2}\label{fig:InceptionResNetV2_total}
+\end{figure}
+\begin{table}[H]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{@{}lllll@{}}
+    \toprule
+    epoch & acc & loss & val\_acc & val\_loss \\ \midrule
+    0 & 0.8492050067658998 & 0.3318183500123121 & 0.8423655063291139 & 0.3375841017953957 \\
+    1 & 0.9013447225981055 & 0.22333102560374024 & 0.8382120253164557 & 0.36431452565932576 \\
+    2 & 0.9242667907978155 & 0.17927562374550843 & 0.849338242611205 & 0.3586960219959691 \\
+    3 & 0.9322987144790257 & 0.16420369250485636 & 0.8459256329113924 & 0.3894995019028458 \\
+    4 & 0.9432053832004051 & 0.14026918872819438 & 0.8242611205095034 & 0.46785515184088344 \\
+    5 & 0.9490654600811907 & 0.127112085869251 & 0.8382120253164557 & 0.4444301720661453 \\
+    6 & 0.9549071056777522 & 0.11169852065830166 & 0.8455567718180913 & 0.44374521763980274 \\
+    7 & 0.9573325439783491 & 0.10748760122931858 & 0.8490901898734177 & 0.42932562841267524 \\
+    8 & 0.964344661223903 & 0.09241010912588525 & 0.8430689620857796 & 0.4834341069977964 \\
+    9 & 0.9642887347767253 & 0.08981058969892088 & 0.8544303797468354 & 0.4372948621270023 \\ \bottomrule
+    \end{tabular}%
+    }
+    \caption{Tabla de resultados InceptionResNetV2}\label{tabla:incepres}
+    \end{table}
+\section{InceptionV3}
+En la~\autoref{fig:v3_total} notamos un desempeño excelente en la fase de
+entrenamiento, pero en validación tenemos un rendimiento deficiente. En
+la~\autoref{tabla:v3} podemos ver como la exactitud en validación fluctúa por
+debajo y por arriba del 80\%.
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.8\textwidth}
+        \centering
+       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/InceptionV3/accuracy.pdf}
+       \caption{Exactitud}\label{fig:acc_v3} 
+    \end{subfigure}
+    \begin{subfigure}[b]{0.8\textwidth}
+        \centering
+       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/InceptionV3/perdida.pdf}
+       \caption{Pérdida}\label{fig:loss_v3}
+    \end{subfigure}
+    \caption{Gráfica de resultados InceptionV3}\label{fig:v3_total}
+\end{figure}
+\begin{table}[H]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{@{}lllll@{}}
+    \toprule
+    epoch & acc & loss & val\_acc & val\_loss \\ \midrule
+    0 & 0.8312753721244925 & 0.37030398910197254 & 0.8115110759493671 & 0.3884746979309034 \\
+    1 & 0.8863328822733424 & 0.25030760747331404 & 0.8303995253164557 & 0.3707956474604486 \\
+    2 & 0.9075712048627524 & 0.2101220147314273 & 0.8088367001691711 & 0.4213309813902881 \\
+    3 & 0.9193800744248986 & 0.18636871452905812 & 0.803995253164557 & 0.4422619576695599 \\
+    4 & 0.9305091201338344 & 0.1631108493980045 & 0.8026669320330381 & 0.4377892488382238 \\
+    5 & 0.9372039918809202 & 0.14921693205934256 & 0.8273338607594937 & 0.40324580018656164 \\
+    6 & 0.9467180159821563 & 0.12960461062618467 & 0.8133147576873321 & 0.46483026586227577 \\
+    7 & 0.9502494925575101 & 0.12098936297009537 & 0.796182753164557 & 0.5302235189872452 \\
+    8 & 0.9570654703814115 & 0.10743719277253652 & 0.7873420240819982 & 0.5341834621667758 \\
+    9 & 0.959721752368065 & 0.1025027072256247 & 0.7937104430379747 & 0.54613812324367 \\ \bottomrule
+    \end{tabular}%
+    }
+    \caption{Tabla de resultados InceptionV3}\label{tabla:v3}
+    \end{table}
+\section{MobileNet}
+El rendimiento de esta red se muestra en la~\autoref{fig:mobile_total}, donde se nota
+la tendencia a mejorar del modelo conforme pasan las épocas, aunque lo hace muy lentamente.
+La~\autoref{tabla:mobile} nos muestra que la exactitud en validación se estanca alrededor
+del 88\%, es probable que mayor entrenamiento mejore la exactitud.
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.8\textwidth}
+        \centering
+       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/MobileNet/accuracy.pdf}
+       \caption{Exactitud}\label{fig:acc_mobile} 
+    \end{subfigure}
+    \begin{subfigure}[b]{0.8\textwidth}
+        \centering
+       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/MobileNet/perdida.pdf}
+       \caption{Pérdida}\label{fig:loss_mobile}
+    \end{subfigure}
+    \caption{Gráfica de resultados MobileNet}\label{fig:mobile_total}
+\end{figure}
+\begin{table}[H]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{@{}lllll@{}}
+    \toprule
+    epoch & acc & loss & val\_acc & val\_loss \\ \midrule
+    0 & 0.8362652232746955 & 0.42970931153941055 & 0.8671875 & 0.2784600118293038 \\
+    1 & 0.9151513870094723 & 0.1990110754502965 & 0.8696598101265823 & 0.2864763741440411 \\
+    2 & 0.9435016293386251 & 0.13422357799870246 & 0.8716290178127177 & 0.299755587320625 \\
+    3 & 0.9569731055480379 & 0.10609430402860105 & 0.8807357594936709 & 0.3058296863131131 \\
+    4 & 0.9705023487960547 & 0.0751105922989781 & 0.8844661160314459 & 0.31218606474837984 \\
+    5 & 0.9736129905277402 & 0.06679317291576481 & 0.8783623417721519 & 0.3662027230462696 \\
+    6 & 0.9822463921452452 & 0.048744907227324594 & 0.8813812319633795 & 0.3440347693445958 \\
+    7 & 0.9828949594046008 & 0.044067785073278395 & 0.8854825949367089 & 0.3631645980043502 \\
+    8 & 0.9885522028041646 & 0.03048922039637478 & 0.8820778186884267 & 0.40379064415732313 \\
+    9 & 0.9882653924221921 & 0.032184116271780035 & 0.8855814873417721 & 0.3961664696660223 \\ \bottomrule
+    \end{tabular}%
+    }
+    \caption{Tabla de resultados MobileNet}\label{tabla:mobile}
+    \end{table}
+\section{MobileNetV2}
+Esta red alcanzó un rendimiento similar al anterior en entrenamiento, llegando a resultados
+mediocres en validación (\autoref{fig:mobilev2_total}).
+La siguiente tabla (\autoref{tabla:mobilev2}) nos muestra que el modelo es incapaz de
+superar el 80\% de exactitud, puede que con mayor entrenamiento esto se logre.
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.8\textwidth}
+        \centering
+       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/MobileNetV2/accuracy.pdf}
+       \caption{Exactitud}\label{fig:acc_mobilev2} 
+    \end{subfigure}
+    \begin{subfigure}[b]{0.8\textwidth}
+        \centering
+       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/MobileNetV2/perdida.pdf}
+       \caption{Pérdida}\label{fig:loss_mobilev2}
+    \end{subfigure}
+    \caption{Gráfica de resultados MobileNetV2}\label{fig:mobilev2_total}
+\end{figure}
+\begin{table}[H]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{@{}lllll@{}}
+    \toprule
+    epoch & acc & loss & val\_acc & val\_loss \\ \midrule
+    0 & 0.8797149864682002 & 0.3023628726430207 & 0.7772943037974683 & 0.43990715998637525 \\
+    1 & 0.9247505074424899 & 0.17749918395393757 & 0.7505933544303798 & 0.571203210308582 \\
+    2 & 0.9475221126606967 & 0.12600660631276653 & 0.7627624639267588 & 0.5624308975862369 \\
+    3 & 0.9548376184032477 & 0.1094223103575479 & 0.7443631329113924 & 0.7165416765816605 \\
+    4 & 0.9668204325042267 & 0.08351769058360253 & 0.7454473081898696 & 0.8224829340090217 \\
+    5 & 0.970674052774019 & 0.07430213580414632 & 0.7466376582278481 & 0.8105858679436431 \\
+    6 & 0.9763849506961785 & 0.05905494801061996 & 0.747238531197134 & 0.874111269443044 \\
+    7 & 0.9799137347767253 & 0.05209601325195923 & 0.7512856012658228 & 0.8351328080590767 \\
+    8 & 0.9841508316052309 & 0.04006103388120085 & 0.7720171161309584 & 0.7483123965032772 \\
+    9 & 0.9848401556156969 & 0.039595637805709495 & 0.775810917721519 & 0.748939653363409 \\ \bottomrule
+    \end{tabular}%
+    }
+    \caption{Tabla de resultados MobileNetV2}\label{tabla:mobilev2}
+    \end{table}
+\section{NASNetLarge}
+La~\autoref{fig:naslarge_total} muestra el rendimiento de esta red, excelente rendimiento
+en entrenamiento con un rendimiento en validación que no cumple el cometido.
+La~\autoref{tabla:naslarge} nos muestra que si bien la exactitud en validación
+aumenta, lo hace a una tasa demasiado baja, aunque mayor entrenamiento si se
+pueda traducir en mejor exactitud.
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.8\textwidth}
+        \centering
+       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/NASNetLarge/accuracy.pdf}
+       \caption{Exactitud}\label{fig:acc_nasnetlarge} 
+    \end{subfigure}
+    \begin{subfigure}[b]{0.8\textwidth}
+        \centering
+       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/NASNetLarge/perdida.pdf}
+       \caption{Pérdida}\label{fig:loss_nasnetlarge}
+    \end{subfigure}
+    \caption{Gráfica de resultados NASNetLarge}\label{fig:naslarge_total}
+\end{figure}
+\begin{table}[H]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{@{}lllll@{}}
+    \toprule
+    epoch & acc & loss & val\_acc & val\_loss \\ \midrule
+    0 & 0.8330302774018945 & 0.3635981563221618 & 0.8211036392405063 & 0.34748237391438663 \\
+    1 & 0.8910478687415426 & 0.24000021549135808 & 0.8269382911392406 & 0.34373047212256663 \\
+    2 & 0.9215582546769471 & 0.17807241957834125 & 0.8296347895312967 & 0.36517047279449777 \\
+    3 & 0.9330387347767253 & 0.1596698452377029 & 0.8395965189873418 & 0.34820441430128074 \\
+    4 & 0.9487917389673539 & 0.12433579072329107 & 0.8246591700666733 & 0.38676544198517415 \\
+    5 & 0.9529347090663058 & 0.11612441493588953 & 0.8341574367088608 & 0.3711342213651802 \\
+    6 & 0.9625460239384812 & 0.09507849778516661 & 0.8278435665240322 & 0.406486204115879 \\
+    7 & 0.9656207713125846 & 0.08677687909181894 & 0.8229825949367089 & 0.41494361462095114 \\
+    8 & 0.9729569596530692 & 0.07003484494311583 & 0.8403821275748831 & 0.39771304260807755 \\
+    9 & 0.972302097428958 & 0.07279701275859377 & 0.8486946202531646 & 0.3786456268988078 \\ \bottomrule
+    \end{tabular}%
+    }
+    \caption{Tabla de resultados NASNetLarge}\label{tabla:naslarge}
+    \end{table}
+\section{NASNetMobile}
+Las gráficas de validación y pérdida de esta red muestran una clara tendencia a mejorar entre
+más épocas se use para el entrenamiento (\autoref{fig:nasmobile_total}).
+Esto lo podemos corroborar en la~\autoref{tabla:nasmobile} donde se nota una clara mejoría
+en las épocas 7, 8 y 9.
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.8\textwidth}
+        \centering
+       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/NASNetMobile/accuracy.pdf}
+       \caption{Exactitud}\label{fig:acc_nasmobile} 
+    \end{subfigure}
+    \begin{subfigure}[b]{0.8\textwidth}
+        \centering
+       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/NASNetMobile/perdida.pdf}
+       \caption{Pérdida}\label{fig:loss_nasmobile}
+    \end{subfigure}
+    \caption{Gráfica de resultados NASNetMobile}\label{fig:nasmobile_total}
+\end{figure}
+\begin{table}[H]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{@{}lllll@{}}
+    \toprule
+    epoch & acc & loss & val\_acc & val\_loss \\ \midrule
+    0 & 0.8326285520974289 & 0.37967929383172716 & 0.6917523734177216 & 0.5808788781301885 \\
+    1 & 0.8796515561569689 & 0.26129658017131085 & 0.6865110759493671 & 0.6342987740718866 \\
+    2 & 0.9033602776148623 & 0.21482689011903658 & 0.7254453179420838 & 0.5706850046517896 \\
+    3 & 0.9119164411366711 & 0.1957600022664896 & 0.7341772151898734 & 0.591176067349277 \\
+    4 & 0.927588979628523 & 0.16898421533278077 & 0.7420638869539258 & 0.5980510416226892 \\
+    5 & 0.9321084235453315 & 0.158301555033627 & 0.7487143987341772 & 0.5954727270180666 \\
+    6 & 0.9390579372829829 & 0.14246062440173757 & 0.7594785550801074 & 0.5776337250779373 \\
+    7 & 0.9450482070365359 & 0.13039879189332865 & 0.7682950949367089 & 0.5791610358636591 \\
+    8 & 0.9499555630641319 & 0.11926576506269684 & 0.7645536869340233 & 0.583304791845909 \\
+    9 & 0.9534210081190798 & 0.11307193848514911 & 0.7885680379746836 & 0.5303030423348463 \\ \bottomrule
+    \end{tabular}%
+    }
+    \caption{Tabla de resultados NASNetMobile}\label{tabla:nasmobile}
+    \end{table}
+\section{ResNet50}
+Esta red fue la primera en alcanzar el 90\% de exactitud en el conjunto de
+validación, aunque se nota un incremento bastante marcado en la pérdida, como se
+muestra en la~\autoref{fig:loss_resnet}.
+La exactitud se estanca en 90\% en la época número 3, no se nota una mejoría en esta métrica 
+conforme pasan las épocas del entrenamiento, esto se puede ver en la~\autoref{tabla:resnet}
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.8\textwidth}
+        \centering
+       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/ResNet50/accuracy.pdf}
+       \caption{Exactitud}\label{fig:acc_resnet} 
+    \end{subfigure}
+
+    \begin{subfigure}[b]{0.8\textwidth}
+        \centering
+       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/ResNet50/perdida.pdf}
+       \caption{Pérdida}\label{fig:loss_resnet}
+    \end{subfigure}
+    \caption{Gráfica de resultados ResNet50}
+    \label{fig:resnet_total}
+\end{figure}
+\begin{table}[H]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{@{}lllll@{}}
+    \toprule
+    epoch & acc & loss & val\_acc & val\_loss \\ \midrule
+    0 & 0.899484100135318 & 0.3117557377459958 & 0.895371835443038 & 0.2628013225908898 \\
+    1 & 0.9501437753721245 & 0.12076623622121363 & 0.8995253164556962 & 0.27120620693681363 \\
+    2 & 0.9713276058928593 & 0.0696705519731154 & 0.8952134540750324 & 0.32729914504765917 \\
+    3 & 0.9789622801082544 & 0.05473358389550974 & 0.9064477848101266 & 0.2774377392628525 \\
+    4 & 0.9849549282509785 & 0.03981641031540935 & 0.9067568912329586 & 0.2916464946771846 \\
+    5 & 0.9874619418132612 & 0.032968766918797826 & 0.9106012658227848 & 0.3174893452278987 \\
+    6 & 0.9907105675078239 & 0.025025646814726393 & 0.9078515275151756 & 0.35361316304972973 \\
+    7 & 0.9916906292286874 & 0.022733845711597974 & 0.9027887658227848 & 0.39281232117474835 \\
+    8 & 0.9931651783824961 & 0.018836676017742485 & 0.9101403124689024 & 0.39011483498978633 \\
+    9 & 0.9940586941813261 & 0.01612485159019636 & 0.9099090189873418 & 0.4456694410005702 \\ \bottomrule
+    \end{tabular}%
+    }
+    \caption{Tabla de resultados ResNet50}\label{tabla:resnet}
+    \end{table}
+\section{VGG16}
+Esta red tuvo un rendimiento excepcional tanto en validación como en entrenamiento, alcanzando
+el 98\% de exactitud en pocas épocas. En la~\autoref{fig:vgg16_total} se ve que ambas
+métricas se mantienen muy cerca la una a la otra tanto en validación como en entrenamiento.
+La~\autoref{tabla:vgg16} muestra claramente que incrementar el número de épocas mejorará
+considerablemente el algoritmo, sin embargo, también podemos inferir que a partir de ciertas
+épocas más entrenamiento será redundante.
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.8\textwidth}
+        \centering
+       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/VGG16/accuracy.pdf}
+       \caption{Exactitud}\label{fig:acc_vgg16} 
+    \end{subfigure}
+    \begin{subfigure}[b]{0.8\textwidth}
+        \centering
+       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/VGG16/perdida.pdf}
+       \caption{Pérdida}\label{fig:loss_vgg16}
+    \end{subfigure}
+    \caption{Gráfica de resultados VGG16}\label{fig:vgg16_total}
+\end{figure}
+\begin{table}[H]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{@{}lllll@{}}
+    \toprule
+    epoch & acc & loss & val\_acc & val\_loss \\ \midrule
+    0 & 0.8296050405953992 & 0.8766207314614353 & 0.9305775316455697 & 0.17516528315181973 \\
+    1 & 0.8924644790257105 & 0.36414785753728895 & 0.9481803797468354 & 0.12012135139607553 \\
+    2 & 0.9203944305751239 & 0.22224532377888132 & 0.9615882177331078 & 0.09430281249684877 \\
+    3 & 0.9342439106901218 & 0.16952804427125134 & 0.9668710443037974 & 0.0776767722048054 \\
+    4 & 0.9504845740428967 & 0.12218478160524718 & 0.9736292168374963 & 0.06462181986997538 \\
+    5 & 0.95843200270636 & 0.10406335292091651 & 0.9781447784810127 & 0.05486655662637911 \\
+    6 & 0.968703711525768 & 0.0784474477913519 & 0.9820877699273559 & 0.0480454366460275 \\
+    7 & 0.9719003721244925 & 0.06905139401159344 & 0.9833860759493671 & 0.04134532926556996 \\
+    8 & 0.9799822252317067 & 0.050611904646344116 & 0.9868643646133943 & 0.03354377188555861 \\
+    9 & 0.9816474966170501 & 0.046232580556061637 & 0.9882318037974683 & 0.03107445828669669 \\ \bottomrule
+    \end{tabular}%
+    }
+    \caption{Tabla de resultados VGG16}\label{tabla:vgg16}
+    \end{table}
+\section{VGG19}
+Como su hermana menos compleja, esta arquitectura tuvo un rendimiento increíble en el experimento como
+podemos ver en la~\autoref{fig:vgg19_total}. Lo ideal es que los valores de exactitud y validación
+estén muy cercanos el uno del otro, por lo que esta arquitectura promete bastante para candidato a solución.
+Más entrenamiento incide directamente en el rendimiento de esta arquitectura como se ve
+en la~\autoref{tabla:vgg19}, donde alcanzamos una exactitud bastante buena del 99\%, lo más
+importante es que la diferencia entre ambas métricas en validación y entrenamiento se mantuvieron
+bastante cercanas.
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.8\textwidth}
+        \centering
+       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/VGG19/accuracy.pdf}
+       \caption{Exactitud}\label{fig:vgg19_acc} 
+    \end{subfigure}
+
+    \begin{subfigure}[b]{0.8\textwidth}
+        \centering
+       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/VGG19/perdida.pdf}
+       \caption{Pérdida}\label{fig:vgg19_loss}
+    \end{subfigure}
+    \caption{Gráfica de resultados VGG19}\label{fig:vgg19_total}
+\end{figure}
+\begin{table}[H]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{@{}lllll@{}}
+    \toprule
+    epoch & acc & loss & val\_acc & val\_loss \\ \midrule
+    0 & 0.8683186738836265 & 0.5580972872588769 & 0.9420490506329114 & 0.1325586244841165 \\
+    1 & 0.9117684370771313 & 0.24098005698280503 & 0.9551028481012658 & 0.1033153446815625 \\
+    2 & 0.9378306318506919 & 0.15380213250995686 & 0.9656682256940989 & 0.08131238947176606 \\
+    3 & 0.9457036535859269 & 0.12768774472570227 & 0.9712223101265823 & 0.06897968155202232 \\
+    4 & 0.9590968724720628 & 0.0985573873950517 & 0.9772116628520251 & 0.05667709522464582 \\
+    5 & 0.9661493572395129 & 0.08310470300952177 & 0.9810126582278481 & 0.04876951886564965 \\
+    6 & 0.9743112277135034 & 0.0630415225433604 & 0.9843765548810827 & 0.04004980926387142 \\
+    7 & 0.977461096075778 & 0.0572407322088874 & 0.9875395569620253 & 0.0347622865766782 \\
+    8 & 0.9822887130069987 & 0.04393813427692342 & 0.988058513284904 & 0.03170803932482146 \\
+    9 & 0.9840789918809202 & 0.04198940832891561 & 0.9906052215189873 & 0.026288715354387968 \\ \bottomrule
+    \end{tabular}%
+    }
+    \caption{Tabla de resultados VGG19}\label{tabla:vgg19}
+    \end{table}
+\section{Xception}
+Por último, tenemos una red cuyo rendimiento se muestra en la Figura~\autoref{fig:excep_total},
+su rendimiento comparado con las dos arquitecturas anteriores fue mediocre.
+La Tabla~\autoref{tabla:xcep} muestra que la red en lugar de mejorar, empeoró con el tiempo.
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.8\textwidth}
+        \centering
+       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/Xception/accuracy.pdf}
+       \caption{Exactitud}\label{fig:xcep_acc} 
+    \end{subfigure}
+    \begin{subfigure}[b]{0.8\textwidth}
+        \centering
+       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/Xception/perdida.pdf}
+       \caption{Pérdida}\label{fig:xcep_loss}
+    \end{subfigure}
+    \caption{Gráfica de resultados Xception}\label{fig:excep_total}
+\end{figure}
+\begin{table}[H]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{@{}lllll@{}}
+    \toprule
+    epoch & acc & loss & val\_acc & val\_loss \\ \midrule
+    0 & 0.8625253721244925 & 0.30741696702933924 & 0.7333860759493671 & 0.5034336962654621 \\
+    1 & 0.9143902232746955 & 0.1939845431964033 & 0.728935917721519 & 0.5954719927114777 \\
+    2 & 0.9357569088856745 & 0.15276259541009554 & 0.729127276345905 & 0.6570837557898216 \\
+    3 & 0.9444773342354533 & 0.13137920240648546 & 0.6603045886075949 & 0.9662149537213242 \\
+    4 & 0.9560286089001641 & 0.10863489173978619 & 0.7012638073440143 & 0.8510272021150812 \\
+    5 & 0.9598274695534507 & 0.10083910081843078 & 0.7321993670886076 & 0.7893166660885268 \\
+    6 & 0.9661432984891447 & 0.0841273223752106 & 0.6862374365608518 & 1.0596839870216954 \\
+    7 & 0.9693208728010826 & 0.07921399794650014 & 0.6810719936708861 & 1.2012007598635517 \\
+    8 & 0.9748190782361662 & 0.06538025231661368 & 0.6816598666533984 & 1.228773214118482 \\
+    9 & 0.9751353179972937 & 0.06394890223784783 & 0.6777096518987342 & 1.4063063856167128 \\ \bottomrule
+    \end{tabular}%
+    }
+    \caption{Tabla de resultados Xception}\label{tabla:xcep}
+    \end{table}

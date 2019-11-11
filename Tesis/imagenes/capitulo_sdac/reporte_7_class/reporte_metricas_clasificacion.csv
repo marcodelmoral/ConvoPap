@@ -1,0 +1,8 @@
+Class,"carcinoma_in_situ","light_dysplastic","moderate_dysplastic","normal_columnar","normal_intermediate","normal_superficiel","severe_dysplastic"
+TP,1115,1247,1039,1965,1392,1503,1412
+TN,8566,8451,8649,7731,8308,8197,8271
+FP,14,2,4,2,0,0,5
+FN,5,0,8,2,0,0,12
+P,1120,1247,1047,1967,1392,1503,1424
+N,8580,8453,8653,7733,8308,8197,8276
+POP,9700,9700,9700,9700,9700,9700,9700

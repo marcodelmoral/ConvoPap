@@ -1,0 +1,87 @@
+Para solucionar este conjunto de problemas, se requiere algo capaz de
+incrementar la tasa de diagnósticos realizados por tiempo y por experto. Así
+mismo, este algo debe mantener niveles de asertividad sumamente altos y ser
+capaz de emitir decisiones en situaciones donde el consenso médico podría ser
+ambiguo.~\cite{Meza-Palacios2017}
+
+Los sistemas de software, en concreto, los \hyperlink{abbr}{SDAC}, son
+utilizados en situaciones donde se requiere cumplir los requerimientos antes
+mencionados. Al ser digitalizados, nos permitirán procesar grandes volúmenes de
+información que de otra manera serían inmanejables y, al incluir en su
+funcionamiento técnicas de \hyperlink{abbr}{IA} y \hyperlink{abbr}{DL}, podremos
+reducir la subjetividad para llegar a una alta precisión en el diagnóstico y dar
+paso a mejoras en la calidad de vida del experto gracias al uso de la
+tecnología.~\cite{DominguezHernandez2013} 
+
+Para este software, el motor principal de diagnóstico será la técnica de
+\hyperlink{abbr}{IA} llamada Red Neuronal Artificial
+(\hyperlink{abbr}{RNA}\nomenclature{RNA}{Red Neuronal Artificial}) en su
+variante de Red Neuronal Convolucionada
+(\hyperlink{abbr}{ConvNet}\nomenclature{ConvNet}{Red Neuronal Convolucionada}).
+En previas implementaciones de \hyperlink{abbr}{SDAC}s para diagnóstico de
+cáncer mediante análisis de imágenes citológicas, primero se realizaba un pre
+procesamiento en donde, mediante algoritmos de \hyperlink{abbr}{PDI} y dos
+etapas exhaustivas y complejas llamadas ingeniería y extracción de
+características, se identificaban aquellas que se consideran criterios de
+decisión para realizar el diagnóstico y se alimentaban al modelo de
+\hyperlink{abbr}{IA}. Esto había sido el proceso habitual de diagnóstico médico
+de cáncer mediante software.~\cite{Ashok2016} 
+
+Se propone el uso de las \hyperlink{abbr}{ConvNet}s debido a que, por su
+arquitectura, pueden recibir como entrada la imagen completa en lugar de los
+criterios de diagnóstico minados en el pre procesamiento y representados de
+forma numérica o categórica. Ello reduce la complejidad del sistema y lo hace
+menos propenso a fallos. Las \hyperlink{abbr}{RNA}s solamente requieren gran uso
+computacional en la fase de entrenamiento, por ello desplegarlas en condiciones
+con recursos computacionales bajos es un reto pero es alcanzable, previo
+entrenamiento y optimización del modelo.~\cite{Lee2017} 
+
+También, las \hyperlink{abbr}{ConvNet}s alcanzan la mayor precisión hasta ahora
+en clasificación de imágenes, siendo el algoritmo más avanzado e implementado en
+esta área por ende, es una técnica sumamente fiable y robusta. Esta
+característica también nos permite realizar el análisis de imágenes que en otras
+metodologías no resultaban idóneas por sus propiedades
+técnicas.~\cite{Litjens2017}
+
+Este modelo se desplegará en un dispositivo de hardware basado en
+\hyperlink{abbr}{SE}s, en el cual se instalará el software que permitirá
+capturar, procesar y clasificar las imágenes y que proveerá de la interface para
+interactuar con el experto; esto constituye los dos componentes del
+\hyperlink{abbr}{SDAC}, el tendrá que cumplir los siguientes puntos:
+
+\begin{itemize}
+    \item{\textbf{Alto grado de usabilidad:}} Toda tecnología genera un grado de
+    estrés intrínseco al uso de la misma; al implementar criterios de Usabilidad
+    y Experiencia de Usuario o User eXperience
+    (\hyperlink{abbr}{UX}\nomenclature{UX}{User eXperience}) se pretende reducir
+    dicho estrés al mínimo y así maximizar el uso de la plataforma. Esta debe
+    asistir al experto en tomar mejores decisiones, no al
+    contrario.~\cite{Nielsen1993}
+    \item{\textbf{Código abierto:}}  La plataforma debe estar escrita en su
+    totalidad en código abierto y no depender de licencias de software caras y
+    que reduzcan la posibilidad de uso de la plataforma. Ello en contraste con
+    otros sistemas de diagnóstico de \hyperlink{abbr}{CCU} mediante
+    \hyperlink{abbr}{IA} como PAPNET, plataformas como MATLAB o servicios como
+    Watson.~\cite{Zhou}
+    % \item{Alta compatibilidad}: Debido a la imposibilidad de sincronizar las
+    % características técnicas de cada equipo de cómputo que existe en cada
+    % hospital o clínica, se requiere que el software sea compatible con gran
+    % variedad de plataformas. 
+    % \item{Bajos recursos computacionales:} Esta plataforma debe poder ser
+    % implementada en computadoras que la mayoría del tiempo no tienen recursos
+    % computacionales suficientes, por lo que se debe de tener especial cuidado en el rendimiento.
+    \item{\textbf{Fácil mantenimiento:}}  Por la claridad y transparencia del
+    lenguaje propuesto (Python), la plataforma será de fácil mantenimiento lo
+    cual reducirá en gran medida el costo de operación y
+    actualización.~\cite{Pedrycz2017}
+    \item{\textbf{Tecnología de vanguardia:}} El sistema será desplegado en una
+    solución de \hyperlink{abbr}{SE} optimizada para su uso en aplicaciones de
+    \hyperlink{abbr}{IA}. 
+    \item{\textbf{Capacidad de expansión:}} El proyecto de desarrollo del \hyperlink{abbr}{SDAC}
+    siempre tendrá como enfoque final la capacidad de expandir y mejorar el
+    rendimiento del sistema. Se dejarán todas las disposiciones para mejorar la
+    funcionalidad del software con la creación posterior de un sistema que
+    integre todos los dispositivos desplegados en el campo para crear una red
+    que capturará y procesará conocimiento o añadir nuevos modelos,
+    arquitecturas o algoritmos.
+\end{itemize}

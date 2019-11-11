@@ -1,0 +1,108 @@
+El cáncer cérvico-uterino es un problema de salud latente a nivel mundial. Los
+esfuerzos para reducir su incidencia son asimétricos en el aspecto en que si
+bien cada día se realizan más pruebas, no se conjuga con un entrenamiento de más
+expertos para satisfacer la demanda que el incremento de pruebas genera.
+
+Detectar a tiempo el cáncer es la primera línea de defensa y es la variable que
+más importa en la predicción de la supervivencia, no solo para el
+\hyperlink{abbr}{CCU} sino para todos los tipos de cáncer.
+
+Poder clasificar correctamente entre células normales y anormales a veces no
+es suficiente, también se requiere determinar el grado de lesión para que el
+médico pueda establecer horizontes temporales para realizar un mejor
+tratamiento, es por ello que tomó especial énfasis en el experimento de
+clasificación multi-clase.
+
+En las aplicaciones de modelos de clasificación al área médica, se debe de poner
+especial atención al rendimiento del algoritmo y su evaluación para conocer como
+se comporta en el problema determinado. Un algoritmo aplicado a diagnóstico no
+puede cometer errores como clasificar una célula sana con una enferma, pero es
+mucho mayor problema si clasifica una célula enferma como una sana, en ese caso,
+puede morir gente. Medir el precisamente el rendimiento del modelo, tanto la
+estimación real del error de generalización así como las métricas de
+clasificación, nos da la certeza necesaria para determinar si sirve para el
+diagnóstico médico o no.
+
+El \hyperlink{abbr}{DL} en medicina se ha topado con cierta renuencia debido a
+que la mayoría de los modelos se comportan como caja negra y carecen de
+interpretabilidad, sobre todo si se comparan con algoritmos como los Árboles de
+Decisión que son totalmente transparentes. Es por ello que se tomó especial
+atención en analizar que es lo que ve la \hyperlink{abbr}{ConvNet} al clasificar
+una imagen y poder primeramente comprobar los supuestos metodológicos de
+investigación y segundo, saber si la red está observando la parte correcta de la
+imagen y hacerla más interpretable.
+
+Si bien el paradigma actual de los \hyperlink{abbr}{SDAC}s es la automatización
+total del proceso de diagnóstico, el sistema no reemplaza al experto sino que
+está presente para asistirlo en la clasificación de células fáciles de
+diagnosticar, dejando el camino libre para que se enfoque exclusivamente en
+aquellas células que por su morfología presentan ambigüedad en su clasificación;
+con el objetivo de diagnosticar más muestras por jornada de trabajo, para tener
+mejor rendimiento en su clasificación y tener un incremento en la ergonomía del
+trabajo al ofrecer una pantalla en lugar del objetivo pequeño del microscopio,
+que fuerza al ojo y degrada la vista del experto a largo plazo, y a corto, lo
+fatiga reduciendo su exactitud.
+
+El proceso de convertir una propuesta en un sistema mediante la metodología
+propuesta orquestado directamente por las ganas de que el trabajo expuesto en
+esta tesis tenga un respaldo tanto en código como en resultados. El repositorio
+remoto incluido en la tesis es un acompañante y complemento del desarrollo aquí
+expuesto. Se recomienda sobremanera su análisis al leer esta tesis.
+
+Usar \hyperlink{abbr}{DL} simplifica mucho la metodología general de
+\hyperlink{abbr}{ML}. Las dos fases más difíciles de todo el proceso es sacar
+las características importantes y decisoras dentro de la imagen, usando
+algoritmos complejos y convertir todo en datos tabulares. Se dieron ejemplos de
+las fases para el uso en algoritmos más tradicionales para contrastar las
+ventajas del diseño conceptual propuesto.
+
+Gracias a la \hyperlink{abbr}{BD} del Hospital de Herlev, se pudo realizar un
+pase rápido por las cuatro primeras fases del proyecto. Los investigadores
+mantuvieron una comunicación expedita con el autor y resolvieron todas las dudas
+de manera precisa y amable. 
+
+La etapa de \hyperlink{abbr}{DL} fue especialmente compleja. Las restricciones
+computacionales (aliviadas en gran parte por la donación de Nvidia) fueron
+importantes. Para poder llevar a cabo los entrenamiento, se adquirió un equipo
+de cómputo de última generación. Esto evidencia uno de los contras más comunes
+del \hyperlink{abbr}{DL}, las restricciones computacionales. Afortunadamente la
+mayoría está confinada a la parte de entrenamiento, pudiendo encontrar una
+plataforma especializada, de bajo costo y embebida para el despliegue del
+modelo.
+
+Debido a las nuevas técnicas de manufactura 4.0 como la impresión 3D, a que los
+\hyperlink{abbr}{SE} ya vienen integrados en soluciones discretas con los
+puertos necesarios para su implementación y a los modernos frameworks escritos
+en lenguaje de alto nivel, legible, de código abierto y poderoso se logró
+realizar un diseño conceptual bastante maduro y rápido. Poder realizar un
+prototipado rápido y consistente es crucial para poder generar soluciones
+acordes a las necesidades del usuario final, en este caso, un experto
+cito-tecnólogo.
+
+Configurar la plataforma e instalar las dependencias para el sistema fue un
+proceso tedioso y tardado, se espera que a futuro, cuando la tecnología esté
+mejor adoptada, se desarrollen comandos para la instalación sencillos y
+transparentes. 
+
+El trabajo aquí desarrollado no solo culminó en la creación de un modelo con
+mejor rendimiento que el benchmark, sino que tal rendimiento es muy superior a
+todas las alternativas antes aplicadas al problema y sus métricas cumplen las
+más estrictas estipulaciones médicas. Adicionalmente, se aplicó un método jamás
+antes intentado con la \hyperlink{abbr}{BD} de Herlev, la segmentación
+semántica; obteniendo resultados interesantes cuando se probó la misma red en
+laminillas de campo abierto. 
+
+Si bien la idea de un microscopio inteligente no es nueva, la aplicación de este
+concepto con el de un \hyperlink{abbr}{SDAC} como el desarrollado en esta tesis,
+puede traer beneficios a la población, a incrementar la calidad del trabajo del
+experto y reducir significativamente la cantidad de casos de
+\hyperlink{abbr}{CCU} que están a la espera de ser diagnosticados.
+
+El diseño conceptual final es innovador en el aspecto de que no solo conjuga las
+mejores tecnologías con los algoritmos más modernos, ni por la cantidad superior
+de pruebas de análisis de clasificación y de comportamiento neuronal, sino que
+por las características en su integración y posterior despliegue, su enfoque a
+asistir a la toma de decisiones en lugar de automatizarlas y por la posibilidad
+de mejorar el rendimiento no de un proceso sino de un experto humano, rompe con
+todos los paradigmas previos asociados tanto en \hyperlink{abbr}{DL},
+\hyperlink{abbr}{SDAC}s y en la \hyperlink{abbr}{IA} de la actualidad.

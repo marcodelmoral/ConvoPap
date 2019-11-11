@@ -1,0 +1,197 @@
+\documentclass[11pt,twoside,letterpaper]{report}
+% \documentclass[11pt,letterpaper]{report}
+\usepackage[sorting=none,backend=biber]{biblatex}
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+\usepackage[algochapter, titlenumbered, spanish, algoruled, dotocloa]{algorithm2e}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage[spanish,mexico]{babel}
+\usepackage[intoc, spanish, refpage]{nomencl}
+\usepackage[letterpaper,width=150mm,top=2.5cm,bottom=25mm]{geometry}
+\usepackage{fancyhdr}
+\usepackage[online]{threeparttable}
+\usepackage{titlesec}
+\usepackage{textgreek}
+\usepackage{parskip}
+\usepackage{pifont}
+\usepackage{pdfpages}
+\usepackage{enumitem}
+\usepackage{imakeidx}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{listings}
+\usepackage{minted}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{longtable}
+\usepackage{tikz}
+\usepackage{grffile}
+\usepackage[export]{adjustbox}
+\usepackage[T1]{fontenc} 
+\usepackage{lmodern}
+\usepackage{csquotes}
+\usepackage[titles]{tocloft}
+\usepackage{glossaries} 
+\usepackage[linktoc=all]{hyperref}
+\usepackage{rotating}
+\usepackage{ragged2e}
+\usepackage{imakeidx}
+
+% define list of equations
+\newcommand{\listequationsname}{Índice de ecuaciones}
+\newlistof{myequations}{equ}{\listequationsname}
+\newcommand{\myequations}[1]{
+   \addcontentsline{equ}{myequations}{\protect\numberline{\theequation}#1}
+}
+\setlength{\cftmyequationsnumwidth}{2.3em}
+\setlength{\cftmyequationsindent}{1.5em}
+
+% command to box, label, reference, and 
+% include noteworthy equation in list of equations
+\newcommand{\ecuacion}[2]{
+\begin{align} \label{#2} \ensuremath{\boxed{#1}} \end{align} 
+\myequations{#2} \centering \small \textit{#2} \normalsize \justify }
+
+\newcommand{\ecuacionn}[2]{
+\begin{align} \label{#2} \ensuremath{#1} \end{align} 
+\myequations{#2}  }
+
+% \newcommand{\ecuacionn}[1]{%
+% \addcontentsline{equ}{myequations}{\protect\numberline{\theequation}#1}\par}
+
+
+\def\pagedeclaration#1{, \dotfill\hyperlink{page.#1}{#1}} 
+% \usepackage[nottoc,notlot,notlof]{tocbibind}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    citecolor=red,
+    pdfauthor={Marco Julio Del Moral Argumedo},
+    pdftitle={Despliegue en Hardware de un Sistema de Diagnóstico Asistido por Computadora basado en Deep Learning para la clasificación y detección de células de cáncer cervicouterino en un examen de Papanicolau},
+    pdfsubject={Tesis de maestría en Ingeniería Industrial},
+    pdfkeywords={Deep Learning, Computer Assisted Diagnostics, Industrial Engineering},
+    pdfproducer={Latex},
+    pdfcreator={latexmk},
+    pdfdisplaydoctitle=true
+}
+ 
+\usetikzlibrary{positioning,fit,calc,shapes}
+\tikzset{block/.style={draw,thick,text width=2cm,minimum height=1cm,align=center},
+         line/.style={-latex}
+}
+\usemintedstyle{manni}
+%\bibliography{references}
+\addbibresource{references.bib}
+\raggedbottom
+\newcommand*\rot{\rotatebox{90}}
+\newcommand*\OK{\ding{51}}
+
+\pagestyle{fancy}
+
+\fancyhf{}
+\fancyhead[LO]{\textsl{\rightmark}}
+\fancyhead[RE]{\textsl{\leftmark}}
+\fancyfoot{}
+\fancyfoot[R]{\thepage}
+\fancyfoot[L]{Marco del Moral Argumedo}
+\setlength{\headheight}{15pt}% ...at least 51.60004pt
+
+\graphicspath{ {imagenes/} }
+
+\assignpagestyle{\chapter}{fancy}
+\includeonly{
+    capitulos/prefacio/portada,
+    capitulos/prefacio/frase,
+    capitulos/prefacio/abstract,
+    capitulos/prefacio/resumen,
+    capitulos/prefacio/introduccion,
+    capitulos/capitulo_generalidades/capitulo_generalidades,
+    capitulos/capitulo_marcoteorico/capitulo_marcoteorico,
+    capitulos/capitulo_sdac/capitulo_sdac,
+    capitulos/capitulo_final/final,
+    capitulos/apendice_grant/apendice_grant,
+    capitulos/apendice_comparativa/apendice_comparativa,
+    capitulos/apendice_entrenamiento/apendice_entrenamiento
+}
+\makenomenclature
+\makeindex[title=Índice alfabético, intoc, columns=2]
+\begin{document}
+
+\include{capitulos/prefacio/portada}
+
+% \input{cartas}
+
+\chapter*{}
+\include{capitulos/prefacio/frase}
+
+\chapter*{Dedicatorias}
+% Mamá, papá, hermana, abuela, madrina, 
+% Familia: tía sonia, tío polo, primos, abuela
+% Sashimi, amigos
+
+
+\chapter*{Agradecimientos}
+% Instituciones: CONACYT, ITO, IMSS, UNIVO
+% Profesores: Alberto, Robert, Tino, Magno, Mario, Mortera, Briones, 
+% Nvidia: Por la donación de la tarjeta
+
+
+\chapter*{}
+\addcontentsline{toc}{chapter}{Resumen}
+\include{capitulos/prefacio/resumen}
+
+% \chapter*{}
+% \addcontentsline{toc}{chapter}{Abstract}
+% \include{prefacio/abstract}
+
+\pagestyle{fancy}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{3}
+\tableofcontents
+
+\listoffigures
+\listoftables
+\listofalgorithms
+\addcontentsline{toc}{chapter}{Índice de ecuaciones}
+\listofmyequations
+
+\pagestyle{fancy}
+
+\hypertarget{abbr}{\printnomenclature{}}
+
+\chapter{Generalidades}
+\include{capitulos/capitulo_generalidades/capitulo_generalidades}
+
+\chapter{Marco Teórico}
+\include{capitulos/capitulo_marcoteorico/capitulo_marcoteorico}
+
+\chapter{Sistema de diagnóstico asistido por computadora}
+\include{capitulos/capitulo_sdac/capitulo_sdac}
+
+\chapter{Comentarios finales}
+\include{capitulos/capitulo_final/final}
+% \chapter*{Glosario}
+% \addcontentsline{toc}{chapter}{Glosario}
+
+\appendix
+\chapter{Propuesta para donación}
+\label{appendix:grant}
+\include{capitulos/apendice_grant/apendice_grant}
+
+\chapter{Comparativa de arquitecturas}
+\label{appendix:comparativa}
+\include{capitulos/apendice_comparativa/apendice_comparativa}
+
+\chapter{Resultados por época de entrenamiento}
+\label{appendix:entrenamiento}
+\include{capitulos/apendice_entrenamiento/apendice_entrenamiento}
+\addcontentsline{toc}{chapter}{Bibliografía}
+\printbibliography
+% \addcontentsline{toc}{chapter}{Índice}
+% \printindex
+
+\end{document}
