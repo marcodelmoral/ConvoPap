@@ -5,7 +5,8 @@ _minted-Tesis_Implementacion_Marco/
 Code/Experimentos/
 Code/__pycache__/
 Code/.ipynb_checkpoints/
-
+.vscode/
+.idea/
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof

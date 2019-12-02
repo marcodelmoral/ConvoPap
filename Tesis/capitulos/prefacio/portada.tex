@@ -1,30 +1,44 @@
 \begin{titlepage}
+    \thispagestyle{empty}
+    \begin{tikzpicture}[remember picture,overlay,inner sep=0,outer sep=0]
+        \draw[blue!70!black,line width=4pt] ([xshift=-1.5cm,yshift=-2cm]current page.north east) coordinate (A)--([xshift=1.5cm,yshift=-2cm]current page.north west) coordinate(B)--([xshift=1.5cm,yshift=2cm]current page.south west) coordinate (C)--([xshift=-1.5cm,yshift=2cm]current page.south east) coordinate(D)--cycle;
+   
+        \draw ([yshift=0.5cm,xshift=-0.5cm]A)-- ([yshift=0.5cm,xshift=0.5cm]B)--
+        ([yshift=-0.5cm,xshift=0.5cm]B) --([yshift=-0.5cm,xshift=-0.5cm]B)--([yshift=0.5cm,xshift=-0.5cm]C)--([yshift=0.5cm,xshift=0.5cm]C)--([yshift=-0.5cm,xshift=0.5cm]C)-- ([yshift=-0.5cm,xshift=-0.5cm]D)--([yshift=0.5cm,xshift=-0.5cm]D)--([yshift=0.5cm,xshift=0.5cm]D)--([yshift=-0.5cm,xshift=0.5cm]A)--([yshift=-0.5cm,xshift=-0.5cm]A)--([yshift=0.5cm,xshift=-0.5cm]A);
+   
+   
+        \draw ([yshift=-0.3cm,xshift=0.3cm]A)-- ([yshift=-0.3cm,xshift=-0.3cm]B)--
+        ([yshift=0.3cm,xshift=-0.3cm]B) --([yshift=0.3cm,xshift=0.3cm]B)--([yshift=-0.3cm,xshift=0.3cm]C)--([yshift=-0.3cm,xshift=-0.3cm]C)--([yshift=0.3cm,xshift=-0.3cm]C)-- ([yshift=0.3cm,xshift=0.3cm]D)--([yshift=-0.3cm,xshift=0.3cm]D)--([yshift=-0.3cm,xshift=-0.3cm]D)--([yshift=0.3cm,xshift=-0.3cm]A)--([yshift=0.3cm,xshift=0.3cm]A)--([yshift=-0.3cm,xshift=0.3cm]A);
+   
+      \end{tikzpicture}
+
     \begin{center}
-    % \vspace*{2.5cm}
-        \large
-        Departamento de estudios de posgrado
-        \vspace*{1cm}
-        
+        \vspace*{0.5cm}
+        \LARGE
+        \textbf{División de Estudios de Posgrado e Investigación} \par
+        \vspace{0.5cm}
+        \includegraphics[width=0.4\textwidth]{prefacio/logo_ito.png} \par
+        \rule{\linewidth}{2pt} \\[0cm]
         \large
         \textbf{Despliegue en Hardware de un Sistema de Diagnóstico Asistido por Computadora basado en Deep Learning para la clasificación y detección de células de cáncer cervicouterino en un examen de Papanicolau}
+        \rule{\linewidth}{2pt} \\[0cm]
 
-        \vspace*{1cm}
+        \vspace*{0.7cm}
         Tesis para obtener el grado de \\
         Maestro en Ingeniería Industrial
         
-        \vspace*{1cm}
+        \vspace*{0.7cm}
         \textbf{Autor:} I.S.C Marco Julio Del Moral Argumedo \\
         \textbf{Director:} Dr.\ Alberto Alfonso Aguilar Lasserre \\
         \textbf{Codirector:} Dr.\ Rubén Posada Gómez
-        \vspace*{1cm}
+        \vspace*{0.7cm}
         
-        \includegraphics[width=0.4\textwidth]{prefacio/logo_ito.pdf}
-        
-        \Large
-        
-        Tecnológico Nacional de México\\
+        \large
         Instituto Tecnológico de Orizaba\\
-        Date
+        Tecnológico Nacional de México\\
+        Consejo Nacional de Ciencia y Tecnología\\
+        \normalsize
+        Noviembre 2019
         
     \end{center}
 \end{titlepage}

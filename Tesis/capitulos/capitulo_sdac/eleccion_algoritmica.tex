@@ -17,10 +17,12 @@ y demás, usando parámetros estándar para estimar su rendimiento.
 Para cada modelo, es preferible utilizar una validación cruzada y comparar tanto
 la media como la desviación estándar. En algoritmos como las
 \hyperlink{abbr}{ConvNet}s, esto puede ser difícil debido a la complejidad
-computacional. También lo es determinar el tipo de error estadístico de cada
-modelo para corroborar el impacto que tendrá tal error en el rendimiento del
-algoritmo en situaciones de la vida real, por ejemplo, en el área médica es
-importante la tasa de falsos positivos y falsos negativos.
+computacional\footnote{Los tiempos por época llegan a ser de entre 5 y 10
+minutos, cada iteración puede tener hasta 50 épocas.}. También lo es determinar
+el tipo de error estadístico de cada modelo para corroborar el impacto que
+tendrá tal error en el rendimiento del algoritmo en situaciones de la vida real,
+por ejemplo, en el área médica es importante la tasa de falsos positivos y
+falsos negativos.
 
 Este proceso es naturalmente iterativo. Donde cambios en algoritmos,
 arquitecturas e hiperparámetros obviamente modifican el rendimiento de los
@@ -41,7 +43,8 @@ problemas generales como particulares si se aplica \hyperlink{abbr}{TL}.
 La elección de estos algoritmos está basada directamente en la elección del
 software utilizado para el desarrollo. Por lo que nos enfocaremos en el
 \emph{Zoológico de Modelos} de \textbf{Keras} y su \emph{backend}:
-\textbf{TensorFlow}. Para la búsqueda del mejor candidato a modelo solución se
+\textbf{TensorFlow} \footnote{Anteriormente Keras era capaz de trabajar con
+Theano como \emph{Backend}}. Para la búsqueda del mejor candidato a modelo solución se
 realizó un experimento de búsqueda exhaustiva por todo el espacio de soluciones
 comprendido dentro del \emph{Zoológico de Modelos} de \textbf{Keras}. Para ello
 se programó un script automatizado que alimenta el ciclo de entrenamiento con
@@ -72,12 +75,12 @@ mismos hiperparámetros y el mismo número de épocas
 \begin{figure}[H]
     \centering
     \begin{minted}{python}
-                            BATCH_SIZE = 64
-                            FC_LAYERS = [1024, 1024]
-                            LR = 0.00001
-                            OPT = Adam(lr=LR)
-                            EPOCHS = 20
-                            DROPOUT = 0.5
+                        BATCH_SIZE = 64
+                        FC_LAYERS = [1024, 1024]
+                        LR = 0.00001
+                        OPT = Adam(lr=LR)
+                        EPOCHS = 20
+                        DROPOUT = 0.5
     \end{minted}
     \caption{Hiperparámetros para búsqueda de algoritmos}\label{fig:hiper_transfer}
 \end{figure}

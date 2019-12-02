@@ -14,19 +14,18 @@ para su utilización por usuarios con conocimientos computacionales o integrado
 en sistemas de software ya existentes dentro de una organización; hasta todo un
 sistema web capaz de ser usado mediante el escritorio o un dispositivo móvil.
 Otras implementaciones existen para poder usar el modelo en un
-\emph{smarthphone} de forma nativa o en dispositivos de hardware creados
+\emph{Smartphone} de forma nativa o en dispositivos de hardware creados
 específicamente para tal fin.
 
 Es importante mantener criterios de usabilidad bastante altos mediante el diseño
-de interfaces fáciles de usar. Por ejemplo en sistemas que serán integrados en
-sistemas más grandes diseñar Application Programming Interfaces
+de interfaces fáciles de usar. Por ejemplo en \emph{software} que será integrado
+en sistemas más grandes, diseñar Application Programming Interfaces
 (\hyperlink{abbr}{API}\nomenclature{API}{Application Programming Interface})
-adecuadas y en sistemas dirigidos a un usuario final, interfaces gráficas
-sencillas y que conformen buenas prácticas de User eXperience
-(\hyperlink{abbr}{UX}\nomenclature{UX}{User eXperience})
+adecuadas y en sistemas dirigidos a un usuario final, \hyperlink{abbr}{GUI}s
+sencillas y que conformen buenas prácticas de User eXperience \hyperlink{abbr}{UX}.
 
 En la \autoref{fig:logo} tenemos el logo creado para el software que será
-llamado ConvoPap: Sistema inteligente de diagnóstico cervical.
+llamado \emph{ConvoPap: Sistema inteligente de diagnóstico cervical}.
 
 \begin{figure}[H]
     \centering
@@ -89,17 +88,17 @@ mediante redes inalámbricas o cableadas. Inicialmente transmitiremos imágenes
 pero posteriormente se planea transmitir video para una clasificación en tiempo
 real.
 
-El uso de un \emph{smarthphone} o \emph{tablet} dentro del laboratorio
+El uso de un \emph{Smartphone} o \emph{tablet} dentro del laboratorio
 citológico es algo viable. El problema radica en que también estos dispositivos
 tienen dos tipos distintos de sistema operativo lo que complica el desarrollo.
 Así mismo, la variedad de modelos disponibles en el mercado hace que sea
 complejo estandarizar el sistema; no todas las personas tienen un teléfono con
 la potencia necesaria para correr modelos de \hyperlink{abbr}{DL}. 
 
-La plataforma debe ser poder eliminar estos problemas mientras se mantiene a un
-bajo costo. También debe de poder ser usada fácilmente, de preferencia mediante
-interfaces táctiles y tiene que ser de tamaño pequeño y bajo poder para poder
-ser desplegada dentro de un laboratorio.
+La plataforma debe eliminar estos problemas mientras se mantiene a un bajo
+costo. También su uso debe ser sencillo, de preferencia mediante interfaces
+táctiles y tiene que ser de tamaño pequeño y bajo uso energético para poder ser
+desplegada dentro de un laboratorio.
 
 \subsubsection{Plataforma}
 
@@ -192,9 +191,9 @@ la inferencia en restricciones de procesamiento, memoria, almacenamiento o
 poder.
 
 Cuantizar o \emph{Quantization} es el proceso de reducir el número de bits
-necesario para representar un número. Convierte el modelo a u no
-de tamaño reducido mientras mejora la eficiencia, aunque esto incurre
-en una degradación en el rendimiento. 
+necesario para representar un número. Convierte el modelo a uno de tamaño
+reducido mientras mejora la eficiencia, aunque esto incurre en una degradación
+en el rendimiento. 
 
 La \autoref{tabla:cuantizacion} muestra los tres tipos disponibles para el
 modelo. Habría que hacer una prueba de rendimiento entre ellas para determinar
@@ -213,8 +212,7 @@ más adecuada.
     Cuantización Float16 & 2x más pequeña, aceleración potencial por GPU & CPU/GPU \\ \bottomrule
     \end{tabular}%
     }
-    \caption{Tipos de cuantización para modelos de Deep Learning}
-    \label{tabla:cuantizacion}
+    \caption{Tipos de cuantización para modelos de Deep Learning}\label{tabla:cuantizacion}
     \end{table}
 
 \subsubsection{\emph{Tensorflow Lite}}
@@ -225,14 +223,14 @@ la inferencia dentro de un dispositivo.
 
 El proceso de conversión de un modelo normal a uno capaz de ser implementado en
 la Jetson Nano se divide en dos partes. El servidor se refiere al proceso de
-entrenar el modelo en una computadora con \hyperlink{abbr}{GPU} y pasarlo por la
-función \mintinline{latex}{tf.lite.TFLiteConverter.from_keras_model(model)} que
-genera un archivo \emph{TFLite Flatbuffer} que ya se puede utilizar en el
-cliente. El intérprete de \emph{Tensorflow Lite} se instala en el cliente, es
-decir, la plataforma elegida que toma el archivo generado por el servidor para
-poder hacer inferencia. \emph{Tensorflow Lite} nos permite usar el modelo tanto
-en \emph{iOS}, \emph{Android} y \emph{Linux} utilizando todos los tipos de
-procesador (\autoref{fig:tflite}).
+entrenar el modelo en una computadora con \hyperlink{abbr}{GPU} y procesarlo
+funciones convertidoras que tienen como salida un archivo \emph{TFLite
+Flatbuffer} que ya se puede utilizar en el cliente. El intérprete de
+\emph{Tensorflow Lite} se instala en el cliente, es decir, la plataforma elegida
+que toma el archivo generado por el servidor para poder hacer inferencia.
+\emph{Tensorflow Lite} nos permite usar el modelo tanto en \emph{iOS},
+\emph{Android} y \emph{Linux} utilizando todos los tipos de procesador
+(\autoref{fig:tflite}).
 
 \begin{figure}[H]
     \centering
@@ -295,7 +293,7 @@ Mientras que la placa base tiene las siguientes:
     \item 40-pin expansion header with GPIO, I2C, I2S, SPI, UART signals
     \item 8-pin button header with system power, reset, and force recovery
     related signals
-    \item Misc – Power LED, 4-pin fan header
+    \item Misc. – Power LED, 4-pin fan header
     \item Power Supply – 5V/4A via power barrel or 5V/2A via micro USB port;
     optional PoE support
 \end{itemize}
@@ -313,15 +311,16 @@ táctiles:
 
 \begin{itemize}
     \item IPS screen, 1024x600 hardware resolution, configurable by software (up
-    to 1920x1080)
+    to 1920x1080).
     \item Multi languages OSD menu, for power management, brightness/contrast adjustment, etc. 
     \item 3.5mm audio jack, speaker connector, supports HDMI audio output
 \end{itemize}
 
-La cámara es modelo IMX219-77. Su gran resolución y número de megapixeles la
+La cámara es modelo IMX219-77. Su gran resolución y número de megapíxeles la
 hace ideal para capturar imágenes difíciles como las que se generan en un
 microscopio. Tiene las siguientes características:
 
+\begin{minipage}{\textwidth}
 \begin{itemize}
     \item 8 Megapixels
     \item Sensor: Sony IMX219
@@ -332,6 +331,7 @@ microscopio. Tiene las siguientes características:
     \item Distortion: < 1\%
     \item Lens dimensions: 6.5mm × 6.5mm
 \end{itemize}
+\end{minipage}
 
 Otros componentes que se le pueden agregar al sistema son una tarjeta de
 \emph{WiFi} para conexión a internet o pantallas externas de alta definición
@@ -349,20 +349,22 @@ la capacidad de ser controlado por el sistema operativo instalado en Jetson Nano
 para aumentar o reducir sus revoluciones según sea la temperatura, lo que lo
 hace muy eficiente energéticamente. Cuenta con las siguientes características:
 
+\begin{minipage}{\textwidth}
 \begin{itemize}
     \item 40x20mm size
     \item Polarity protection
     \item Flow Acceleration Channels
     \item Integrated Anti-Vibration Pads
     \item SSO2 bearing
-    \item Rotational speed ($\pm 10\%$) 5000 RPM
-    \item Airflow $9.4 m^{3}/h$
+    \item Rotational speed (\(\pm 10\%\)) 5000 RPM
+    \item Airflow \(9.4 m^{3}/h\)
     \item Acoustical noise 14,9 dB(A)
-    \item Static pressure $2.26 mm H_{2}O$
+    \item Static pressure \(2.26 mm H_{2}O\)
     \item Max. input power 0.5 W
     \item Max. input current 0.1 A    
     \item Operating voltage 5 V
 \end{itemize}
+\end{minipage}
 
 \begin{figure}[H]
     \centering
@@ -399,7 +401,7 @@ de las partes tanto del adaptador como de la carcasa.
 
 El Centro Regional de Optimización y Desarrollo de Equipo de Orizaba fue un gran
 apoyo al proveer infraestructura y mano de obra calificada para la realización
-del prototipo y la impresión 3d. El centro cuenta con dos tipos de impresora 3D:
+del prototipo y la impresión 3D. El centro cuenta con dos tipos de impresora 3D:
 
 \begin{enumerate}
     \item{\textbf{Form2 de FormLabs: }}  Una impresora de resina fotopolímera
@@ -428,13 +430,14 @@ del prototipo y la impresión 3d. El centro cuenta con dos tipos de impresora 3D
 
 El adaptador de cámara se compone de tres partes y fue diseñado para adaptar
 dispositivos creados con Raspberry Pi usando la cámara oficial de Raspberry por
-el usuario \hyperlink{https://www.thingiverse.com/luisibanez/about}{Luis Ibanez}
-en el sitio \hyperlink{https://www.thingiverse.com/}{Thingiverse}. El modelo de
-cámara usado con Jetson Nano difiere un poco comparado con la cámara de
-Raspberry, debido a esto se tuvo que modificar el modelo para poder adaptarlo a
-la cámara a utilizar utilizando el software OpenSCAD para diseño asistido por
-computadora. En la \autoref{fig:adaptador_final} vemos un ejemplo del uso final
-del adaptador, para acoplar la cámara al objetivo del microscopio
+el usuario \hyperlink{https://www.thingiverse.com/luisibanez/about}{Luis
+Ibanez}\footnote{\url{https://www.thingiverse.com/thing:214466}} en el sitio
+\hyperlink{https://www.thingiverse.com/}{Thingiverse}. El modelo de cámara usado
+con Jetson Nano difiere un poco comparado con la cámara de Raspberry, debido a
+esto se tuvo que modificar el modelo para poder adaptarlo a la cámara a utilizar
+utilizando el software OpenSCAD para diseño asistido por computadora. En la
+\autoref{fig:adaptador_final} vemos un ejemplo del uso final del adaptador, para
+acoplar la cámara al objetivo del microscopio
 
 \begin{figure}[H]
     \centering
@@ -442,20 +445,22 @@ del adaptador, para acoplar la cámara al objetivo del microscopio
     \caption{Ejemplo de uso del adaptador impreso en 3D}\label{fig:adaptador_final}
 \end{figure}
 
-Las partes del adaptador son las siguientes:
+\begin{minipage}{\textwidth}
+    Las partes del adaptador son las siguientes:
+    \begin{enumerate}
+        \item El adaptador de cámara, que alojará la cámara para protección.
+        \item El adaptador de cámara-microscopio, que se acoplará al otro adaptador
+        para conectar la cámara seguramente al microscopio.
+        \item La tapa de atrás, para evitar el paso de la luz y asegurar la cámara.
+    \end{enumerate}
+\end{minipage}
 
-\begin{enumerate}
-    \item El adaptador de cámara, que alojará la cámara para protección.
-    \item El adaptador de cámara-microscopio, que se acoplará al otro adaptador
-    para conectar la cámara seguramente al microscopio.
-    \item La tapa de atrás, para evitar el paso de la luz y asegurar la cámara.
-\end{enumerate}
 
 El primer prototipo se realizó en la impresora Form2 ya que la resina
 transparente permite ver mejor como se inserta la cámara para analizar el
 ajuste, ya que ambos modelos de cámara son diferentes. En la
 \autoref{fig:interface_impresora_resina} se observa la interface táctil de la
-impresora 3d mientras se dispone a imprimir el adaptador de la cámara.
+impresora 3D mientras se dispone a imprimir el adaptador de la cámara.
 
 \begin{figure}[H]
     \centering
@@ -506,10 +511,9 @@ muesca para alojar el conector de cable plano (\autoref{fig:adaptadores}).
     \begin{subfigure}{.5\textwidth}
         \centering
         \includegraphics[width=.7\linewidth]{capitulo_sdac/adaptador_jetson}
-        \caption{Máscara}
+        \caption{Adaptador de cámara Jetson Nano}
     \end{subfigure}
-    \caption{Adaptador de cámara Jetson Nano}
-    \label{fig:adaptadores}
+    \caption{Adaptador de cámara Jetson Nano}\label{fig:adaptadores}
     \end{figure}
 
 Una vez analizado el primer prototipo y tomadas las consideraciones para el
@@ -558,8 +562,7 @@ cámara de Jetson Nano.
         \includegraphics[width=.8\linewidth]{capitulo_sdac/adaptador_camara}
         \caption{Máscara}
     \end{subfigure}
-    \caption{Adaptadores para conectar la cámara al microscopio}
-    \label{fig:adaptadores_finales}
+    \caption{Adaptadores para conectar la cámara al microscopio}\label{fig:adaptadores_finales}
     \end{figure}
 
 Para alcanzar el ajuste perfecto, se necesitaron cuatro prototipos. Podemos ver
@@ -577,10 +580,9 @@ para ajustar la cámara (\autoref{fig:adaptador_jetson}).
     \begin{subfigure}{.5\textwidth}
         \centering
         \includegraphics[width=.8\linewidth]{capitulo_sdac/impresion_final}
-        \caption{Máscara}
+        \caption{Piezas del adaptador final}
     \end{subfigure}
-    \caption{Adaptador de cámara Jetson Nano}
-    \label{fig:adaptador_jetson}
+    \caption{Adaptador de cámara Jetson Nano}\label{fig:adaptador_jetson}
 \end{figure}
 
 El resultado final de la impresión para adaptar
@@ -633,7 +635,8 @@ La parte frontal deja ver la instalación de la pantalla con una muestra del uso
 de la cámara mientras que la parte trasera muestra el agujero de disipación para
 el ventilador Noctua, los puertos de la Jetson así como aperturas para las
 antenas WiFi. Se puede reducir el volumen del sistema cambiando las antenas por
-receptores USB de tamaño pequeño.
+receptores USB de tamaño
+pequeño\footnote{\url{https://www.thingiverse.com/thing:3922565}}.
 
 \begin{figure}[H]
     \centering
@@ -647,18 +650,19 @@ receptores USB de tamaño pequeño.
         \includegraphics[width=.8\linewidth]{capitulo_sdac/large_preview_back}
         \caption{Trasero}
     \end{subfigure}
-    \caption{Ejemplo de uso de la carcasa final}
-    \label{fig:preview}
+    \caption{Ejemplo de uso de la carcasa final}\label{fig:preview}
 \end{figure}
 
 \subsection{Creación del software}
 
 La \autoref{fig:diagrama_sistema} muestra el diagrama del sistema. El modelo
-guardado en archivo binario .h5 se alimenta al intérprete de \emph{Tensorflow
-Lite}, que se comunica con el \hyperlink{abbr}{GPU} de Jetson para hacer
-inferencia. Todo está orquestado por el módulo \emph{Kivy} que sirve para la
-interface gráfica. La imagen es alimentada mediante el módulo de captura basado
-en \emph{OpenCV} y \emph{GStreamer}, módulos en C++ para \hyperlink{abbr}{DPI}.
+guardado en archivo binario \emph{.h5} se alimenta al intérprete de
+\emph{Tensorflow Lite}, que se comunica con el \hyperlink{abbr}{GPU} de Jetson
+para hacer inferencia. Todo está orquestado por el módulo \emph{Kivy} que sirve
+para la interface gráfica. La imagen es alimentada mediante el módulo de captura
+basado en \emph{OpenCV} y \emph{GStreamer}, módulos en C++ para
+\hyperlink{abbr}{DPI}\footnote{OpenCV significa Open Computer Vision y es la
+biblioteca de código más usada para esta tarea.}.
 
 \begin{figure}[H]
     \centering
@@ -719,8 +723,7 @@ en \emph{OpenCV} y \emph{GStreamer}, módulos en C++ para \hyperlink{abbr}{DPI}.
     
     
     \end{tikzpicture}
-\caption{Diagrama general del sistema}
-\label{fig:diagrama_sistema}
+\caption{Diagrama general del sistema}\label{fig:diagrama_sistema}
 \end{figure}
 
 \subsubsection{Configuración de LINUX}
@@ -767,15 +770,15 @@ es aquella que provee la funcionalidad de backend, es decir, todo lo que va a
 soportar la interface propiamente dicha. Esto se programa en lenguaje Python. La
 segunda capa es la capa que describe como se va a renderizar la interface
 gráfica en el dispositivo, para ello se hace uso de un lenguaje de marcado
-específico con extensión .kv.
+específico con extensión \emph{.kv}.
 
 La arquitectura de Kivy, \autoref{fig:kivy} va desde el bajo nivel, compuesto de
 módulos y \emph{drivers} tanto externos como del sistema operativo; los módulos
-usados para la creación de la interface son GStreamer para la cámara u WM\_Touch
+usados para la creación de la interface son GStreamer para la cámara o WM\_Touch
 para la entrada de datos táctiles. Al centro encontramos los elementos para
 armar la interface, por ejemplo, ventanas o imágenes; también maneja la parte
 gráfica y direcciona las entradas al \emph{driver} correspondiente. El alto
-nivel contiene el lenguaje .kv y las funciones para crear la app en su noción
+nivel contiene el lenguaje \emph{.kv} y las funciones para crear la app en su noción
 general.
 
 \begin{figure}[H]
@@ -785,10 +788,11 @@ general.
 \end{figure}
 
 Toda la lógica para soportar la captura de imagen y alimentar el modelo se hace
-en Python y es directamente integrada con Kivy. Mientras que el lenguaje .kv y
+en Python y es directamente integrada con Kivy. Mientras que el lenguaje \emph{.kv} y
 el módulo abstraen toda la parte de la generación de la interface y la forma en
 que se conecta al software de la tarjeta que maneja la pantalla táctil. Esto
-hace el desarrollo sumamente sencillo.
+hace el desarrollo sumamente sencillo\footnote{Elegir las tecnologías correctas simplifica
+mucho cualquier desarrollo tecnológico}.
 
 En la \autoref{fig:gui} tenemos un ejemplo de pantalla principal para el
 sistema. Esta interface es sencilla y fácil de usar. Una vez presionado el botón

@@ -1,16 +1,13 @@
-\documentclass[11pt,twoside,letterpaper]{report}
-% \documentclass[11pt,letterpaper]{report}
+\documentclass[12pt,oneside,letterpaper]{book}
 \usepackage[sorting=none,backend=biber]{biblatex}
 \usepackage[utf8]{inputenc}
 \usepackage{booktabs}
 \usepackage[algochapter, titlenumbered, spanish, algoruled, dotocloa]{algorithm2e}
-\usepackage{microtype}
 \usepackage{graphicx}
 \usepackage[spanish,mexico]{babel}
 \usepackage[intoc, spanish, refpage]{nomencl}
 \usepackage[letterpaper,width=150mm,top=2.5cm,bottom=25mm]{geometry}
 \usepackage{fancyhdr}
-\usepackage[online]{threeparttable}
 \usepackage{titlesec}
 \usepackage{textgreek}
 \usepackage{parskip}
@@ -24,7 +21,6 @@
 \usepackage{minted}
 \usepackage{amsfonts}
 \usepackage{amsmath}
-\usepackage{longtable}
 \usepackage{tikz}
 \usepackage{grffile}
 \usepackage[export]{adjustbox}
@@ -37,7 +33,16 @@
 \usepackage{rotating}
 \usepackage{ragged2e}
 \usepackage{imakeidx}
-
+\usepackage{emptypage}
+\usepackage{etoolbox}
+\definecolor{LightCyan}{rgb}{0.88,1,1}
+\definecolor{titlepagecolor}{cmyk}{1,.60,0,.40}
+\definecolor{namecolor}{cmyk}{1,.50,0,.10}
+\definecolor{portadaa}{RGB}{73, 86, 120} 
+\renewcommand{\bibfont}{\normalfont\small}
+% times new roman e interlineado
+% \usepackage{newtxtext}
+% \renewcommand{\baselinestretch}{1.5}
 % define list of equations
 \newcommand{\listequationsname}{Índice de ecuaciones}
 \newlistof{myequations}{equ}{\listequationsname}
@@ -47,22 +52,16 @@
 \setlength{\cftmyequationsnumwidth}{2.3em}
 \setlength{\cftmyequationsindent}{1.5em}
 
-% command to box, label, reference, and 
-% include noteworthy equation in list of equations
 \newcommand{\ecuacion}[2]{
-\begin{align} \label{#2} \ensuremath{\boxed{#1}} \end{align} 
-\myequations{#2} \centering \small \textit{#2} \normalsize \justify }
+\begin{align}\LARGE \label{#2} \ensuremath{\boxed{#1}} \end{align} 
+\myequations{#2} \centering \small \textit{#2} \normalsize \justify}
 
 \newcommand{\ecuacionn}[2]{
 \begin{align} \label{#2} \ensuremath{#1} \end{align} 
 \myequations{#2}  }
 
-% \newcommand{\ecuacionn}[1]{%
-% \addcontentsline{equ}{myequations}{\protect\numberline{\theequation}#1}\par}
-
-
 \def\pagedeclaration#1{, \dotfill\hyperlink{page.#1}{#1}} 
-% \usepackage[nottoc,notlot,notlof]{tocbibind}
+
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
@@ -82,22 +81,23 @@
 \tikzset{block/.style={draw,thick,text width=2cm,minimum height=1cm,align=center},
          line/.style={-latex}
 }
-\usemintedstyle{manni}
-%\bibliography{references}
+\usemintedstyle{borland} 
+
+\frenchspacing
 \addbibresource{references.bib}
-\raggedbottom
+\raggedbottom{}
 \newcommand*\rot{\rotatebox{90}}
 \newcommand*\OK{\ding{51}}
 
 \pagestyle{fancy}
 
 \fancyhf{}
-\fancyhead[LO]{\textsl{\rightmark}}
-\fancyhead[RE]{\textsl{\leftmark}}
+% \fancyhead[L]{\textbf{\rightmark}}
+\fancyhead[R]{\textbf{\leftmark}}
 \fancyfoot{}
 \fancyfoot[R]{\thepage}
-\fancyfoot[L]{Marco del Moral Argumedo}
-\setlength{\headheight}{15pt}% ...at least 51.60004pt
+\fancyfoot[L]{Marco Julio del Moral Argumedo}
+% \setlength{\headheight}{16pt}% ...at least 51.60004pt
 
 \graphicspath{ {imagenes/} }
 
@@ -105,9 +105,7 @@
 \includeonly{
     capitulos/prefacio/portada,
     capitulos/prefacio/frase,
-    capitulos/prefacio/abstract,
     capitulos/prefacio/resumen,
-    capitulos/prefacio/introduccion,
     capitulos/capitulo_generalidades/capitulo_generalidades,
     capitulos/capitulo_marcoteorico/capitulo_marcoteorico,
     capitulos/capitulo_sdac/capitulo_sdac,
@@ -116,81 +114,167 @@
     capitulos/apendice_comparativa/apendice_comparativa,
     capitulos/apendice_entrenamiento/apendice_entrenamiento
 }
-\makenomenclature
+\makenomenclature{}
+\renewcommand{\nomname}{Abreviaturas}
+ 
+% \renewcommand{\nompreamble}{La siguiente lista describe varios terminos abreviados que serán
+
 \makeindex[title=Índice alfabético, intoc, columns=2]
+
+\titleformat{\chapter}[display] {\normalfont\Huge\bfseries}{\chaptertitlename\ \thechapter}{0pt}{\Huge}
+\titlespacing*{\chapter}{0cm}{-1cm}{0.3cm}
+\renewcommand{\headrulewidth}{2pt}
+\renewcommand{\footrulewidth}{1pt}
 \begin{document}
 
-\include{capitulos/prefacio/portada}
-
-% \input{cartas}
+\pagenumbering{gobble}
+% \cleardoublepage{}
+% \chapter*{}
+% \thispagestyle{empty}
+\input{capitulos/prefacio/portada}
 
 \chapter*{}
-\include{capitulos/prefacio/frase}
+\thispagestyle{empty}
+    \null\vspace{\stretch{1}}
+        \begin{flushright}
+            A mi madre, \textbf{América Argumedo}, todo surge de y vuelve a ella. \\
+            A mi hermana, \textbf{María Fernanda}, mi ángel de la guarda. \\
+            A mi familia, por el apoyo perpetuo. \\
+            A mis amigos, la familia que uno escoge. \\
+            A mis profesores, por esforzarse en mi. \\
+            A \textbf{Sashimi}, por darme las ganas de ser grande. \\
+            A mi madrina, \textbf{Lili de la Vega}, por amarme como un hijo.
+        \end{flushright}
+\vspace{\stretch{2}}\null{}
 
-\chapter*{Dedicatorias}
-% Mamá, papá, hermana, abuela, madrina, 
-% Familia: tía sonia, tío polo, primos, abuela
-% Sashimi, amigos
+% \cleardoublepage{}
+\chapter*{}
+% \input{capitulos/prefacio/frase}
+\begin{minipage}[t]{0.6\textwidth}
+    \begin{flushleft}
+        \large
+        ``Nuestras mentes son finitas e inclusive en estas circunstancias de
+        finitud estamos rodeados de posibilidades que son infinitas, y el
+        propósito de la vida humana es asir lo más posible de tal infinitud'' \\
+        \textbf{- Alfred North Whitehead}
+    \end{flushleft}
+\end{minipage}
+
+% \cleardoublepage{}
 
 
+% \cleardoublepage{}
 \chapter*{Agradecimientos}
-% Instituciones: CONACYT, ITO, IMSS, UNIVO
-% Profesores: Alberto, Robert, Tino, Magno, Mario, Mortera, Briones, 
-% Nvidia: Por la donación de la tarjeta
+Se extiende un supremo agradecimiento a las personas, instituciones y empresas
+que catalizaron la realización del trabajo que expone esta tesis:
 
+A mi Madre, por su desinteresada financiamiento económico, afectivo e
+intelectual que culminaron en las condiciones absolutas para la creación de este
+trabajo y que inciden directamente en la calidad del mismo.
 
-\chapter*{}
+Al Doctor Alberto Aguilar-Laserre, por el andamiaje metodológico y mental en el
+cual no solo se soporta este trabajo, sino todos los logros alcanzados durante
+la realización del mismo.
+
+Al Doctor Rubén Posada-Gómez por enseñarme a hacer matemáticas con una
+computadora. Al Maestro Magno González-Huerta por creer en mi. Al Maestro
+Constantino Moras-Sánchez por motivarme a entrar a la maestría. A la Doctora
+Catherine Azzaro-Pantel por recibirme amablemente en su laboratorio en Francia.
+
+Al Consejo Nacional de Ciencia y Tecnología CONACyT, por su apoyo económico para
+obtener el grado. A mi escuela, el Instituto Tecnológico de Orizaba por
+concentrar la sabiduría en un solo punto y ponerla a mi alcance. Al Instituto
+Nacional Politécnico de Toulouse por incorporarme como propio durante la
+estancia. Al  Centro Regional de Optimización y Desarrollo de Equipo de Orizaba
+por el apoyo incondicional, el esfuerzo y la inversión de tiempo y material para
+apoyarme.
+
+A la empresa Nvidia por la donación de la tarjeta Titan V, la más avanzada para
+Inteligencia Artificial y por cumplir uno de mis sueños más viejos. A Google por
+democratizar la tecnología más avanzada en su tipo. 
+
+\frontmatter 
+\pagenumbering{roman}
+% \cleardoublepage{}
+\chapter*{Resumen}
 \addcontentsline{toc}{chapter}{Resumen}
-\include{capitulos/prefacio/resumen}
+\input{capitulos/prefacio/resumen}
 
 % \chapter*{}
 % \addcontentsline{toc}{chapter}{Abstract}
-% \include{prefacio/abstract}
+% \input{prefacio/abstract}
 
 \pagestyle{fancy}
 
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{3}
+\renewcommand{\contentsname}{Contenido}
 \tableofcontents
-
 \listoffigures
 \listoftables
-\listofalgorithms
+\listofalgorithms{}
+\listofmyequations{}
 \addcontentsline{toc}{chapter}{Índice de ecuaciones}
-\listofmyequations
-
 \pagestyle{fancy}
 
 \hypertarget{abbr}{\printnomenclature{}}
-
+\mainmatter{}
 \chapter{Generalidades}
-\include{capitulos/capitulo_generalidades/capitulo_generalidades}
+\begin{minipage}[t]{0.6\textwidth}
+    \begin{flushleft}
+        \large
+        ``Los límites de mi lenguaje son los límites de mi mundo'' \\
+        \textbf{- Ludwig Wittgenstein}
+    \end{flushleft}
+\end{minipage}
+\input{capitulos/capitulo_generalidades/capitulo_generalidades}
 
 \chapter{Marco Teórico}
-\include{capitulos/capitulo_marcoteorico/capitulo_marcoteorico}
+\begin{minipage}[t]{0.6\textwidth}
+    \begin{flushleft}
+        \large
+        ``Son las matemáticas más grandes que la mente humana, o la mente humana es más que una máquina'' \\
+        \textbf{- Kurt Gödel}
+    \end{flushleft}
+\end{minipage}
 
-\chapter{Sistema de diagnóstico asistido por computadora}
-\include{capitulos/capitulo_sdac/capitulo_sdac}
+\input{capitulos/capitulo_marcoteorico/capitulo_marcoteorico}
+
+\chapter{Sistema de diagnóstico}
+\begin{minipage}[t]{0.6\textwidth}
+    \begin{flushleft}
+        \large
+        ``La conciencia, es el fenómeno con el cual la misma existencia del universo se hace conocida'' \\
+        \textbf{- Roger Penrose}
+    \end{flushleft}
+\end{minipage}
+
+
+\input{capitulos/capitulo_sdac/capitulo_sdac}
 
 \chapter{Comentarios finales}
-\include{capitulos/capitulo_final/final}
+\begin{minipage}[t]{0.6\textwidth}
+    \begin{flushleft}
+    \large
+    ``Al hablar de conocimiento, implícitamente hablamos de conocedores''\\
+    \textbf{- Rebecca Goldstein}
+    \end{flushleft}
+\end{minipage}
+\input{capitulos/capitulo_final/final}
 % \chapter*{Glosario}
 % \addcontentsline{toc}{chapter}{Glosario}
-
+% \backmatter
 \appendix
-\chapter{Propuesta para donación}
-\label{appendix:grant}
-\include{capitulos/apendice_grant/apendice_grant}
+\chapter{Propuesta para donación}\label{appendix:grant}
+\input{capitulos/apendice_grant/apendice_grant}
 
-\chapter{Comparativa de arquitecturas}
-\label{appendix:comparativa}
-\include{capitulos/apendice_comparativa/apendice_comparativa}
+\chapter{Comparativa de arquitecturas}\label{appendix:comparativa}
+\input{capitulos/apendice_comparativa/apendice_comparativa}
 
-\chapter{Resultados por época de entrenamiento}
-\label{appendix:entrenamiento}
-\include{capitulos/apendice_entrenamiento/apendice_entrenamiento}
+\chapter{Resultados por época}\label{appendix:entrenamiento}
+\input{capitulos/apendice_entrenamiento/apendice_entrenamiento}
 \addcontentsline{toc}{chapter}{Bibliografía}
-\printbibliography
+\printbibliography{}
 % \addcontentsline{toc}{chapter}{Índice}
 % \printindex
 

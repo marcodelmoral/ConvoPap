@@ -14,13 +14,13 @@ algoritmo que soluciones el problema.
 
 \subsection{Determinar datos necesarios}
 
-Como regla general, se prefiere tener tantos datos posibles, es decir, filas en
-un archivo tabular ya que datos variados y una base de datos grande permiten un
-mejor entrenamiento de cualquier algoritmo. Pero también se requiere juntar la
-mayor cantidad de característica, columnas, para determinar cuales de estas
-inciden en la etiqueta de salida; en fases subsecuentes se reducirá este
-conjunto de atributos mediante técnicas para escoger los más importantes y
-significativos.
+Como regla general, se prefiere tener tantos datos posibles\footnote{Más datos
+es mejor rendimiento.}, es decir, filas en un archivo tabular ya que datos
+variados y una base de datos grande permiten un mejor entrenamiento de cualquier
+algoritmo. Pero también se requiere juntar la mayor cantidad de característica,
+columnas, para determinar cuales de estas inciden en la etiqueta de salida; en
+fases subsecuentes se reducirá este conjunto de atributos mediante técnicas para
+escoger los más importantes y significativos.
 
 Los datos necesarios para esta tesis deben ser: imágenes tomadas con un
 microscopio dentro de un \hyperlink{abbr}{PAP}, correctamente clasificadas y
@@ -44,13 +44,13 @@ si nos limitamos a resolver solamente los de un libro en particular, careceremos
 de un aprendizaje real de las matemáticas, nos volveremos expertos en un libro y
 seremos incapaces de generalizar el conocimiento.
 
-La BD DTU/Herlev, del doctor Jan Jantzen ha sido compilada durante más de 10
-años con imágenes normales y anormales de \hyperlink{abbr}{PAP}s provenientes
-del Hospital Universitario de Herlev en Dinamarca, gracias al Dr. M.D. Beth
-Bjerregaard. El análisis de esta \hyperlink{abbr}{BD} fue realizado a través de
-muchas tesis de maestría en el laboratorio de automatización de esta universidad
-y con el doctor G. Dounias en la Universidad del Mar Egeo en Grecia
-\cite{MBE-LAB} \cite{Jantzen2005}. 
+La \hyperlink{abbr}{BD} DTU/Herlev\footnote{\url{http://mde-lab.aegean.gr/index.php/downloads}}, del doctor Jan Jantzen
+ha sido compilada durante más de 10 años con imágenes normales y anormales de
+\hyperlink{abbr}{PAP}s provenientes del Hospital Universitario de Herlev en
+Dinamarca, gracias al Dr. M.D. Beth Bjerregaard. El análisis de esta
+\hyperlink{abbr}{BD} fue realizado a través de muchas tesis de maestría en el
+laboratorio de automatización de esta universidad y con el doctor G. Dounias en
+la Universidad del Mar Egeo en Grecia~\cite{MBE-LAB}~\cite{Jantzen2005}. 
 
 Ellos amablemente proveyeron los datos para esta tesis. Que consiste en un
 conjunto de imágenes clasificadas y validadas por expertos así como la
@@ -60,23 +60,22 @@ Lo cual le dio un empuje muy grande a la realización de esta tesis.
 
 Dada la gran cantidad de laminillas generadas, se creó una \hyperlink{abbr}{BD}
 basada en imágenes individuales. Expertos cito-tecnólogos utilizando
-microscopios a una resolución de $0.201  \frac{\mu}{pixel}$ para capturar imágenes
+microscopios a una resolución de \(0.201  \frac{\mu}{pixel}\) para capturar imágenes
 digitales. Cada imagen es después clasificada en siete clases en un proceso de
 validación que consiste en repetir el análisis con dos cito-tecnólogos
-distintos. Si la validación resultaba negativa la célula era descartada
-\cite{Norup2005} \cite{Martin2003}. 
+distintos. Si la validación resultaba negativa la célula era descartada~\cite{Norup2005}~\cite{Martin2003}. 
 
 El archivo comprimido contiene:
 
 \begin{itemize}
     \item El artículo Pap-smear Benchmark Data For Pattern Classification donde se explica
-    la necesidad y la creación de una base de datos de PAP para ser usada como benchmark
+    la necesidad y la creación de una base de datos de \hyperlink{abbr}{PAP} para ser usada como benchmark
     para probar algoritmos de clasificación; con el objetivo de permitir a estudiantes e investigadores
-    el acceso a una BD validada \cite{Jantzen2005}.
+    el acceso a una \hyperlink{abbr}{BD} validada~\cite{Jantzen2005}.
     \item La tesis Pap-Smear Classification, donde se propone un método basado en extracción
-    de características y el algoritmo Fuzzy C-means, utilizando validación cruzada \cite{Martin2003}.
+    de características y el algoritmo Fuzzy C-means, utilizando validación cruzada~\cite{Martin2003}.
     \item La tesis Classification of pap-smear data by transductive neuro-fuzzy
-    methods, que utiliza algoritmos neuro difusos y KNN, en la misma BD  \cite{Norup2005}.
+    methods, que utiliza algoritmos neuro difusos y KNN, en la misma \hyperlink{abbr}{BD}~\cite{Norup2005}.
     \item La carpeta con las imágenes, dividida en subcarpetas.
     \item Un archivo de Excel que contiene el nombre del archivo de imagen, las características
     extraídas y la clase a la que pertenece.
@@ -94,7 +93,7 @@ Los repositorios de datos estarán divididos en dos:
     \item{Local:} Almacenados en un Disco de Estado Sólido local con conexión de
     3000 MB/s de lectura.
     \item{Nube:} Divididos entre un sistema de almacenamiento en la nube y un repositorio
-    de datos para control de versiones.
+    de datos para control de versiones\footnote{\url{https://github.com/marcojulioarg}}.
 \end{itemize}
 
 El repositorio local es donde se almacenará la \hyperlink{abbr}{BD} aumentada,
@@ -103,7 +102,7 @@ que contendrá miles de imágenes y su peso rondará los gigabytes.
 El repositorio remoto y sistema de almacenamiento guardará el código, que se
 compone de \emph{Jupyter Notebooks} legibles y explicados para replicar el
 experimento. Este repositorio está designado de libre acceso y todos pueden
-descargarlo y analizar el código que generó los resultados de esta tesis.
+descargarlo y analizar el código que generó los resultados de esta tesis\footnote{\url{https://github.com/marcojulioarg/ConvoPap}}.
 
 \subsection{Crear entorno de trabajo}
 
@@ -132,7 +131,7 @@ entorno. Es una herramienta poderosa para aplicar cualquier metodología tanto d
 
 En la \autoref{fig:jupyter} podemos apreciar la interface. Podemos ver que se
 pueden insertar hipervínculos (así como video o imágenes), puede renderizar
-código \LaTeX para generar ecuaciones ricas y precisas. La ejecución del código
+código \LaTeX{} para generar ecuaciones ricas y precisas. La ejecución del código
 está dividida en celdas, donde cada celda se ejecuta de manera individual y
 muestra su resultado inmediatamente, estos resultados pueden ser tanto
 numéricos, tablas o figuras y gráficas como se observa.
@@ -154,7 +153,8 @@ código abierto, especialmente compilada para su uso en cómputo científico. Ti
 la mayoría de módulos necesarios para iniciar un análisis de datos o un
 experimento de \hyperlink{abbr}{ML}. Para instalarlo, es necesario ir al sitio
 web de \href{https://www.anaconda.com/distribution/}{Anaconda} e instalar la
-versión de 64 bits.
+versión de 64
+bits\footnote{\url{https://www.anaconda.com/distribution}}.
 
 Se procede a crear un entorno virtual de trabajo, este crea un intérprete
 independiente para un mejor control del proyecto. Para interactuar con Anaconda,
@@ -172,7 +172,9 @@ instalado previamente los \emph{Drivers} para el \hyperlink{abbr}{GPU} en caso
 de que se tenga uno. Configurar este dispositivo para cambiar su propósito de
 procesamiento gráfico a procesamiento general es una maraña de instalaciones y
 softwares auxiliares, afortunadamente, Anaconda tiene una forma sencilla de
-instalar y configurar \textbf{Tensorflow} con todas sus dependencias.
+instalar y configurar \textbf{Tensorflow} con todas sus
+dependencias\footnote{\mintinline{latex}{conda install -c anaconda
+tensorflow-gpu}}.
 
 A continuación enumeraremos algunos módulos de python relevantes para la creación
 del entorno de desarrollo:
@@ -182,7 +184,7 @@ del entorno de desarrollo:
     \item{\textbf{OpenCV: }} Módulo para \hyperlink{abbr}{PDI} y \hyperlink{abbr}{VC}.
     \item{\textbf{Pandas: }} Sirve para manipular datos tabulares.
     \item{\textbf{Numpy: }} Módulo para cómputo matemático.
-    \item{\textbf{Sklearn: }} Módulo de \hyperlink{abbr}{ML}.
+    \item{\textbf{Sklearn: }} Módulo de \hyperlink{abbr}{ML} y Ciencia de Datos.
     \item{\textbf{Matplotlib: }} Para hacer gráficas y figuras.
     \item{\textbf{Tensorflow: }} Para entrenar el modelo.
 \end{enumerate}
@@ -191,8 +193,8 @@ del entorno de desarrollo:
 
 Terminando este proceso obtendremos una carpeta de datos, con subcarpetas para
 cada clase con un peso de 100MB que posteriormente exploraremos para determinar
-sus características para posteriormente transformarse en conocimiento.
+sus características para luego transformarse en conocimiento.
 
 Así mismo, concluimos la instalación y configuración del entorno de trabajo
 computacional. El cual nos servirá para continuar con las siguientes etapas y
-generará código capaz de ser revisado, probado y replicado posteriormente. 
+generará código capaz de ser revisado, probado y replicado. 

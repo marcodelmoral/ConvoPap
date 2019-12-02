@@ -15,7 +15,7 @@ from scipy import interp
 from tensorflow.keras.utils import to_categorical
 import matplotlib
 import math
-
+from IPython.display import clear_output
 def get_size_statistics(source):
     heights = []
     widths = []
@@ -171,6 +171,7 @@ class PlotLosses(keras.callbacks.Callback):
         self.logs = []
 
     def on_epoch_end(self, epoch, logs={}):
+        # clear_output(wait=True)
         self.logs.append(logs.copy())
 
         plt.figure(figsize=self.tamano_fig)
@@ -190,8 +191,9 @@ class PlotLosses(keras.callbacks.Callback):
         plt.tight_layout()
         plt.show()
         
-def grafica_kfold(cv, X, y, n_splits, num_classes, nom_archivo, lw=10, dpi=500):
-    fig, ax = plt.subplots(figsize=(10,8))
+        
+def grafica_kfold(cv, X, y, n_splits, num_classes, nom_archivo, dpi=500, lw=20):
+    fig, ax = plt.subplots(figsize=(15,4))
     cmap_data = plt.cm.tab10
     cmap_cv = plt.cm.Blues
     """Create a sample plot for indices of a cross-validation object."""
@@ -207,11 +209,22 @@ def grafica_kfold(cv, X, y, n_splits, num_classes, nom_archivo, lw=10, dpi=500):
         ax.scatter(range(len(indices)), [ii + .5] * len(indices),
                    c=indices, marker='_', lw=lw, cmap=cmap_cv,
                    vmin=-.2, vmax=1.2)
-
     # Plot the data classes and groups at the end
-    ax.scatter(range(len(X)), [ii + 1.5] * len(X), c=y, marker='_', lw=lw, cmap=cmap_data)
+    scat = ax.scatter(range(len(X)), [ii + 1.5] * len(X), 
+               c=y.map(map_normal_anormal), 
+               marker='_', 
+               lw=lw, 
+               cmap=cmap_data)
+    
+    handles = scat.legend_elements()[0]
+    labels = y.unique()
 
-    # Formatting
+    legend1 = ax.legend(handles, 
+                        labels,
+                        loc="lower center", 
+                        title="Clases",  ncol=7)
+    
+    ax.add_artist(legend1)
     yticklabels = list(range(n_splits)) + ['Clase']
     ax.set(yticks=np.arange(n_splits+2) + .5, 
            yticklabels=yticklabels, 

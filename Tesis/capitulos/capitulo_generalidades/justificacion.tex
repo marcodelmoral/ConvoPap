@@ -1,16 +1,17 @@
-Para solucionar este conjunto de problemas, se requiere algo capaz de
+Para solucionar este conjunto de problemas, se necesita una técnica capaz de
 incrementar la tasa de diagnósticos realizados por tiempo y por experto. Así
-mismo, este algo debe mantener niveles de asertividad sumamente altos y ser
-capaz de emitir decisiones en situaciones donde el consenso médico podría ser
-ambiguo.~\cite{Meza-Palacios2017}
+mismo, la propuesta de solución debe mantener niveles de asertividad sumamente
+altos y ser capaz de emitir decisiones en situaciones donde el consenso médico
+podría ser ambiguo.~\cite{Meza-Palacios2017}
 
 Los sistemas de software, en concreto, los \hyperlink{abbr}{SDAC}, son
 utilizados en situaciones donde se requiere cumplir los requerimientos antes
 mencionados. Al ser digitalizados, nos permitirán procesar grandes volúmenes de
-información que de otra manera serían inmanejables y, al incluir en su
-funcionamiento técnicas de \hyperlink{abbr}{IA} y \hyperlink{abbr}{DL}, podremos
-reducir la subjetividad para llegar a una alta precisión en el diagnóstico y dar
-paso a mejoras en la calidad de vida del experto gracias al uso de la
+información que de otra manera serían inmanejables \footnote{Esto es lo que se
+conoce como \emph{Big Data}} y, al incluir en su funcionamiento técnicas de
+\hyperlink{abbr}{IA} y \hyperlink{abbr}{DL}, podremos reducir la subjetividad
+para llegar a una alta precisión en el diagnóstico y dar paso a mejoras en la
+calidad de vida del experto gracias al uso de la
 tecnología.~\cite{DominguezHernandez2013} 
 
 Para este software, el motor principal de diagnóstico será la técnica de
@@ -45,10 +46,13 @@ técnicas.~\cite{Litjens2017}
 
 Este modelo se desplegará en un dispositivo de hardware basado en
 \hyperlink{abbr}{SE}s, en el cual se instalará el software que permitirá
-capturar, procesar y clasificar las imágenes y que proveerá de la interface para
+capturar, procesar y clasificar las imágenes y que proveerá la Interface Gráfica
+de Usuario o Graphical User Interface
+(\hyperlink{abbr}{GUI}\nomenclature{GUI}{Graphical User Interface}) para
 interactuar con el experto; esto constituye los dos componentes del
 \hyperlink{abbr}{SDAC}, el tendrá que cumplir los siguientes puntos:
 
+\begin{minipage}{\textwidth}
 \begin{itemize}
     \item{\textbf{Alto grado de usabilidad:}} Toda tecnología genera un grado de
     estrés intrínseco al uso de la misma; al implementar criterios de Usabilidad
@@ -85,3 +89,4 @@ interactuar con el experto; esto constituye los dos componentes del
     que capturará y procesará conocimiento o añadir nuevos modelos,
     arquitecturas o algoritmos.
 \end{itemize}
+\end{minipage}

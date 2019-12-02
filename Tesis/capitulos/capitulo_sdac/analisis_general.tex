@@ -7,9 +7,10 @@ situaciones con bajo poder computacional como en dispositivos móviles, si la
 solución va a automatizar o a asistir en la toma de decisiones, si va a
 reemplazar una solución ya existente generar políticas para substitución y
 reemplazo; así como todo el acervo del dominio que guiará el diseño de la
-solución. El trabajo necesario para realizar un análisis genera surge de los dos
-capítulos anteriores, donde se definió el problema, sus características y
-propuestas de solución.
+solución. El trabajo necesario para realizar el Análisis General surge de los
+dos capítulos anteriores, donde se definió el problema, sus características y
+propuestas de solución\footnote{En Ciencia de Datos, esto se conoce como
+Conocimiento del Dominio.}.
 
 \subsection{Definir el problema bajo el dominio}
 
@@ -52,12 +53,12 @@ como esta solución llegó a sobrepasar por mucho el rendimiento de las formas
 tradicionales de análisis citológico. 
 
 PAPNET es un sistema creado por la empresa Neuromedical Systems que utiliza una
-RNA tradicional para detectar células anormales en un \hyperlink{abbr}{PAP}. Fue
-la primera compañía en utilizar \hyperlink{abbr}{RNA} a la citología. Tiene una
-tasa FNR de 3\% lo que la hace mejor que cualquier análisis tradicional de
-laboratorio, esto fue comprobado gracias a un estudio de análisis clínico que
-realizaron; este rendimiento logró que se convirtiera en el sistema más eficaz
-de antes del 2000~\cite{DeCresce1991}.
+\hyperlink{abbr}{RNA} para detectar células anormales en un
+\hyperlink{abbr}{PAP}. Fue la primera compañía en utilizar \hyperlink{abbr}{RNA}
+a la citología. Tiene una tasa FNR de 3\% lo que la hace mejor que cualquier
+análisis tradicional de laboratorio, esto fue comprobado gracias a un estudio de
+análisis clínico que realizaron; este rendimiento logró que se convirtiera en el
+sistema más eficaz de antes del 2000~\cite{DeCresce1991}.
 
 El problema con PAPNET era el costo. La diferencia con de su rendimiento con
 respecto a las formas tradicionales era significativo pero no podía justificar
@@ -96,7 +97,8 @@ imágenes, por lo cual podemos proceder de las siguientes maneras (\autoref{fig:
 Como veremos posteriormente, por las características de la \hyperlink{abbr}{BD},
 nos limitaremos a Clasificación y Segmentación semántica, sin embargo, a futuro
 será provechoso implementar las otras técnicas para mejorar la funcionalidad del
-sistema final.
+sistema final\footnote{Para segmentar y clasificar múltiples células en lugar de
+enfocar una sola.}.
 
 Las métricas de rendimiento se basan no solo en métricas de clasificación de
 imágenes, como el F1-score, Recall o la exactitud, sino también en la tasa de
@@ -125,7 +127,8 @@ fueron los siguientes:
   \item Las técnicas de aumento de datos no inciden en la decisión del
   algoritmo.
   \item La red neuronal es capaz de diferenciar correctamente en un espacio
-  multidimensional entre los tipos de célula.
+  multidimensional entre los tipos de célula\footnote{En la última capa
+  convolucionada.}.
 \end{itemize}
 
 El primer supuesto está presente en el desarrollo de los algoritmos de
@@ -150,8 +153,7 @@ Con el objetivo de corroborar las métricas de clasificación.
 La propuesta se define como: Un \hyperlink{abbr}{SDAC} basado en
 \hyperlink{abbr}{DL} y \hyperlink{abbr}{ConvNet}s capaz de ser desplegado en
 laboratorio, de bajo costo y con facilidad de uso. Que pueda clasificar células
-en normales y anormales con un rendimiento aceptable.
-
-La propuesta debe cumplir todos los objetivos planteados en esta tesis; para
-generar un diseño conceptual y posterior prototipo para desplegarlo en una
-solución al usuario final en trabajos posteriores.
+en normales y anormales con un rendimiento aceptable. Debe cumplir todos los
+objetivos planteados en esta tesis de manera que propicie el desarrollo del
+diseño conceptual y posterior prototipo para desplegarlo en un sistema al
+usuario final en trabajos posteriores.

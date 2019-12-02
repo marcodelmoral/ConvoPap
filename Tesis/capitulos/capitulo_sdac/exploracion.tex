@@ -1,5 +1,6 @@
-Esta fase se refiere a realizar explorar la \hyperlink{abbr}{BD} para extraer información
-necesaria convertirla en algo capaz de entrenar un modelo. 
+Esta fase se refiere a explorar la \hyperlink{abbr}{BD} para extraer información
+necesaria para poder convertirla en elementos que permitan a un algoritmo
+extraer información y aprender de ellos.
 
 Se estudia cada atributo y sus características: tipo de dato (entero, flotante,
 booleano), datos y valores faltantes así como su porcentaje, ruido (estocástico,
@@ -17,7 +18,8 @@ En \hyperlink{abbr}{ML} se utilizan datos tabulares para realizar el aprendizaje
 en donde cada fila representa una muestra y cada columna representa un atributo.
 Las columnas en un archivo tabular se dividen en dos: atributos y etiqueta.
 Donde el atributo son los valores de las variables de decisión y la etiqueta es
-la clase a la que pertenece cada muestra.
+la clase a la que pertenece cada muestra\footnote{En casos de regresión, en
+lugar de etiquetas serían valores continuos.}.
 
 \subsubsection{Atributos para la clasificación}
 
@@ -59,8 +61,7 @@ importantes ya fueron pre-seleccionados.
     CytoMin & Mínimo en citoplasma \\ \bottomrule
     \end{tabular}%
     }
-    \caption{Columnas del archivo y la característica que representa}
-    \label{tabla:columnas}
+    \caption{Columnas del archivo y la característica que representa}\label{tabla:columnas}
     \end{table}
 
 \subsubsection{Conteo de clases y categorías}
@@ -99,32 +100,33 @@ imágenes puesto que estas varían en tamaño (\autoref{tabla:dimensiones}).
     Mínimo & 32 & 40
     \end{tabular}%
     }
-    \caption{Análisis de dimensiones}
-    \label{tabla:dimensiones}
+    \caption{Análisis de dimensiones}\label{tabla:dimensiones}
     \end{table}
 
 \subsubsection{Análisis de dato individual}
 
-No solo se encuentran imágenes de las células en la \hyperlink{abbr}{BD}, sino también imágenes
-que son máscaras para determinar como se segmentan las partes de la célula en la
-imagen: núcleo, citoplasma y fondo. Estas máscaras corresponden a imágenes
-representadas por una sola matriz. Esta segmentación fue realizada por expertos
-cito-tecnólogos utilizando software especializado (\autoref{fig:imagen_mascara}).
+No solo se encuentran imágenes de las células en la \hyperlink{abbr}{BD}, sino
+también imágenes que son máscaras para determinar como se segmentan las partes
+de la célula en la imagen: núcleo, citoplasma y fondo. Estas máscaras
+corresponden a imágenes representadas por una sola matriz. Esta segmentación fue
+realizada por expertos cito-tecnólogos utilizando software
+especializado\footnote{Las imágenes fueron clasificadas y validadas por un
+conjunto de expertos, si alguno discrepaba en la clasificación, la imagen se
+eliminaba.}~(\autoref{fig:imagen_mascara}).
 
 \begin{figure}[H]
     \centering
     \begin{subfigure}{.5\textwidth}
         \centering
-        \includegraphics[width=.5\linewidth]{capitulo_sdac/209522940-209523052-001}
+        \includegraphics[width=.7\linewidth]{capitulo_sdac/209522940-209523052-001}
         \caption{Imagen}
     \end{subfigure}%
     \begin{subfigure}{.5\textwidth}
         \centering
-        \includegraphics[width=.5\linewidth]{capitulo_sdac/209522940-209523052-001-d}
+        \includegraphics[width=.7\linewidth]{capitulo_sdac/209522940-209523052-001-d}
         \caption{Máscara}
     \end{subfigure}
-    \caption{Imagen de célula y su máscara segmentada}
-    \label{fig:imagen_mascara}
+    \caption{Imagen de célula y su máscara segmentada}\label{fig:imagen_mascara}
     \end{figure}
 
 \subsection{Aplicar estadísticas}
@@ -232,11 +234,12 @@ es cada dato individual y las transformaciones que se le pueden aplicar al mismo
 Ya que la imagen contiene la célula y su máscara, pero no contiene las
 coordenadas de cada objeto dentro de la imagen o imágenes con múltiples objetos,
 podremos aplicar clasificación y segmentación semántica pero no detección ni
-instanciación. Esto nos da un indicio de los algoritmos a utilizar.
+instanciación. Esto nos da un indicio de los algoritmos y arquitecturas a utilizar.
 
 Finalmente, aumentaremos el archivo de excel que encontramos dentro de la
-carpeta de la \hyperlink{abbr}{BD} de la siguiente manera (\autoref{tabla:ananidas}). Este archivo
-servirá como inicio para los algoritmos posteriores de pre-procesamiento. 
+carpeta de la \hyperlink{abbr}{BD} de la siguiente manera
+(\autoref{tabla:ananidas}). Este archivo servirá como inicio para los algoritmos
+posteriores de pre-procesamiento. 
 
 % Please add the following required packages to your document preamble:
 % \usepackage{booktabs}
@@ -255,7 +258,6 @@ servirá como inicio para los algoritmos posteriores de pre-procesamiento.
     file\_masks & Dirección absoluta de la máscara \\ \bottomrule
     \end{tabular}%
     }
-    \caption{Columnas añadidas al archivo}
-    \label{tabla:ananidas}
+    \caption{Columnas añadidas al archivo}\label{tabla:ananidas}
     \end{table}
 

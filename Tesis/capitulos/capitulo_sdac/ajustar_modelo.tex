@@ -8,8 +8,10 @@ por varias iteraciones de la metodología para encontrar alguna satisfactoria.
 
 Los hiperparámetros pueden ser exclusivos para cada algoritmo, sin embargo, las
 técnicas de búsqueda de hiperparámetros son universales (Búsqueda reticular,
-búsqueda aleatoria, bayesiana, metaheurísticas). Si los recursos computacionales
-lo permiten, utilizar ensamblaje de modelos es mejor que un solo modelo.
+búsqueda aleatoria, bayesiana, metaheurísticas\footnote{Algoritmos de
+optimización especializados en espacios no convexos.}). Si los recursos
+computacionales lo permiten, utilizar ensamblaje de modelos es mejor que un solo
+modelo.
 
 Al ser la fase más computacionalmente intensiva de toda la metodología, esta
 fase tiende a ser tardada, normalmente de muchas horas. Al finalizar tendremos
@@ -33,7 +35,7 @@ someterán a varias pruebas y validaciones:
 
 \subsection{Implementar validación cruzada}
 
-Se cuenta con un archivo .csv que concentra la ruta de la imagen, la clase y la
+Se cuenta con un archivo \emph{.csv} que concentra la ruta de la imagen, la clase y la
 categoría a la que pertenece. Implementar validación cruzada se reduce a dividir
 aleatoriamente los índices de cada fila de tal archivo. Para ello se utilizará
 el módulo \emph{Pandas} para manejar los datos tabulares para implementar la
@@ -52,28 +54,30 @@ opción para validar este trabajo.
 
 En la~\autoref{fig:kfold} se representa la planeación de la validación cruzada,
 las dos clases, sus índices y como el algoritmo escoge aleatoriamente
-subconjuntos (índices) aleatoriamente en cada iteración, para asegurar una
-correcta validación del algoritmo. Se decidió por 10 iteraciones debido a la
-complejidad computacional, tardando esta fase 22 horas en completarse.
+subconjuntos (índices) en cada iteración para asegurar una correcta validación
+del algoritmo. Se decidió por 10 iteraciones debido a la complejidad
+computacional, tardando esta fase 22 horas en completarse.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{capitulo_sdac/kfold_10_2.png}
-    \caption{Kfold de 10 iteraciones binario}\label{fig:kfold}
+    \caption{K-fold de 10 iteraciones binario}\label{fig:kfold}
 \end{figure}
 
 \subsubsection{Clasificación multi-clase}
 
-La~\autoref{fig:kfold_7} muestra la validación cruzada aplicada al problema de 7
-clases. Existe discrepancia en la cantidad de elementos por cada una de las
-clases, es decir, es un entrenamiento desbalanceado y procederemos a evaluar el
-impacto de ello en el experimento. Este entrenamiento fue sumamente tardado: 44
-horas, ya que duplicamos el número de épocas de entrenamiento.
+La~\autoref{fig:kfold_7} muestra la validación cruzada\footnote{Debido a que se
+usa la misma semilla para los experimentos, los números aleatorios generados son
+bastante similares en los experimentos.} aplicada al problema de siete clases.
+Existe discrepancia en la cantidad de elementos por cada una de las clases, es
+decir, es un entrenamiento desbalanceado y procederemos a evaluar el impacto de
+ello en el experimento. Este entrenamiento fue sumamente tardado: 44 horas, ya
+que duplicamos el número de épocas de entrenamiento.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{capitulo_sdac/kfold_10_7.png}
-    \caption{Kfold de 10 iteraciones multi-clase}\label{fig:kfold_7}
+    \caption{K-fold de 10 iteraciones multi-clase}\label{fig:kfold_7}
 \end{figure}
 
 \subsection{Elegir hiperparámetros}
@@ -84,16 +88,17 @@ funcione o tenga un comportamiento errático.
 
 \begin{itemize}
     \item El tamaño de lote o \mintinline{latex}{BATCH_SIZE} se dejó como máximo
-    en $64$. Más grande hacía que el \hyperlink{abbr}{GPU} se quedara sin
+    en \(64\). Más grande hacía que el \hyperlink{abbr}{GPU} se quedara sin
     memoria antes de terminar.
     \item Las neuronas de la capa densa o totalmente conectada
-    \mintinline{latex}{FC_LAYERS} se dejan en $1024$ neuronas en comparación a
-    las $4096$ que tiene VGG original.
-    \item Como optimizador \mintinline{latex}{OPT} se eligió Adam y este cuenta
-    con solo un hiperparámetro \mintinline{latex}{LR} que es la tasa de
-    aprendizaje. Para \hyperlink{abbr}{TL} se prefieren tasas pequeñas.
+    \mintinline{latex}{FC_LAYERS} se dejan en \(1024\) neuronas en comparación a
+    las \(4096\) que tiene VGG original.
+    \item Como optimizador \mintinline{latex}{OPT} se eligió Adam\footnote{Otros
+    algoritmos pueden ser SGD y SGD con momento.} y este cuenta con solo un
+    hiper-parámetro \mintinline{latex}{LR} que es la tasa de aprendizaje. Para
+    \hyperlink{abbr}{TL} se prefieren tasas pequeñas.
     \item \mintinline{latex}{DROPOUT} define la probabilidad de apagar una
-    neurona particular en las capas densas y generalmente se sitúa en $50\%$.
+    neurona particular en las capas densas y generalmente se sitúa en \(50\%\).
 \end{itemize}
 
 \subsubsection{Clasificación binaria}
@@ -107,16 +112,15 @@ prácticas estadísticas (\autoref{fig:hiper_dosclases}).
 \begin{figure}[H]
     \centering
     \begin{minted}{python}
-                            BATCH_SIZE = 64
-                            FC_LAYERS = [1024, 1024]
-                            LR = 0.00001
-                            OPT = Adam(lr=LR)
-                            EPOCHS = 30
-                            DROPOUT = 0.5
-                            KFOLD_SPLITS = 10
+                        BATCH_SIZE = 64
+                        FC_LAYERS = [1024, 1024]
+                        LR = 0.00001
+                        OPT = Adam(lr=LR)
+                        EPOCHS = 30
+                        DROPOUT = 0.5
+                        KFOLD_SPLITS = 10
     \end{minted}
-     \caption{Hiperparámetros para dos clases}
-     \label{fig:hiper_dosclases}
+     \caption{Hiperparámetros para dos clases}\label{fig:hiper_dosclases}
 \end{figure}
 
 \subsubsection{Clasificación multi-clase}
@@ -129,16 +133,15 @@ tardó el doble en completarse como era lógico:
 \begin{figure}[H]
     \centering
 \begin{minted}{python}
-                            BATCH_SIZE = 64
-                            FC_LAYERS = [1024, 1024]
-                            LR = 0.0001
-                            OPT = Adam(lr=LR)
-                            EPOCHS = 60
-                            DROPOUT = 0.5
-                            KFOLD_SPLITS = 10
+                        BATCH_SIZE = 64
+                        FC_LAYERS = [1024, 1024]
+                        LR = 0.0001
+                        OPT = Adam(lr=LR)
+                        EPOCHS = 60
+                        DROPOUT = 0.5
+                        KFOLD_SPLITS = 10
 \end{minted}
-\caption{Hiperparámetros para siete clases}
-\label{fig:hiper_sieteclases}
+\caption{Hiperparámetros para siete clases}\label{fig:hiper_sieteclases}
 \end{figure}
 
 \subsubsection{Segmentación semántica}
@@ -153,15 +156,14 @@ solo cinco iteraciones ya que los previos tardaron mucho:
 \begin{figure}[H]
     \centering
 \begin{minted}{python}
-                            BATCH_SIZE = 32
-                            LR = 0.001
-                            OPT = Adam(lr=LR)
-                            EPOCHS = 50
-                            DROPOUT = 0.5
-                            KFOLD_SPLITS = 5
+                        BATCH_SIZE = 32
+                        LR = 0.001
+                        OPT = Adam(lr=LR)
+                        EPOCHS = 50
+                        DROPOUT = 0.5
+                        KFOLD_SPLITS = 5
 \end{minted}
-\caption{Hiperparámetros para segmentación semántica}
-\label{fig:hiper_segmentacion}
+\caption{Hiperparámetros para segmentación semántica}\label{fig:hiper_segmentacion}
 \end{figure}
 
 \subsection{Entrenar modelo}
@@ -173,59 +175,60 @@ entrenada en conjunto a toda la red. Convirtiendo un modelo general en un
 predictor particular, capaz de clasificar células en distintas clases.
 
 El ciclo de entrenamiento (\autoref{alg:entrenamiento}) es general para los tres
-experimentos. Recibe como entrada una BD representada por un archivo .csv
-cargado a memoria como dataframe y como salida da el mejor modelo. La variable
-\mintinline{latex}{results} es una lista que va a guardar el rendimiento de cada
-modelo entrenado en cada iteración \mintinline{latex}{k = 5}. La función
-\mintinline{latex}{Kfold} divide los datos y devuelve \mintinline{latex}{j,
-train, val} que son el índice de la iteración, los índices de entrenamiento y
-los índices de validación. Se construye el modelo pasando los hiperparámetros a
-la función \mintinline{latex}{build_model}. Se guarda el resultado de ajustar el
-modelo por el número de épocas. El error de generalización es el promedio del
-rendimiento de todos los resultados y se escoge el mejor modelo con la función
-\mintinline{latex}{best_index} que devuelve el índice del elemento más grande en
-la lista \mintinline{latex}{results}.
+experimentos. Recibe como entrada una \hyperlink{abbr}{BD} representada por un
+archivo \emph{.csv} cargado a memoria como DataFrame y como salida da el mejor
+modelo. La variable \mintinline{latex}{results} es una lista que va a guardar el
+rendimiento de cada modelo entrenado en cada iteración \mintinline{latex}{k =
+5}. La función \mintinline{latex}{Kfold} divide los datos y devuelve
+\mintinline{latex}{j, train, val} que son el índice de la iteración, los índices
+de entrenamiento y los índices de validación. Se construye el modelo pasando los
+hiperparámetros a la función \mintinline{latex}{build_model}. Se guarda el
+resultado de ajustar el modelo por el número de épocas. El error de
+generalización es el promedio del rendimiento de todos los resultados y se
+escoge el mejor modelo con la función \mintinline{latex}{best_index} que
+devuelve el índice del elemento más grande en la lista
+\mintinline{latex}{results}.
 
-\begin{algorithm}[H]
-    \SetAlgoLined
+\begin{algorithm}
+    \SetAlgoLined{}
     \SetKwInOut{Input}{Input}\SetKwInOut{Output}{Output}
     \Input{Database}
     \Output{Best model}
-    $results \longleftarrow [ ... ]$
-    \BlankLine
-    $models \longleftarrow [ ... ]$
-    \BlankLine
-    $batch\_size \longleftarrow 128$
-    \BlankLine
-    $epochs \longleftarrow 50$
-    \BlankLine
-    $layers \longleftarrow [1024, 1024]$
-    \BlankLine
-    $opt \longleftarrow Adam$
-    \BlankLine
-    $lr \longleftarrow 1e-4$
-    \BlankLine
-    $dropout \longleftarrow [0.5, 0.5]$
-    \BlankLine
-    $k \longleftarrow 5$
-    \BlankLine
-    $\mathbb{D}  \longleftarrow database$
-    \BlankLine
-    \For{$j, train, val \in Kfold(splits=k, data=\mathbb{D})$}{    
-        \BlankLine
-        $model = build\_model(dropout, layers, opt(lr))$
-        \BlankLine
-        $result = model.fit(train, epochs)$
-        \BlankLine
-        $models[j] \longleftarrow model$
-        $results[j] \longleftarrow result.evaluate(val)$
+    \(results \longleftarrow [ \cdots ]\)
+    \BlankLine{}
+    \(models \longleftarrow [ \cdots ]\)
+    \BlankLine{}
+    \(batch\_size \longleftarrow 128\)
+    \BlankLine{}
+    \(epochs \longleftarrow 50\)
+    \BlankLine{}
+    \(layers \longleftarrow [1024, 1024]\)
+    \BlankLine{}
+    \(opt \longleftarrow Adam\)
+    \BlankLine{}
+    \(lr \longleftarrow 1e-4\)
+    \BlankLine{}
+    \(dropout \longleftarrow [0.5, 0.5]\)
+    \BlankLine{}
+    \(k \longleftarrow 5\)
+    \BlankLine{}
+    \(\mathbb{D}  \longleftarrow database\)
+    \BlankLine{}
+    \For{\(j, train, val \in Kfold(splits=k, data=\mathbb{D})\)}{    
+        \BlankLine{}
+        \(model = build\_model(dropout, layers, opt(lr))\)
+        \BlankLine{}
+        \(result = model.fit(train, epochs)\)
+        \BlankLine{}
+        \(models[j] \longleftarrow model\)
+        \(results[j] \longleftarrow result.evaluate(val)\)
     }
-    \BlankLine
-    $generalization\_error \longleftarrow mean(results)$
-    \BlankLine
-    $best\_model\_idx \longleftarrow best_index(results)$
-    \BlankLine
-    $best\_model = models[best\_model\_idx]$
+    \BlankLine{}
+    \(generalization\_error \longleftarrow mean(results)\)
+    \BlankLine{}
+    \(best\_model\_idx \longleftarrow best\_index(results)\)
+    \BlankLine{}
+    \(best\_model = models[best\_model\_idx]\)
     \caption{Ciclo de entrenamiento}\label{alg:entrenamiento}
 \end{algorithm}
 
@@ -265,14 +268,13 @@ la~\autoref{tabla:validacion}. La iteración con mejor rendimiento fue la númer
     9 & 99.82474446 & 0.00390799 \\ \bottomrule
     \end{tabular}%
     }
-    \caption{Resultados de la validación cruzada binaria}
-    \label{tabla:validacion}
+    \caption{Resultados de la validación cruzada binaria}\label{tabla:validacion}
     \end{table}
 
 La~\autoref{tabla:estadisticos} concluye el experimento, la exactitud final
-alcanzada es el promedio de las iteraciones: $99.86\% \pm 0.0412$. Un
+alcanzada es el promedio de las iteraciones: \(99.86\% \pm 0.0412\). Un
 rendimiento bastante aceptable, siendo el error de generalización del modelo un
-total de $0.14\%$.
+total de \( 0.14\% \).
 
 \begin{table}[H]
     \centering
@@ -290,8 +292,7 @@ total de $0.14\%$.
     max & 99.91752505 & 0.006879645 \\ \bottomrule
     \end{tabular}%
     }
-    \caption{Estadísticos del experimento binario}
-    \label{tabla:estadisticos}
+    \caption{Estadísticos del experimento binario}\label{tabla:estadisticos}
     \end{table}
 
 A continuación se mostrarán las métricas de la mejor iteración, que nos ofrecerá
@@ -352,12 +353,11 @@ ser debido a fluctuaciones del generador de números aleatorios.
     9 & 99.62886572 & 0.013009808 \\ \bottomrule
     \end{tabular}%
     }
-    \caption{Resultados de la validación cruzada multi-clase}
-    \label{tabla:validacion7}
+    \caption{Resultados de la validación cruzada multi-clase}\label{tabla:validacion7}
     \end{table}
 
 La~\autoref{tabla:estadisticos7} concluye el experimento, la exactitud final
-alcanzada es el promedio de las iteraciones: $99.58\% \pm 0.084$. Podemos ver
+alcanzada es el promedio de las iteraciones: \(99.58\% \pm 0.084\). Podemos ver
 que tanto la especificidad como la sensibilidad tienen una desviación estándar
 mayor que la exactitud, debido a la forma en que se calculan estas métricas. El
 error de generalización total del modelo es de 0.42\%.
@@ -378,8 +378,7 @@ error de generalización total del modelo es de 0.42\%.
     max & 99.72165227 & 0.016523478 \\ \bottomrule
     \end{tabular}%
     }
-    \caption{Estadísticos del experimento multi-clase}
-    \label{tabla:estadisticos7}
+    \caption{Estadísticos del experimento multi-clase}\label{tabla:estadisticos7}
     \end{table}
 
 La pérdida cayó abruptamente antes de las 10 épocas, después de las cuales se
@@ -397,7 +396,7 @@ muy bien las complejidades de la clasificación citológica multi-clase
 
 La exactitud del experimento multi-clase se comporta muy similar al del
 experimento binario (\autoref{fig:precision_total_7}). Hay una mínima brecha
-entre la metríca en entrenamiento y en validación probablemente se deba al
+entre la métrica en entrenamiento y en validación probablemente se deba al
 fenómeno de~\emph{underfitting}. Esto se podría solucionar reduciendo el
 \mintinline{latex}{DROPOUT} o incrementando la complejidad del modelo, aunque la
 diferencia es tan poca que puede no ser significativa.
@@ -566,8 +565,7 @@ diferencia es una cantidad negligible.
     POP & 9700 & 9700 \\ \bottomrule
     \end{tabular}%
     }
-    \caption{Reporte de clasificación binario}
-    \label{tabla:reporte_2}
+    \caption{Reporte de clasificación binario}\label{tabla:reporte_2}
     \end{table}
 
 La~\autoref{fig:matrices} nos muestra las matrices de confusión; la matriz
@@ -590,8 +588,7 @@ lesión citológica cuando si está presente.
         \includegraphics[width=1\linewidth]{capitulo_sdac/reporte_2_class/matriz_norm.pdf}
         \caption{Matriz de confusión sin normalizar}\label{fig:matriz_sin}
     \end{subfigure}%
-        \caption{Matrices de confusión} 
-        \label{fig:matrices}
+        \caption{Matrices de confusión}\label{fig:matrices}
 \end{figure}
     
 La~\autoref{tabla:reporte_completo_2} nos condensa todas las métricas utilizadas
@@ -627,8 +624,7 @@ el problema de siete clases.
     AUC & 0.99918 & 0.99918 \\ \bottomrule
     \end{tabular}%
     }
-    \caption{Métricas de clasificación binaria}
-    \label{tabla:reporte_completo_2}
+    \caption{Métricas de clasificación binaria}\label{tabla:reporte_completo_2}
     \end{table}
 
 La \autoref{fig:reporte_2_0} nos muestra una mapa de calor que muestra las
@@ -667,7 +663,7 @@ Se muestra en la~\autoref{tabla:metricas_diag_2} el reporte de métricas
 especiales utilizadas para sistemas de diagnóstico. PLR tiene mejor
 representación en la clase anormal, probablemente debido a que contiene más
 variación entre sus elementos ya que en realidad son siete clases en una
-mientras que normal son tres en una. DOR nos muestra que la prueba es igualmente
+mientras que normal son tres en una. DOR implica que la prueba es igualmente
 efectiva en ambas clases mientras que un DP arriba de tres se considera bueno.
 
 \begin{table}[H]
@@ -683,8 +679,7 @@ efectiva en ambas clases mientras que un DP arriba de tres se considera bueno.
     IS & 0.98314 & 1.01465 \\ \bottomrule
     \end{tabular}%
     }
-    \caption{Métricas para diagnóstico binario}
-    \label{tabla:metricas_diag_2}
+    \caption{Métricas para diagnóstico binario}\label{tabla:metricas_diag_2}
     \end{table}
 
 De las 8 imágenes clasificadas incorrectamente, se tomaron cuatro muestras.
@@ -772,8 +767,7 @@ concuerda con los resultados de la clasificación binaria debido a su morfologí
     POP & 9700 & 9700 & 9700 & 9700 & 9700 & 9700 & 9700 \\ \bottomrule
     \end{tabular}%
     }
-    \caption{Reporte de clasificación multi-clase}
-    \label{tabla:reporte_class_}
+    \caption{Reporte de clasificación multi-clase}\label{tabla:reporte_class_7}
     \end{table}
 
 % \begin{table}[H]
@@ -803,22 +797,20 @@ rastros de azul en otras partes de la gráfica.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{capitulo_sdac/reporte_7_class/matriz_norm.pdf}
-    \caption{Matriz de confusión normalizada multi-clase} 
-    \label{fig:matriz_norm_7}
+    \caption{Matriz de confusión normalizada multi-clase}\label{fig:matriz_norm_7}
 \end{figure}
 
 La matriz de confusión sin normalizar (\autoref{fig:matriz_sin_7}) nos muestra
 con mayor claridad los errores de clasificación. La diferencia en tonalidad de
 azul en la diagonal de la matriz se debe a que cada clase tiene diferente número
-de elementos. El modelo tiene a confundir más las clases
+de elementos. El modelo tiende a confundir más las clases
 \emph{carcinoma\_in\_situ} y \emph{severe\_dysplastic}, puesto que una es una
 etapa previa a la otra, no es tanto problema durante el diagnóstico médico.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{capitulo_sdac/reporte_7_class/matriz.pdf}
-    \caption{Matriz de confusión sin normalizar con 7 clases} 
-    \label{fig:matriz_sin_7}
+    \caption{Matriz de confusión sin normalizar con 7 clases}\label{fig:matriz_sin_7}
 \end{figure}
 
 La~\autoref{tabla:metricas_class_7} resume todas las métricas utilizadas para la
@@ -852,15 +844,14 @@ pequeño y bien diferenciado.
     AUC & 0.99695 & 0.99988 & 0.99595 & 0.99936 & 1 & 1 & 0.99548
     \end{tabular}%
     }
-    \caption{Métricas de clasificación multiclase}
-    \label{tabla:metricas_class_7}
+    \caption{Métricas de clasificación multi-clase}\label{tabla:metricas_class_7}
     \end{table}
 
 La~\autoref{fig:reporte_7_0} y~\autoref{fig:reporte_7_1} nos muestran, en un
 mapa de calor las técnicas cuyo valor óptimo debe tender a 0 y a 1
-respectivamente. Las métricas CEN, MCEN son las que peor evalúan al
-algoritmo, sin embargo, la divergencia del óptimo es muy poca. Siendo la clase
-\emph{severe\_dysplastic} la que peor rendimiento tiene, siendo confundida por
+respectivamente. Las métricas CEN, MCEN son las que peor evalúan al algoritmo,
+sin embargo, la divergencia del óptimo es muy poca. Siendo la clase
+\emph{severe\_dysplastic} la que peor rendimiento tiene, que es confundida por
 cáncer habitualmente.
 
 \begin{figure}[H]
@@ -882,13 +873,12 @@ multi-clase. El macro-promedio computa la métrica independiente para cada clase
 y luego toma el promedio; mientras que el micro-promedio agrega las
 contribuciones de todas las clases y computa el promedio, este ultimo es
 significativo para pruebas multi-clase debido a que toma en cuenta la falta de
-balance entre las clases.
+balance entre las clases (\autoref{fig:roc_multi}).
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{capitulo_sdac/reporte_7_class/roc_multiclase.pdf}
-    \caption{ROC y AUC multi-clase} 
-    \label{fig:matriz_norm_7}
+    \caption{ROC y AUC multi-clase}\label{fig:roc_multi}
 \end{figure} 
 
 En la tabla de métricas de diagnóstico (\autoref{tabla:diag_7}), llama la
@@ -910,8 +900,7 @@ erróneas y las fórmulas deben de haber encontrado una división por 0.
     IS & 3.09648 & 2.95721 & 3.20618 & 2.30052 & 2.80083 & 2.69014 & 2.76294
     \end{tabular}%
     }
-    \caption{Métricas de diagnóstico de 7 clases}
-    \label{tabla:diag_7}
+    \caption{Métricas de diagnóstico de 7 clases}\label{tabla:diag_7}
     \end{table}
 
 De todas las imágenes mal clasificadas del problema de siete clases, tomamos
@@ -1013,7 +1002,7 @@ contienen solo una.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{capitulo_sdac/test_segmentacion}
+    \includegraphics[width=0.5\textwidth]{capitulo_sdac/test_segmentacion}
     \caption{Pruebas en imagen de laminilla}\label{fig:laminilla}
 \end{figure}
 
@@ -1068,7 +1057,7 @@ anterior es el motor que guía no solo el aprendizaje humano sino toda la
 ciencia.
 
 Para entender como ayuda el \hyperlink{abbr}{TL}, en particular la arquitectura
-VGG19 entrenada en \emph{Imagenet} al problema expuesto en esta tesis. Mostramos
+VGG19 entrenada en \emph{ImageNet} al problema expuesto en esta tesis. Mostramos
 una selección aleatoria, de cierto número de capas, de los filtros que se
 aplican a la imagen al transitar por las capas de la red. 
 
@@ -1106,9 +1095,9 @@ sumamente complejos y difíciles de interpretar.
   \caption{Visualización de filtros convolucionales}\label{fig:filtros} 
 \end{figure}
 
-Finalmente, se muestran los filtros de la última capa \emph{block5\_conv4},
-tales filtros muestran una complejidad bastante alta, con tintes
-psicodélicos, que muestran las abstracciones que hace la red para poder
+Finalmente, se muestran (\autoref{fig:convultima}) los filtros de la última capa
+\emph{block5\_conv4}, tales filtros muestran una complejidad bastante alta, con
+tintes psicodélicos, que muestran las abstracciones que hace la red para poder
 interpretar el contenido de una imagen.
 
 \begin{figure}[H] 
@@ -1137,27 +1126,27 @@ problema.
     \end{subfigure}\hspace*{\fill}
     \begin{subfigure}{0.40\textwidth}
       \includegraphics[width=\linewidth]{capitulo_sdac/xcancerblock1_pool-MaxPool_0.pdf}
-      \caption{Block1\_pool}\label{fig:ay}
+      \caption{Block1\_pool}\label{fig:by}
     \end{subfigure}
     
     \medskip
     \begin{subfigure}{0.40\textwidth}
       \includegraphics[width=\linewidth]{capitulo_sdac/xcancerblock2_pool-MaxPool_0.pdf}
-      \caption{Block2\_pool}\label{fig:by}
+      \caption{Block2\_pool}\label{fig:cy}
     \end{subfigure}\hspace*{\fill}
     \begin{subfigure}{0.40\textwidth}
       \includegraphics[width=\linewidth]{capitulo_sdac/xcancerblock3_pool-MaxPool_0.pdf}
-      \caption{Block3\_pool}\label{fig:cy}
+      \caption{Block3\_pool}\label{fig:dy}
     \end{subfigure}
     
     \medskip
     \begin{subfigure}{0.40\textwidth}
       \includegraphics[width=\linewidth]{capitulo_sdac/xcancerblock4_pool-MaxPool_0.pdf}
-      \caption{Block4\_pool}\label{fig:dy}
+      \caption{Block4\_pool}\label{fig:ey}
     \end{subfigure}\hspace*{\fill}
     \begin{subfigure}{0.40\textwidth}
       \includegraphics[width=\linewidth]{capitulo_sdac/xcancerblock5_pool-MaxPool_0.pdf}
-      \caption{Block5\_pool}\label{fig:ye}
+      \caption{Block5\_pool}\label{fig:fy}
     \end{subfigure}
     \caption{Activaciones de capas \emph{MaxPool} intermedias con entrada de célula cancerígena}\label{fig:inter}
     \end{figure}
@@ -1279,7 +1268,7 @@ de oclusión arrojan que también es robusto antes esta prueba de estrés.
   \begin{figure}[H] % "[t!]" placement specifier just for this example
     \begin{subfigure}{0.40\textwidth}
     \includegraphics[width=\linewidth]{capitulo_sdac/occlusion-carcinoma_in_situ0.pdf}
-    \caption{Oclusión para \emph{carcinona\_in\_situ}}\label{fig:a}
+    \caption{Oclusión para \emph{carcinoma\_in\_situ}}\label{fig:a}
     \end{subfigure}\hspace*{\fill}
     \begin{subfigure}{0.40\textwidth}
     \includegraphics[width=\linewidth]{capitulo_sdac/occlusion-light_dysplastic13.pdf}
@@ -1289,11 +1278,11 @@ de oclusión arrojan que también es robusto antes esta prueba de estrés.
     \medskip
     \begin{subfigure}{0.40\textwidth}
     \includegraphics[width=\linewidth]{capitulo_sdac/occlusion-moderate_dysplastic25.pdf}
-    \caption{Oclusión para \emph{moderate\_dysplastic}}\label{fig:c}
+    \caption{Oclusión para \emph{moderate\_dysplastic}}\label{fig:cc}
     \end{subfigure}\hspace*{\fill}
     \begin{subfigure}{0.40\textwidth}
     \includegraphics[width=\linewidth]{capitulo_sdac/occlusion-normal_columnar34.pdf}
-    \caption{Oclusión para \emph{normal\_columnar}}\label{fig:d}
+    \caption{Oclusión para \emph{normal\_columnar}}\label{fig:dd}
     \end{subfigure}
     
     \medskip
@@ -1324,19 +1313,19 @@ que ha dado mejores resultados a la hora de visualizar datos multidimensionales
 extraídos de las capas de una red neuronal. Este algoritmo está implementado en
 \textbf{Python}
 
-Los hiper-parámetros utilizados para correr el algoritmo se muestra a continuación. Se hicieron
-pruebas manuales para encontrar el mejor nivel de \emph{perplexity}. La implementación
-del algoritmo en \textbf{Python} es paralelizada, por lo que se pudieron usar todos los 
-núcleos disponibles del sistema.
+Los hiper-parámetros utilizados para correr el algoritmo se muestra a
+continuación en la \autoref{fig:hiper_tsne}. Se hicieron pruebas manuales para
+encontrar el mejor nivel de \emph{perplexity}. La implementación del algoritmo
+en \textbf{Python} es paralelizada, por lo que se pudieron usar todos los
+núcleos disponibles del sistema. 
 
 \begin{figure}[H]
     \centering
 \begin{minted}{python}
-                        PERPLEXITY = 2000
-                        N_JOBS = 16
+                            PERPLEXITY = 2000
+                            N_JOBS = 16
 \end{minted}
-\caption{Hiperparámetros para \emph{t-SNE}}
-\label{fig:hiper_tsne}
+\caption{Hiperparámetros para \emph{t-SNE}}\label{fig:hiper_tsne}
 \end{figure}
 
 Se tomaron los datos de validación usados para la mejor iteración de la
@@ -1365,8 +1354,8 @@ de la complejidad de la imagen con relación a la clase que representa.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{capitulo_sdac/tsne-7clases3-84954-2000.pdf}
-    \caption{Reducción de dimensionalidad con t-distributed stochastic neighbor embedding optimizado}\label{fig:tsne}
+    \includegraphics[width=0.90\textwidth]{capitulo_sdac/tsne-7clases3-84954-2000.pdf}
+    \caption{Reducción de dimensionalidad con t-sne}\label{fig:tsne}
 \end{figure}
 
 Podemos ver que el algoritmo puede clasificar correctamente y los resultados de
@@ -1378,12 +1367,12 @@ están correctamente separadas del resto.
 \subsection{Modelo}
 
 El problema de clasificación de imágenes de índole citológica, en particular a
-las células encontradas dentro de una laminilla de examen Papanicolau, pertenece
-a la categoría de problemas que pueden ser resueltos mediante Deep Learning,
-utilizando Redes Neuronales Convolucionadas.
+las células encontradas dentro de una laminilla de examen \hyperlink{abbr}{PAP}, pertenece
+a la categoría de problemas que pueden ser resueltos mediante \hyperlink{abbr}{DL},
+utilizando \hyperlink{abbr}{ConvNet}s.
 
 Como se mostró en el Estado del Arte, a la fecha existen varios intentos de
-clasificación de células para prueba de Papanicolau.
+clasificación de células para examen \hyperlink{abbr}{PAP}.
 La~\autoref{tabla:comparativa2} muestra el rendimiento de clasificación de
 distintos métodos, con sus respectivas métricas, para el problema de dos clases.
 También se incluyen en la comparativa los resultados de las tesis y los
@@ -1404,7 +1393,7 @@ iteraciones; por ello el benchmark usa 10.
   \begin{tabular}{@{}lllllll@{}}
   \toprule
   Métodos & k-fold CV & TPR/Sens & TNR/Spec & ACC & F1 & AUC \\ \midrule
-  Benchmark & 10 & $98.8 \pm 1.3$ & $79.3 \pm 6.3$ & $93.6 \pm 1.9$ & 88.0 &\- \\
+  Benchmark & 10 & \(98.8 \pm 1.3\) & \(79.3 \pm 6.3\) & \(93.6 \pm 1.9\) & 88.0 &\- \\
   PSO-lnn & 5 & 98.4 & 92.2 & 96.7 & 95.2 & - \\
   GEN-lnn & 5 & 98.5 & 92.1 & 96.8 & 95.2 &\ - \\
   ANN & - & 99.9 & 96.5 & 99.3 & 98.2 & - \\
@@ -1412,8 +1401,8 @@ iteraciones; por ello el benchmark usa 10.
   Ensemble & 5 & 99 & 89.7 & 96.5 & - & - \\
   Ens & 5 & - & - & - & - & 0.884 \\
   dis(S+M) & 5 & - & - & - & - & 0.964 \\
-  DeepPap & 5 & $98.2 \pm 1.2$ & $98.3 \pm 0.9$ & $98.3 \pm 0.7$ & $98.3 \pm 0.3$ & 0.998 \\
-  Tesis2 & 10 & $\mathbf{0.99857}$ & $\mathbf{0.99979}$ & $\mathbf{99.86}$ & $\mathbf{0.99918}$ & \textbf{0.99918} \\ \bottomrule
+  DeepPap & 5 & \(98.2 \pm 1.2\) & \(98.3 \pm 0.9\) & \(98.3 \pm 0.7\) & \(98.3 \pm 0.3\) & 0.998 \\
+  Tesis2 & 10 & \(\mathbf{0.99857}\) & \(\mathbf{0.99979}\) & \(\mathbf{99.86}\) & \(\mathbf{0.99918}\) & \textbf{0.99918} \\ \bottomrule
   \end{tabular}%
   }
   \caption{Comparativa para el problema binario}\label{tabla:comparativa2}

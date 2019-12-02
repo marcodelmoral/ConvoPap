@@ -1,4 +1,3 @@
-
 En este anexo se mostrarán los resultados de los experimentos para buscar el
 mejor algoritmo para TL aplicado al análisis de imágenes citológicas de  \hyperlink{abbr}{CCU}. 
 
@@ -15,15 +14,15 @@ alcanzar mejores exactitudes.
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.8\textwidth}
+    \begin{subfigure}[b]{0.6\textwidth}
         \centering
-       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/DenseNet201/accuracy.pdf}
+       \includegraphics[width=1\textwidth]{apendice_comparativa/DenseNet201/accuracy.pdf}
        \caption{Exactitud}\label{fig:accuracy_dense} 
     \end{subfigure}
 
-    \begin{subfigure}[b]{0.8\textwidth}
+    \begin{subfigure}[b]{0.6\textwidth}
         \centering
-       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/DenseNet201/perdida.pdf}
+       \includegraphics[width=1\textwidth]{apendice_comparativa/DenseNet201/perdida.pdf}
        \caption{Pérdida}\label{fig:perdida_dense}
     \end{subfigure}
     \caption{Gráfica de resultados DenseNet201}\label{fig:DenseNet201_total}
@@ -60,14 +59,14 @@ Quizás con mayor entrenamiento pueda alcanzar mejores exactitudes, ya que en la
 épocas finales tenemos una mejoría considerable.
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.8\textwidth}
+    \begin{subfigure}[b]{0.6\textwidth}
         \centering
-       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/InceptionResNetV2/accuracy.pdf}
+       \includegraphics[width=1\textwidth]{apendice_comparativa/InceptionResNetV2/accuracy.pdf}
        \caption{Exactitud}\label{fig:accuracy_incepres} 
     \end{subfigure}
-    \begin{subfigure}[b]{0.8\textwidth}
+    \begin{subfigure}[b]{0.6\textwidth}
         \centering
-       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/InceptionResNetV2/perdida.pdf}
+       \includegraphics[width=1\textwidth]{apendice_comparativa/InceptionResNetV2/perdida.pdf}
        \caption{Pérdida}\label{fig:perdida_incepres}
     \end{subfigure}
     \caption{Gráfica de resultados InceptionResNetV2}\label{fig:InceptionResNetV2_total}
@@ -99,14 +98,14 @@ la~\autoref{tabla:v3} podemos ver como la exactitud en validación fluctúa por
 debajo y por arriba del 80\%.
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.8\textwidth}
+    \begin{subfigure}[b]{0.6\textwidth}
         \centering
-       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/InceptionV3/accuracy.pdf}
+       \includegraphics[width=1\textwidth]{apendice_comparativa/InceptionV3/accuracy.pdf}
        \caption{Exactitud}\label{fig:acc_v3} 
     \end{subfigure}
-    \begin{subfigure}[b]{0.8\textwidth}
+    \begin{subfigure}[b]{0.6\textwidth}
         \centering
-       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/InceptionV3/perdida.pdf}
+       \includegraphics[width=1\textwidth]{apendice_comparativa/InceptionV3/perdida.pdf}
        \caption{Pérdida}\label{fig:loss_v3}
     \end{subfigure}
     \caption{Gráfica de resultados InceptionV3}\label{fig:v3_total}
@@ -138,14 +137,14 @@ La~\autoref{tabla:mobile} nos muestra que la exactitud en validación se estanca
 del 88\%, es probable que mayor entrenamiento mejore la exactitud.
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.8\textwidth}
+    \begin{subfigure}[b]{0.6\textwidth}
         \centering
-       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/MobileNet/accuracy.pdf}
+       \includegraphics[width=1\textwidth]{apendice_comparativa/MobileNet/accuracy.pdf}
        \caption{Exactitud}\label{fig:acc_mobile} 
     \end{subfigure}
-    \begin{subfigure}[b]{0.8\textwidth}
+    \begin{subfigure}[b]{0.6\textwidth}
         \centering
-       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/MobileNet/perdida.pdf}
+       \includegraphics[width=1\textwidth]{apendice_comparativa/MobileNet/perdida.pdf}
        \caption{Pérdida}\label{fig:loss_mobile}
     \end{subfigure}
     \caption{Gráfica de resultados MobileNet}\label{fig:mobile_total}
@@ -177,14 +176,14 @@ La siguiente tabla (\autoref{tabla:mobilev2}) nos muestra que el modelo es incap
 superar el 80\% de exactitud, puede que con mayor entrenamiento esto se logre.
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.8\textwidth}
+    \begin{subfigure}[b]{0.6\textwidth}
         \centering
-       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/MobileNetV2/accuracy.pdf}
+       \includegraphics[width=1\textwidth]{apendice_comparativa/MobileNetV2/accuracy.pdf}
        \caption{Exactitud}\label{fig:acc_mobilev2} 
     \end{subfigure}
-    \begin{subfigure}[b]{0.8\textwidth}
+    \begin{subfigure}[b]{0.6\textwidth}
         \centering
-       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/MobileNetV2/perdida.pdf}
+       \includegraphics[width=1\textwidth]{apendice_comparativa/MobileNetV2/perdida.pdf}
        \caption{Pérdida}\label{fig:loss_mobilev2}
     \end{subfigure}
     \caption{Gráfica de resultados MobileNetV2}\label{fig:mobilev2_total}
@@ -217,14 +216,14 @@ aumenta, lo hace a una tasa demasiado baja, aunque mayor entrenamiento si se
 pueda traducir en mejor exactitud.
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.8\textwidth}
+    \begin{subfigure}[b]{0.6\textwidth}
         \centering
-       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/NASNetLarge/accuracy.pdf}
+       \includegraphics[width=1\textwidth]{apendice_comparativa/NASNetLarge/accuracy.pdf}
        \caption{Exactitud}\label{fig:acc_nasnetlarge} 
     \end{subfigure}
-    \begin{subfigure}[b]{0.8\textwidth}
+    \begin{subfigure}[b]{0.6\textwidth}
         \centering
-       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/NASNetLarge/perdida.pdf}
+       \includegraphics[width=1\textwidth]{apendice_comparativa/NASNetLarge/perdida.pdf}
        \caption{Pérdida}\label{fig:loss_nasnetlarge}
     \end{subfigure}
     \caption{Gráfica de resultados NASNetLarge}\label{fig:naslarge_total}
@@ -256,20 +255,20 @@ Esto lo podemos corroborar en la~\autoref{tabla:nasmobile} donde se nota una cla
 en las épocas 7, 8 y 9.
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.8\textwidth}
+    \begin{subfigure}[b]{0.6\textwidth}
         \centering
-       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/NASNetMobile/accuracy.pdf}
+       \includegraphics[width=1\textwidth]{apendice_comparativa/NASNetMobile/accuracy.pdf}
        \caption{Exactitud}\label{fig:acc_nasmobile} 
     \end{subfigure}
-    \begin{subfigure}[b]{0.8\textwidth}
+    \begin{subfigure}[b]{0.6\textwidth}
         \centering
-       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/NASNetMobile/perdida.pdf}
+       \includegraphics[width=1\textwidth]{apendice_comparativa/NASNetMobile/perdida.pdf}
        \caption{Pérdida}\label{fig:loss_nasmobile}
     \end{subfigure}
     \caption{Gráfica de resultados NASNetMobile}\label{fig:nasmobile_total}
 \end{figure}
 \begin{table}[H]
-    \centering
+    
     \resizebox{\textwidth}{!}{%
     \begin{tabular}{@{}lllll@{}}
     \toprule
@@ -296,19 +295,18 @@ La exactitud se estanca en 90\% en la época número 3, no se nota una mejoría 
 conforme pasan las épocas del entrenamiento, esto se puede ver en la~\autoref{tabla:resnet}
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.8\textwidth}
+    \begin{subfigure}[b]{0.6\textwidth}
         \centering
-       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/ResNet50/accuracy.pdf}
+       \includegraphics[width=1\textwidth]{apendice_comparativa/ResNet50/accuracy.pdf}
        \caption{Exactitud}\label{fig:acc_resnet} 
     \end{subfigure}
 
-    \begin{subfigure}[b]{0.8\textwidth}
+    \begin{subfigure}[b]{0.6\textwidth}
         \centering
-       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/ResNet50/perdida.pdf}
+       \includegraphics[width=1\textwidth]{apendice_comparativa/ResNet50/perdida.pdf}
        \caption{Pérdida}\label{fig:loss_resnet}
     \end{subfigure}
-    \caption{Gráfica de resultados ResNet50}
-    \label{fig:resnet_total}
+    \caption{Gráfica de resultados ResNet50}\label{fig:resnet_total}
 \end{figure}
 \begin{table}[H]
     \centering
@@ -341,14 +339,14 @@ considerablemente el algoritmo, sin embargo, también podemos inferir que a part
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.8\textwidth}
+    \begin{subfigure}[b]{0.6\textwidth}
         \centering
-       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/VGG16/accuracy.pdf}
+       \includegraphics[width=1\textwidth]{apendice_comparativa/VGG16/accuracy.pdf}
        \caption{Exactitud}\label{fig:acc_vgg16} 
     \end{subfigure}
-    \begin{subfigure}[b]{0.8\textwidth}
+    \begin{subfigure}[b]{0.6\textwidth}
         \centering
-       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/VGG16/perdida.pdf}
+       \includegraphics[width=1\textwidth]{apendice_comparativa/VGG16/perdida.pdf}
        \caption{Pérdida}\label{fig:loss_vgg16}
     \end{subfigure}
     \caption{Gráfica de resultados VGG16}\label{fig:vgg16_total}
@@ -386,15 +384,15 @@ validación y entrenamiento se mantuvieron bastante cercanas.
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.8\textwidth}
+    \begin{subfigure}[b]{0.6\textwidth}
         \centering
-       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/VGG19/accuracy.pdf}
+       \includegraphics[width=1\textwidth]{apendice_comparativa/VGG19/accuracy.pdf}
        \caption{Exactitud}\label{fig:vgg19_acc} 
     \end{subfigure}
 
-    \begin{subfigure}[b]{0.8\textwidth}
+    \begin{subfigure}[b]{0.6\textwidth}
         \centering
-       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/VGG19/perdida.pdf}
+       \includegraphics[width=1\textwidth]{apendice_comparativa/VGG19/perdida.pdf}
        \caption{Pérdida}\label{fig:vgg19_loss}
     \end{subfigure}
     \caption{Gráfica de resultados VGG19}\label{fig:vgg19_total}
@@ -425,14 +423,14 @@ su rendimiento comparado con las dos arquitecturas anteriores fue mediocre.
 La Tabla~\autoref{tabla:xcep} muestra que la red en lugar de mejorar, empeoró con el tiempo.
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.8\textwidth}
+    \begin{subfigure}[b]{0.6\textwidth}
         \centering
-       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/Xception/accuracy.pdf}
+       \includegraphics[width=1\textwidth]{apendice_comparativa/Xception/accuracy.pdf}
        \caption{Exactitud}\label{fig:xcep_acc} 
     \end{subfigure}
-    \begin{subfigure}[b]{0.8\textwidth}
+    \begin{subfigure}[b]{0.6\textwidth}
         \centering
-       \includegraphics[width=1\textwidth,height=7cm]{apendice_comparativa/Xception/perdida.pdf}
+       \includegraphics[width=1\textwidth]{apendice_comparativa/Xception/perdida.pdf}
        \caption{Pérdida}\label{fig:xcep_loss}
     \end{subfigure}
     \caption{Gráfica de resultados Xception}\label{fig:excep_total}

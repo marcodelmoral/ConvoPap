@@ -17,8 +17,8 @@ también pueden incidir en ruido. Limpiar los datos se refiere a rellenar valore
 faltantes utilizando técnicas de imputación de datos, estandarización y
 normalización y también la remoción de valores inusuales.
 
-En nuestro caso, debido a que la BD esta prevalida. No es necesario
-limpiar los datos.
+En nuestro caso, debido a que la \hyperlink{abbr}{BD} esta pre-validada. No es
+necesario limpiar los datos.
 
 \subsection{Ingeniería de características}
 
@@ -28,9 +28,9 @@ transformaciones (logarítmicas, raíces cuadradas y potencias), generar
 atributos compuestos con datos correlacionados y no correlacionados.
 
 También lo es el \emph{One-Hot Encoding}, que es transformar un dato categórico
-en un vector de $ n $ elementos donde n es cada clase (\autoref{fig:onehot}).
+en un vector de \( n \) elementos donde n es cada clase (\autoref{fig:onehot}).
 Esta es la única técnica de ingeniería que usaremos en nuestros modelos, ya que
-usaremos la función Softmax.
+usaremos la función SoftMax.
 
 \begin{figure}[H]
     \centering
@@ -49,47 +49,46 @@ que la selección excluye atributos.
 
 \subsection{Aumentación}
 
-Para aumentar la \hyperlink{abbr}{BD} sacaremos parches de $m \times m$,
+Para aumentar la \hyperlink{abbr}{BD} sacaremos parches de \(m \times m\),
 centrados en el núcleo y rotaremos la célula un número fijo de grados. Para
-encontrar el núcleo, nos auxiliaremos de la máscara aplicando el Método de
-Momentos para extraer el centroide de la región del núcleo; luego exportaremos
-esas coordenadas a la imagen normal para ser rotada. Para balancear la
-\hyperlink{abbr}{BD}, generaremos más parches para las células normales que para
-las anormales. El \emph{Dataframe} es la representación programática de una
-tabla de excel o archivo csv, con la mista estructura tabular
-(\autoref{alg:aumentacion}). 
+encontrar el núcleo, nos auxiliaremos de la máscara para extraer el centroide de
+la región del núcleo; luego exportaremos esas coordenadas a la imagen normal
+para ser rotada. Para balancear la \hyperlink{abbr}{BD}, generaremos más parches
+para las células normales que para las anormales. El \emph{DataFrame} es la
+representación programática de una tabla de excel o archivo csv, con la mista
+estructura tabular (\autoref{alg:aumentacion}). 
 
 \begin{algorithm}[H]
-    \SetAlgoLined
+    \SetAlgoLined{}
     \SetKwInOut{Input}{Input}\SetKwInOut{Output}{Output}
     \Input{Dataframe de imágenes}
     \Output{Imágenes aumentadas}
-    $m \longleftarrow 128$
-    \BlankLine
-    $balance \longleftarrow 0$
-    \BlankLine
-    \For{$row \in df$}{    
-        \BlankLine
-        $imagen \longleftarrow open(row["file"])$
-        \BlankLine
-        \uIf{$row["Class\_cat\_2"$] == normal}{
-            $balance = 50$
+    \(m \longleftarrow 128\)
+    \BlankLine{}
+    \(balance \longleftarrow 0\)
+    \BlankLine{}
+    \For{\(row \in df\)}{    
+        \BlankLine{}
+        \(imagen \longleftarrow open(row[''file''])\)
+        \BlankLine{}
+        \uIf{\(row[''Class\_cat\_2''\)] == normal}{
+            \(balance = 50\)
         }
         \uElse{
-            $balance = 18$
+            \(balance = 18\)
         }
-        \For{$angle \in sample(balance)$}{
-            \BlankLine
-            $rot \longleftarrow rotate\_bound(imagen, angle)$
-            \BlankLine
-            $x, y \longleftarrow centro(rot)$
-            \BlankLine
-            $random = randint(5, 10)$
-            \BlankLine
-            $salida = sub\_image(rot, (x,y), angle, m, m, desp=random)$
-            \BlankLine
-            $salida = resize(salida, (256, 256))$
-            \BlankLine
+        \For{\(angle \in sample(balance)\)}{
+            \BlankLine{}
+            \(rot \longleftarrow rotate\_bound(imagen, angle)\)
+            \BlankLine{}
+            \(x, y \longleftarrow centro(rot)\)
+            \BlankLine{}
+            \(random = randint(5, 10)\)
+            \BlankLine{}
+            \(salida = sub\_image(rot, (x,y), angle, m, m, desp=random)\)
+            \BlankLine{}
+            \(salida = resize(salida, (256, 256))\)
+            \BlankLine{}
         } 
     }
     \caption{Algoritmo para aumentación de datos}\label{alg:aumentacion}
@@ -97,11 +96,12 @@ tabla de excel o archivo csv, con la mista estructura tabular
 
 Se tomaron 50 muestras para células normales y 18 muestras para anormales de un
 rango de ángulos entre 0 y 360 grados. Posteriormente se extrajo el centroide de
-la imagen usando la máscara. Los parches fueron extraídos de estas imágenes
-rotadas, la medida fue de $128 \times 128$ pixeles y, para asegurar cierta
-variación para hacer el modelo más robusto, se desplazó el centro en el eje $x$
-y $y$ por un número aleatorio entre 5 y 10 pixeles. Por último se cambió el
-tamaño de la imagen a $256 \times 256$ pixeles (\autoref{fig:muestras_augment}). 
+la imagen usando la máscara\footnote{Utilizando una técnica llamada Método de
+Momentos.}. Los parches fueron extraídos de estas imágenes rotadas, la medida fue
+de \(128 \times 128\) pixeles y, para asegurar cierta variación para hacer el
+modelo más robusto, se desplazó el centro en el eje \(x\) y \(y\) por un número
+aleatorio entre 5 y 10 pixeles. Por último se cambió el tamaño de la imagen a
+\(256 \times 256\) pixeles (\autoref{fig:muestras_augment}). 
   
 \begin{figure}[H]
     \centering
@@ -129,7 +129,7 @@ aumentación de datos incide en la capacidad de decisión del algoritmo. Esto es
 evidente en las imágenes aumentadas, donde las partes que se añaden a la imagen
 en el proceso de rotación y de cambio de tamaño se llenan con pixeles negros. 
 
-Finalmente generamos un archivo .csv con todas las imágenes aumentadas y su ruta
+Finalmente generamos un archivo \emph{.csv} con todas las imágenes aumentadas y su ruta
 absoluta. Esto nos permitirá entrenar el modelo sin cargar todas las imágenes la
 memoria, algo que sería totalmente impráctico, haciendo uso de una función que
 nos permite alimentar fila por fila el archivo al algoritmo de entrenamiento.
