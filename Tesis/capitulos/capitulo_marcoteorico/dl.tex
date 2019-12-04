@@ -681,10 +681,11 @@ por ello que posteriormente haremos una búsqueda entre todo el muchas
 arquitecturas neuronales distintas para encontrar aquella que tenga el mejor
 rendimiento para el problema a resolver. 
 
-El rendimiento de un algoritmo \(a\) iterado \( m\) veces bajo una función de pérdida
-\(f\) se mide con la probabilidad condicional de obtener una muestra particular
-\(d_{m}\) bajo las condiciones establecidas se muestra en la \autoref{Rendimiento
-algorítmico}; donde \(d^{y}_{m}\) representa las etiquetas de la muestra. 
+El rendimiento de un algoritmo \(a\) iterado \( m\) veces bajo una función de
+pérdida \(f\) se mide con la probabilidad condicional de obtener una muestra
+particular \(d_{m}\) bajo las condiciones establecidas se puede ver en la
+\autoref{Rendimiento algorítmico}; donde \(d^{y}_{m}\) representa las etiquetas
+de las muestras. 
 
 \begin{minipage}{\textwidth}
 \ecuacion{\Phi(d^{y}_{m}) = P (d^{y}_{m} | f, m,a)}{Rendimiento algorítmico}
@@ -1073,11 +1074,12 @@ durante el entrenamiento: ACC, TPR (sensibilidad) y TNR (especificidad).
 Otras métricas importantes son el Área bajo la Curva (AUC) que representa que
 tan bien nuestro modelo es capaz de distinguir entre clases y que puede ser
 graficada. El Índice de Jaccard será usado posteriormente para determinar el
-rendimiento en entrenamiento de otro tipo de modelos. Toda esta batería de pruebas
-está pensada para estimar lo más correcto posible la capacidad del modelo de clasificar
-correctamente entre una célula normal a una anormal y nos da una base sólida para afirmar
-el rendimiento real en aplicaciones médicas. La explicación y fórmulas de estás métricas las
-podemos encontrar en la \autoref{tabla:breve}. 
+rendimiento en entrenamiento de otro tipo de modelos. Toda esta batería de
+pruebas está pensada para estimar lo más correcto posible la capacidad del
+modelo de clasificar correctamente entre una célula normal a una anormal y nos
+da una base sólida para afirmar el rendimiento real en aplicaciones médicas. La
+explicación y fórmulas de estás métricas las podemos encontrar en la
+\autoref{tabla:breve}. 
 
 \linespread{0.5}
 \begin{table}[H]
@@ -1107,37 +1109,6 @@ podemos encontrar en la \autoref{tabla:breve}.
     }
     \caption{Breve explicación de las métricas}\label{tabla:breve}
     \end{table}
-
-
-
-% \linespread{0.5}
-% \begin{table}[H]
-%     \centering
-%     \resizebox{\textwidth}{!}{%
-%     \begin{tabular}{@{}p{2cm}p{2cm}p{2cm}p{5cm}p{10cm}@{}}
-%     \toprule
-%     Métrica & Nombre & Traducción & Descripción & Fórmula \\ \midrule
-%     ACC & Accuracy & Exactitud & Número de predicciones correctas de todas las predicciones & \ecuacionn{ACC = \frac{TP+TN}{P+N} = \frac{TP+TN}{TP+TN+FP+FN}}{Accuracy} \\
-%     AUC & Area under ROC curve & Área bajo la curva ROC & Corresponde a la media aritmética de la sensibilidad y especificidad para cada clase & \(AUC = \frac{TNR+TPR}{2} \) \\
-%     BM & Bookmaker Informedness & Información de Bookmaker & Probabilidad de que el algoritmo tome una decisión correcta en oposición a simple adivinanza & \(BM = TPR + TNR -1 \) \\
-%     CEN & Confusion Entropy & Entropía de Confusión & Evalúa la confusión a nivel clase basada en la entropía de las matrices de confusión, estadísticamente es más discriminante que ACC & \(CEN_{j} = - \sum_{k=1,k\neq j}^{|C|}\left(P_{j,k}^{j}\log_{2(|C|-1)}(P_{j,k}^{j}) + P_{k,j}^{j}\log_{2(|C|-1)}(P_{k,j}^{j})\right)\) \\
-%     ERR & Error Rate & Tasa de Error & Número de predicciones incorrectas de todas las predicciones & \(ERR = \frac{FP+FN}{P+N}=\frac{FP+FN}{TP+TN+FP+FN}=1-ACC \) \\
-%     F1 & F1 Score & Medida F1 & Es el promedio armónico de la precisión y recall, cuyo peor valor es 0 y el mejor 1 & \( F1 =  2\frac{PPV \cdot TPR}{PPV + TPR}\) \\
-%     FDR & False Discovery Rate & Tasa de Falso Descubrimiento & Permite analizar la proporción de hipótesis nulas rechazadas que son falsas (rechazos incorrectos) & \(FDR = \frac{FP}{FP + TP = 1 - PPV}\) \\
-%     FNR & False Negative Rate & Tasa de Falsos Negativos & Proporción de positivos que dieron negativos en la prueba & \( FNR = \frac{FN}{P} = \frac{FN}{FN+TP} = 1 - TPR\) \\
-%     FOR & False Omission Rate & Tasa de Falsa Omisión & Mide la proporción de falsos negativos que son incorrectamente rechazados & \(FOR = \frac{FN}{FN+TN} = 1 - NPV \) \\
-%     FPR & False Positive Rate & Tasa de Falsos Positivos & Proporción de todos los negativos que aún así salieron positivos, es equivalente al nivel de significancia. La Especificidad de una prueba es 1 - FPR & \(FPR = \frac{FP}{N} = \frac{FP}{FP+TN}=1-TNR \) \\
-%     J & Jaccard Index & Índice de Jaccard & También conocido como Intersección Sobre Unión (IOU), mide la similitud y diversidad de los conjuntos de muestra & \( J(y, \hat{y}) = \frac{|y\cap\hat{y}|}{|y\cup\hat{y}|} = \frac{|y\cap\hat{y}|}{|y| + |\hat{y} - |y\cap\hat{y}|}\) \\
-%     MCEN & Modified Confusion Entropy & Entropía de Confusión Modificada & Es más robusta estadísticamente que su versión anterior & \(MCEN_{j} = - \sum_{k=1,k\neq j}^{|C|}\left(P_{j,k}^{j}\log_{2(|C|-1)}(P_{j,k}^{j}) + P_{k,j}^{j}\log_{2(|C|-1)}(P_{k,j}^{j}) \right) \) \\
-%     NPV & Negative Predictive Value & Valor Predictivo Negativo & Proporción de negativos que corresponden a ausencia de condición & \(NPV = \frac{TN}{TN+FN} \) \\
-%     PPV & Positive Predictive Value & Valor Predictivo Positivo & Precisión, proporción de positivos que corresponden a la presencia de condición & \(PPV = \frac{TP}{TP+FP} \) \\
-%     PRE & Prevalence & Prevalencia & Número de casos de una enfermedad que están presente en una población & \( PRE = \frac{P}{POP}\) \\
-%     TNR & True Negative Rate & Tasa de Verdaderos Negativos & Especificidad, mide la proporción de negativos que son correctamente clasificados & \( TNR = \frac{TN}{N}=\frac{TN}{TN+FP}\) \\
-%     TPR & True Positive Rate & Tasa de Falsos Positivos & Sensibilidad o recall, mide la proporción de positivos que son identificados como tales & \( TPR = \frac{TP}{P} = frac{TP}{TP+FN}\) \\ \bottomrule
-%     \end{tabular}%
-%     }
-%     \caption{Breve explicación de las métricas}\label{tabla:breve}
-%     \end{table}
 
 \subsubsection{Pruebas de diagnóstico}
 
@@ -1461,9 +1432,9 @@ los que constituyen la fase de entrenamiento~\cite{Chollet2018}.
     % Text Node
     \draw (267.74,327.09) node [scale=0.8] [align=left] {Optimizador};
     % Text Node
-    \draw (266.09,191.95) node [scale=0.8] [align=left] {Pesos};
+    \draw (266.09,191.95) node [scale=0.7] [align=left] {Pesos};
     % Text Node
-    \draw (266.09,121.59) node [scale=0.8] [align=left] {Pesos};
+    \draw (266.09,121.59) node [scale=0.7] [align=left] {Pesos};
     
     
     \end{tikzpicture}
@@ -1561,10 +1532,11 @@ compleja. Por el contrario \emph{ReLU} tiene una gráfica bastante sencilla.
 \end{figure}
 
 El \textbf{pooling} (\autoref{fig:pool}) se refiere a una operación que toma
-pequeñas regiones de tamaño \(P_{q} \times P_{q}\) en cada capa y produce otra de
-la misma profundidad. Para cada cuadrado generado por este proceso en cada uno
-de los \(d_{q}\) filtros, solamente se devuelve el valor máximo. Esto es conocido
-como \emph{max pooling} y su fórmula se muestra en la \autoref{MaxPooling2D}.
+pequeñas regiones de tamaño \(P_{q} \times P_{q}\) en cada capa y produce otra
+de la misma profundidad. Para cada cuadrado generado por este proceso en cada
+uno de los \(d_{q}\) filtros, solamente se devuelve el valor máximo. Esto es
+conocido como \emph{max pooling} y su fórmula se represetan en la
+\autoref{MaxPooling2D}.
 
 \ecuacion{h^{n}_{j} (x) = max_{\bar{x} \in{} N (x), \bar{y} \in{} N (y)} h^{n-1}_{j} (\bar{x}, \bar{y})}{MaxPooling2D}
 
@@ -1748,11 +1720,21 @@ ancho y alto. Finalmente pasarán por dos capas densas de 1024 neuronas, cada un
 con su capa de Dropout para terminar en una capa SoftMax de tantas neuronas como
 clases se tienen.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{capitulo_marcoteorico/vgg19_test.pdf}
-    \caption{Diagrama de la arquitectura VGG19}\label{fig:vgg_diagram}
-  \end{figure}
+\begin{landscape}
+    \vspace*{3cm}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1.56\textwidth]{capitulo_marcoteorico/vgg19_test.pdf}
+        \caption{Diagrama de la arquitectura VGG19}\label{fig:vgg_diagram}
+    \end{figure}
+\end{landscape}
+
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{capitulo_marcoteorico/vgg19_test.pdf}
+%     \caption{Diagrama de la arquitectura VGG19}\label{fig:vgg_diagram}
+%   \end{figure}
 
 La arquitectura final del modelo se presenta en la~\autoref{tabla:modelo}. Donde
 se desglosan todas las capas de la arquitectura~\emph{VGG19}. Las capas
@@ -1965,8 +1947,8 @@ utilizado en el paradigma anterior.
 %     D = \frac{2*|etiqueta\cdot predicci\acute{o}n|}{ |etiqueta| + |predicci\acute{o}n| } \\ 
 % \end{equation}
 
-La~\autoref{Dice Loss} muestra la fórmula completa de la pérdida. Notar
-que implementa tanto el coeficiente de Dice como la entropía cruzada, en este caso
+La~\autoref{Dice Loss} es la fórmula completa de la pérdida. Notar que
+implementa tanto el coeficiente de Dice como la entropía cruzada, en este caso
 dos clases: núcleo y fondo.
 
 \ecuacion{P\acute{e}rdida = \frac{1}{2} * entrop\acute{\imath}a - D}{Dice Loss}

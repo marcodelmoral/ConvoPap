@@ -58,25 +58,26 @@ subconjuntos (índices) en cada iteración para asegurar una correcta validació
 del algoritmo. Se decidió por 10 iteraciones debido a la complejidad
 computacional, tardando esta fase 22 horas en completarse.
 
-\begin{figure}[H]
+\begin{figure}[]
     \centering
-    \includegraphics[width=0.9\textwidth]{capitulo_sdac/kfold_10_2.png}
+    \includegraphics[width=1\textwidth]{capitulo_sdac/kfold_10_2.png}
     \caption{K-fold de 10 iteraciones binario}\label{fig:kfold}
 \end{figure}
 
 \subsubsection{Clasificación multi-clase}
 
-La~\autoref{fig:kfold_7} muestra la validación cruzada\footnote{Debido a que se
-usa la misma semilla para los experimentos, los números aleatorios generados son
-bastante similares en los experimentos.} aplicada al problema de siete clases.
-Existe discrepancia en la cantidad de elementos por cada una de las clases, es
-decir, es un entrenamiento desbalanceado y procederemos a evaluar el impacto de
-ello en el experimento. Este entrenamiento fue sumamente tardado: 44 horas, ya
-que duplicamos el número de épocas de entrenamiento.
+La~\autoref{fig:kfold_7} representa la gráfica de la validación
+cruzada\footnote{Debido a que se usa la misma semilla para los experimentos, los
+números aleatorios generados son bastante similares en los experimentos.}
+aplicada al problema de siete clases. Existe discrepancia en la cantidad de
+elementos por cada una de las clases, es decir, es un entrenamiento
+desbalanceado y procederemos a evaluar el impacto de ello en el experimento.
+Este entrenamiento fue sumamente tardado: 44 horas, ya que duplicamos el número
+de épocas de entrenamiento.
 
-\begin{figure}[H]
+\begin{figure}[]
     \centering
-    \includegraphics[width=0.9\textwidth]{capitulo_sdac/kfold_10_7.png}
+    \includegraphics[width=1\textwidth]{capitulo_sdac/kfold_10_7.png}
     \caption{K-fold de 10 iteraciones multi-clase}\label{fig:kfold_7}
 \end{figure}
 
@@ -237,11 +238,11 @@ encontrar en el \autoref{appendix:entrenamiento}.
 
 \subsubsection{Clasificación binaria}
 
-La~\autoref{tabla:rendimiento:final} nos muestra como se comportó el modelo
-en las 30 épocas de entrenamiento tanto en entrenamiento como en validación. Es
-clara la tendencia del algoritmo a mejorar con respeto a las épocas, aunque se
-sigue notando cierta discrepancia entre los valores de validación y
-entrenamiento, queremos que estos valores sean lo más cercanos posibles.
+La~\autoref{tabla:rendimiento:final} compila como se comportó el modelo en las
+30 épocas de entrenamiento tanto en entrenamiento como en validación. Es clara
+la tendencia del algoritmo a mejorar con respeto a las épocas, aunque se sigue
+notando cierta discrepancia entre los valores de validación y entrenamiento,
+queremos que estos valores sean lo más cercanos posibles.
 
 Los resultados de la validación cruzada se pueden observar el
 la~\autoref{tabla:validacion}. La iteración con mejor rendimiento fue la número
@@ -261,8 +262,9 @@ la~\autoref{tabla:validacion}. La iteración con mejor rendimiento fue la númer
     2 & 99.86597896 & 0.004019101 \\
     3 & 99.89690781 & 0.003187174 \\
     4 & 99.8865962 & 0.00304257 \\
-    5 & 99.8865962 & 0.004015994 \\ \midrule
-    6 & 99.91752505 & 0.002261744 \\ \midrule
+    5 & 99.8865962 & 0.004015994 \\ % \midrule
+    \rowcolor{azul}
+    6 & 99.91752505 & 0.002261744 \\ % \midrule
     7 & 99.87629056 & 0.002811817 \\ 
     8 & 99.77319837 & 0.006879645 \\
     9 & 99.82474446 & 0.00390799 \\ \bottomrule
@@ -278,18 +280,19 @@ total de \( 0.14\% \).
 
 \begin{table}[H]
     \centering
-    \resizebox{0.4\textwidth}{!}{%
+    \resizebox{0.5\textwidth}{!}{%
     \begin{tabular}{@{}lll@{}}
     \toprule
      & acc & loss \\ \midrule
-    count & 10 & 10 \\
-    mean & 99.86288667 & 0.003868326 \\
-    std & 0.041250406 & 0.001303197 \\
-    min & 99.77319837 & 0.002261744 \\
+    Número & 10 & 10 \\
+    \rowcolor{azul}
+    Media & 99.86288667 & 0.003868326 \\
+    Desviación & 0.041250406 & 0.001303197 \\
+    Mínimo & 99.77319837 & 0.002261744 \\
     25\% & 99.84793812 & 0.003078721 \\
     50\% & 99.87113476 & 0.003741355 \\
     75\% & 99.8865962 & 0.004018324 \\
-    max & 99.91752505 & 0.006879645 \\ \bottomrule
+    Máximo & 99.91752505 & 0.006879645 \\ \bottomrule
     \end{tabular}%
     }
     \caption{Estadísticos del experimento binario}\label{tabla:estadisticos}
@@ -341,8 +344,9 @@ ser debido a fluctuaciones del generador de números aleatorios.
     \begin{tabular}{@{}lll@{}}
     \toprule
     fold & acc & loss \\ \midrule
-    0 & 99.69072342 & 0.009913217 \\ \midrule
-    1 & 99.72165227 & 0.010205996 \\ \midrule
+    0 & 99.69072342 & 0.009913217 \\ % \midrule
+    \rowcolor{azul}
+    1 & 99.72165227 & 0.010205996 \\ % \midrule
     2 & 99.59793687 & 0.013710575 \\
     3 & 99.49484468 & 0.014681551 \\
     4 & 99.49484468 & 0.016252176 \\
@@ -364,18 +368,19 @@ error de generalización total del modelo es de 0.42\%.
 
 \begin{table}[H]
     \centering
-    \resizebox{0.4\textwidth}{!}{%
+    \resizebox{0.5\textwidth}{!}{%
     \begin{tabular}{@{}lll@{}}
     \toprule
      & acc & loss \\ \midrule
-    count & 10 & 10 \\
-    mean & 99.58866 & 0.013302901 \\
-    std & 0.084239213 & 0.002258767 \\
-    min & 99.46391582 & 0.009913217 \\
+    Número & 10 & 10 \\
+    \rowcolor{azul}
+    Media & 99.58866 & 0.013302901 \\
+    Desviación & 0.084239213 & 0.002258767 \\
+    Mínimo & 99.46391582 & 0.009913217 \\
     25\% & 99.51546341 & 0.012080938 \\
     50\% & 99.60309267 & 0.013360192 \\
     75\% & 99.62371141 & 0.01459487 \\
-    max & 99.72165227 & 0.016523478 \\ \bottomrule
+    Máximo & 99.72165227 & 0.016523478 \\ \bottomrule
     \end{tabular}%
     }
     \caption{Estadísticos del experimento multi-clase}\label{tabla:estadisticos7}
@@ -427,8 +432,9 @@ correcta es IoU con un rendimiento total de 88.19\%.
     \resizebox{0.5\textwidth}{!}{%
     \begin{tabular}{@{}llll@{}}
     \toprule
-    fold & accuracy & loss & iou \\ \midrule
-    0 & 91.0180247 & -0.896642793 & 0.884503568 \\ \midrule
+    fold & accuracy & loss & iou \\ % \midrule
+    \rowcolor{azul}
+    0 & 91.0180247 & -0.896642793 & 0.884503568 \\ % \midrule
     1 & 89.86388168 & -0.917515639 & 0.888006022 \\
     2 & 89.99839323 & -0.911953644 & 0.885471006 \\
     3 & 89.79965767 & -0.900890709 & 0.866708054 \\
@@ -440,11 +446,12 @@ correcta es IoU con un rendimiento total de 88.19\%.
 
 \begin{table}[H]
     \centering
-    \resizebox{0.6\textwidth}{!}{%
+    \resizebox{0.5\textwidth}{!}{%
     \begin{tabular}{@{}llll@{}}
     \toprule
     & accuracy & loss & iou \\ \midrule
     Número & 5 & 5 & 5 \\
+    \rowcolor{azul}
     Media & 90.20958571 & -0.907671014 & 0.881990721 \\
     Desviación & 0.502696262 & 0.008608186 & 0.008644234 \\
     Mínimo & 89.79965767 & -0.917515639 & 0.866708054 \\
@@ -522,7 +529,7 @@ función de pérdida, reduciendo su error total.
     \caption{Gráficos de caja binarios}\label{fig:caja_total2}
 \end{figure}
 
-La~\autoref{fig:caja_total} nos muestra la comparación de la variabilidad entre
+La~\autoref{fig:caja_total} representa la comparación de la variabilidad entre
 la pérdida y la exactitud en validación, donde comprobamos efectivamente que su
 variabilidad se reduce conforme pasan las épocas de entrenamiento y que el
 modelo puede generalizar correctamente. Como ya sabemos, entre más cerca estén
@@ -544,7 +551,7 @@ las métricas, mejor.
     \caption{Gráfica de caja de la variación binaria}\label{fig:caja_total}
 \end{figure}
 
-La~\autoref{tabla:reporte_2} nos muestra el reporte que evalúa un algoritmo de
+La~\autoref{tabla:reporte_2} da el reporte que evalúa un algoritmo de
 clasificación, condensando la información básica por cada clase. Cabe notar que
 los falsos positivos (FP) y falsos negativos (FN) son muy pocos comparados con
 los datos utilizados para evaluar (POP). Las clases están desbalanceadas pero su
@@ -555,7 +562,7 @@ diferencia es una cantidad negligible.
     \resizebox{0.3\textwidth}{!}{%
     \begin{tabular}{@{}lll@{}}
     \toprule
-    Class & anormal & normal \\ \midrule
+     & anormal & normal \\ \midrule
     TP & 4899 & 4793 \\
     TN & 4793 & 4899 \\
     FP & 1 & 7 \\
@@ -568,7 +575,7 @@ diferencia es una cantidad negligible.
     \caption{Reporte de clasificación binario}\label{tabla:reporte_2}
     \end{table}
 
-La~\autoref{fig:matrices} nos muestra las matrices de confusión; la matriz
+La~\autoref{fig:matrices} contiene las matrices de confusión; en la matriz
 normalizada no se aprecia bien por el redondeo y se puede interpretar que el
 sistema tiene un poder de clasificación perfecto, pero podemos ver en la matriz
 no normalizada que un total de 8 elementos fueron mal clasificados, un ejemplo
@@ -576,14 +583,14 @@ normal clasificado como anormal y siete anormales clasificados como normales,
 esto puede suponer un problema ya que es peligroso diagnosticar la ausencia de
 lesión citológica cuando si está presente.
 
-\begin{figure}[H]
+\begin{figure}[]
     \centering
-    \begin{subfigure}[b]{0.6\textwidth}
+    \begin{subfigure}[b]{0.7\textwidth}
         \centering 
         \includegraphics[width=1\linewidth]{capitulo_sdac/reporte_2_class/matriz.pdf}
         \caption{Matriz de confusión normalizada}\label{fig:matriz_norm}
         \end{subfigure}
-    \begin{subfigure}[b]{0.6\textwidth}
+    \begin{subfigure}[b]{0.7\textwidth}
         \centering 
         \includegraphics[width=1\linewidth]{capitulo_sdac/reporte_2_class/matriz_norm.pdf}
         \caption{Matriz de confusión sin normalizar}\label{fig:matriz_sin}
@@ -605,7 +612,7 @@ el problema de siete clases.
     \resizebox{0.3\textwidth}{!}{%
     \begin{tabular}{@{}lll@{}}
     \toprule
-    Class & anormal & normal \\ \midrule
+     & anormal & normal \\ \midrule
     TPR & 0.99857 & 0.99979 \\
     TNR & 0.99979 & 0.99857 \\
     PPV & 0.9998 & 0.99854 \\
@@ -627,14 +634,14 @@ el problema de siete clases.
     \caption{Métricas de clasificación binaria}\label{tabla:reporte_completo_2}
     \end{table}
 
-La \autoref{fig:reporte_2_0} nos muestra una mapa de calor que muestra las
+La \autoref{fig:reporte_2_0} dibuja una mapa de calor que representa las
 métricas que deben ser 0 al evaluar el modelo. Podemos ver que, si bien no es
 justamente 0 el valor mínimo, el rango de variación mostrado por la barra es muy
 reducido, siendo la peor métrica MCEN y está solamente 0.015 arriba del óptimo.
 
-\begin{figure}[H]
+\begin{figure}[]
     \centering
-    \includegraphics[width=0.4\textwidth,keepaspectratio]{capitulo_sdac/reporte_2_class/reporte_cero.pdf}
+    \includegraphics[width=0.6\textwidth,keepaspectratio]{capitulo_sdac/reporte_2_class/reporte_cero.pdf}
     \caption{Reporte de clasificación binario para métricas que deben tender a 0}\label{fig:reporte_2_0}
 \end{figure}
 
@@ -642,9 +649,9 @@ Las métricas que deben de tender a 1 se muestran en la
 \autoref{fig:reporte_2_1}. La variación entre el máximo y el mínimo es de 0.006. Se observa
 un excelente rendimiento en estas métricas, todas arriba de 0.997.
 
-\begin{figure}[H]
+\begin{figure}[]
     \centering
-    \includegraphics[width=0.4\textwidth,keepaspectratio]{capitulo_sdac/reporte_2_class/reporte_uno.pdf}
+    \includegraphics[width=0.6\textwidth,keepaspectratio]{capitulo_sdac/reporte_2_class/reporte_uno.pdf}
     \caption{Reporte de clasificación binario para métricas que deben tender a 1}\label{fig:reporte_2_1}
 \end{figure}
 
@@ -671,7 +678,7 @@ efectiva en ambas clases mientras que un DP arriba de tres se considera bueno.
     \resizebox{0.35\textwidth}{!}{%
     \begin{tabular}{@{}lll@{}}
     \toprule
-    Class & anormal & normal \\ \midrule
+     & anormal & normal \\ \midrule
     PLR & 4787.1598 & 700.71095 \\
     NLR & 0.00143 & 0.00021 \\
     DOR & 3354415.286 & 3354415.286 \\
@@ -702,7 +709,7 @@ como se estipuló en los supuestos, es lo que determina la clase de una célula.
 
 \subsubsection{Clasificación multi-clase}
 
-La~\autoref{fig:caja_total7} muestra que en el experimento multi-clase, las
+La~\autoref{fig:caja_total7} infiere que en el experimento multi-clase, las
 métricas de evaluación y entrenamiento varían más que en el experimento
 anterior, como se puede observar en la amplitud de la gráfica de caja.
 Probablemente se deba a que es un problema más complejo y con más clases.
@@ -755,9 +762,9 @@ concuerda con los resultados de la clasificación binaria debido a su morfologí
 
 \begin{table}[H]
     \centering
-    \resizebox{0.5\textwidth}{!}{%
+    \resizebox{\textwidth}{!}{%
     \begin{tabular}{@{}llllllll@{}}
-    Class & \rot{\shortstack[l]{carcinoma\_in\_situ}} & \rot{\shortstack[l]{light\_dysplastic}} & \rot{\shortstack[l]{moderate\_dysplastic}} & \rot{\shortstack[l]{normal\_columnar}} &\rot{\shortstack[l]{normal\_intermediate}} & \rot{\shortstack[l]{normal\_superficiel}} & \rot{\shortstack[l]{severe\_dysplastic}} \\ \midrule
+     & \rot{\shortstack[l]{carcinoma\_in\_situ}} & \rot{\shortstack[l]{light\_dysplastic}} & \rot{\shortstack[l]{moderate\_dysplastic}} & \rot{\shortstack[l]{normal\_columnar}} &\rot{\shortstack[l]{normal\_intermediate}} & \rot{\shortstack[l]{normal\_superficiel}} & \rot{\shortstack[l]{severe\_dysplastic}} \\ \midrule
     TP & 1115 & 1247 & 1039 & 1965 & 1392 & 1503 & 1412 \\
     TN & 8566 & 8451 & 8649 & 7731 & 8308 & 8197 & 8271 \\
     FP & 14 & 2 & 4 & 2 & 0 & 0 & 5 \\
@@ -770,46 +777,26 @@ concuerda con los resultados de la clasificación binaria debido a su morfologí
     \caption{Reporte de clasificación multi-clase}\label{tabla:reporte_class_7}
     \end{table}
 
-% \begin{table}[H]
-%     \centering
-%     \resizebox{\textwidth}{!}{%
-%     \begin{tabular}{@{}llllllll@{}}
-%     \toprule
-%     Class & carcinoma\_in\_situ & light\_dysplastic & moderate\_dysplastic & normal\_columnar & normal\_intermediate & normal\_superficiel & severe\_dysplastic \\ \midrule
-%     TP & 1115 & 1247 & 1039 & 1965 & 1392 & 1503 & 1412 \\
-%     TN & 8566 & 8451 & 8649 & 7731 & 8308 & 8197 & 8271 \\
-%     FP & 14 & 2 & 4 & 2 & 0 & 0 & 5 \\
-%     FN & 5 & 0 & 8 & 2 & 0 & 0 & 12 \\
-%     P & 1120 & 1247 & 1047 & 1967 & 1392 & 1503 & 1424 \\
-%     N & 8580 & 8453 & 8653 & 7733 & 8308 & 8197 & 8276 \\
-%     POP & 9700 & 9700 & 9700 & 9700 & 9700 & 9700 & 9700 \\ \bottomrule
-%     \end{tabular}%
-%     }
-%     \caption{Reporte de clasificación multi-clase}
-%     \label{tabla:reporte_class_}
-%     \end{table}
+Las matriz de confusión normalizada confirma el rendimiento del modelo; esto lo
+podemos notar en la~\autoref{fig:matriz_norm_7}. Observamos la diagonal muy bien
+marcada sin rastros de azul en otras partes de la gráfica.
 
-Las matriz de confusión normalizada nos muestra una muy buena información sobre
-el buen rendimiento del modelo. Esto lo podemos notar en
-la~\autoref{fig:matriz_norm_7}. Observamos la diagonal muy bien marcada sin
-rastros de azul en otras partes de la gráfica.
-
-\begin{figure}[H]
+\begin{figure}[]
     \centering
-    \includegraphics[width=0.7\textwidth]{capitulo_sdac/reporte_7_class/matriz_norm.pdf}
+    \includegraphics[width=\textwidth]{capitulo_sdac/reporte_7_class/matriz_norm.pdf}
     \caption{Matriz de confusión normalizada multi-clase}\label{fig:matriz_norm_7}
 \end{figure}
 
-La matriz de confusión sin normalizar (\autoref{fig:matriz_sin_7}) nos muestra
-con mayor claridad los errores de clasificación. La diferencia en tonalidad de
-azul en la diagonal de la matriz se debe a que cada clase tiene diferente número
-de elementos. El modelo tiende a confundir más las clases
+La matriz de confusión sin normalizar (\autoref{fig:matriz_sin_7}) desglosa con
+mayor claridad los errores de clasificación. La diferencia en tonalidad de azul
+en la diagonal de la matriz se debe a que cada clase tiene diferente número de
+elementos. El modelo tiende a confundir más las clases
 \emph{carcinoma\_in\_situ} y \emph{severe\_dysplastic}, puesto que una es una
 etapa previa a la otra, no es tanto problema durante el diagnóstico médico.
 
-\begin{figure}[H]
+\begin{figure}[]
     \centering
-    \includegraphics[width=0.7\textwidth]{capitulo_sdac/reporte_7_class/matriz.pdf}
+    \includegraphics[width=\textwidth]{capitulo_sdac/reporte_7_class/matriz.pdf}
     \caption{Matriz de confusión sin normalizar con 7 clases}\label{fig:matriz_sin_7}
 \end{figure}
 
@@ -823,9 +810,9 @@ pequeño y bien diferenciado.
 % \usepackage{graphicx}
 \begin{table}[H]
     \centering
-    \resizebox{0.7\textwidth}{!}{%
+    \resizebox{1\textwidth}{!}{%
     \begin{tabular}{llllllll}
-    Class & \rot{\shortstack[l]{carcinoma\_in\_situ}} & \rot{\shortstack[l]{light\_dysplastic}} & \rot{\shortstack[l]{moderate\_dysplastic}} & \rot{\shortstack[l]{normal\_columnar}} &\rot{\shortstack[l]{normal\_intermediate}} & \rot{\shortstack[l]{normal\_superficiel}} & \rot{\shortstack[l]{severe\_dysplastic}} \\ \midrule
+     & \rot{\shortstack[l]{carcinoma\_in\_situ}} & \rot{\shortstack[l]{light\_dysplastic}} & \rot{\shortstack[l]{moderate\_dysplastic}} & \rot{\shortstack[l]{normal\_columnar}} &\rot{\shortstack[l]{normal\_intermediate}} & \rot{\shortstack[l]{normal\_superficiel}} & \rot{\shortstack[l]{severe\_dysplastic}} \\ \midrule
     TPR & 0.99554 & 1 & 0.99236 & 0.99898 & 1 & 1 & 0.99157 \\
     TNR & 0.99837 & 0.99976 & 0.99954 & 0.99974 & 1 & 1 & 0.9994 \\
     PPV & 0.9876 & 0.9984 & 0.99616 & 0.99898 & 1 & 1 & 0.99647 \\
@@ -854,15 +841,15 @@ sin embargo, la divergencia del óptimo es muy poca. Siendo la clase
 \emph{severe\_dysplastic} la que peor rendimiento tiene, que es confundida por
 cáncer habitualmente.
 
-\begin{figure}[H]
+\begin{figure}[]
     \centering
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{capitulo_sdac/reporte_7_class/reporte_cero.pdf}
+    \includegraphics[width=\textwidth,keepaspectratio]{capitulo_sdac/reporte_7_class/reporte_cero.pdf}
     \caption{Reporte de clasificación multi-clase para métricas que deben tender a 0}\label{fig:reporte_7_0}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[]
     \centering
-    \includegraphics[width=0.7\textwidth,keepaspectratio]{capitulo_sdac/reporte_7_class/reporte_uno.pdf}
+    \includegraphics[width=\textwidth,keepaspectratio]{capitulo_sdac/reporte_7_class/reporte_uno.pdf}
     \caption{Reporte de clasificación multi-clase para métricas que deben tender a 1}\label{fig:reporte_7_1}
 \end{figure}
 
@@ -890,9 +877,9 @@ erróneas y las fórmulas deben de haber encontrado una división por 0.
 % \usepackage{graphicx}
 \begin{table}[H]
     \centering
-    \resizebox{0.8\textwidth}{!}{%
+    \resizebox{1\textwidth}{!}{%
     \begin{tabular}{llllllll}
-    Class & \rot{\shortstack[l]{carcinoma\_in\_situ}} & \rot{\shortstack[l]{light\_dysplastic}} & \rot{\shortstack[l]{moderate\_dysplastic}} & \rot{\shortstack[l]{normal\_columnar}} &\rot{\shortstack[l]{normal\_intermediate}} & \rot{\shortstack[l]{normal\_superficiel}} & \rot{\shortstack[l]{severe\_dysplastic}} \\ \midrule
+     & \rot{\shortstack[l]{carcinoma\_in\_situ}} & \rot{\shortstack[l]{light\_dysplastic}} & \rot{\shortstack[l]{moderate\_dysplastic}} & \rot{\shortstack[l]{normal\_columnar}} &\rot{\shortstack[l]{normal\_intermediate}} & \rot{\shortstack[l]{normal\_superficiel}} & \rot{\shortstack[l]{severe\_dysplastic}} \\ \midrule
     PLR & 610.12117 & 4226.5 & 2146.72087 & 3862.56863 & None & None & 1641.25169 \\
     NLR & 0.00447 & 0 & 0.00764 & 0.00102 & 0 & 0 & 0.00843 \\
     DOR & 136444.1429 & None & 280822.2188 & 3797853.75 & None & None & 194644.2 \\
@@ -914,22 +901,23 @@ si una célula normal fue clasificada como anormal.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{capitulo_sdac/reporte_7_class/muestras_erroneas.pdf}
+    \includegraphics[width=\textwidth,keepaspectratio]{capitulo_sdac/reporte_7_class/muestras_erroneas.pdf}
     \caption{Muestreo de pruebas mal clasificadas para 7 clases}\label{fig:muestreo_7}
 \end{figure}
 
 \subsubsection{Segmentación semántica}
 
-Como vimos anteriormente, la diferencia entre las métricas y la pérdida en las fases de validación
-y entrenamiento es una medida para saber que tan bueno es el modelo para generalizar. 
+Como vimos anteriormente, la diferencia entre las métricas y la pérdida en las
+fases de validación y entrenamiento es una medida para saber que tan bueno es el
+modelo para generalizar. 
 
-La~\autoref{fig:caja_total2_seg} nos muestra el gráfico de caja para las
-métricas y la pérdida, respectivamente. Podemos ver que la exactitud casi no
-varia, pero la métrica que nos importa IOU tiene como mínimo casi 50\% en
-entrenamiento. Ambas pérdidas se comportan de manera muy similar, otra vez,
-demostrando el buen entrenamiento del modelo.
+La~\autoref{fig:caja_total2_seg} dibuja el gráfico de caja para las métricas y
+la pérdida, respectivamente. Podemos ver que la exactitud casi no varia, pero la
+métrica que nos importa IOU tiene como mínimo casi 50\% en entrenamiento. Ambas
+pérdidas se comportan de manera muy similar, otra vez, demostrando el buen
+entrenamiento del modelo.
 
-\begin{figure}[H]
+\begin{figure}[]
     \centering
     \begin{subfigure}[b]{0.8\textwidth}
         \centering
@@ -970,18 +958,20 @@ un análisis de todos los pixeles en una imagen.
 El modelo se comporta mejor conforme pasan las épocas y es posible mejorar el
 rendimiento del mismo incrementando los hiper-parámetros que controlan el
 entrenamiento. No fue posible incrementar a 64 el tamaño del lote debido a
-problemas con la memoria derivados de la naturaleza de la arquitectura. Es
-probable que se requiera reentrenar el modelo para poder lidiar con imágenes con
-mucho más ruido que las utilizadas, esto depende de la correcta anotación de la
-base de datos de laminilla, lo cual se pretende hacer mediante algoritmos
-tradicionales de Procesamiento Digital de Imágenes en un futuro.
+problemas con la memoria derivados de la naturaleza de la
+arquitectura\footnote{Se ingresan dos imágenes en vez de una en cada paso de
+entrenamiento.}. Es probable que se requiera reentrenar el modelo para poder
+lidiar con imágenes con mucho más ruido que las utilizadas, esto depende de la
+correcta anotación de la base de datos de laminilla, lo cual se pretende hacer
+mediante algoritmos tradicionales de Procesamiento Digital de Imágenes en un
+futuro.
 
 Después de la validación hemos tomado \(n = 10\) muestras para mostrar
 gráficamente la clasificación de los pixeles y estimar visualmente el
-rendimiento del experimento. La~\autoref{fig:mascaras} nos muestra claramente
-que el algoritmo es capaz de distinguir correctamente entre el núcleo, el
-citoplasma y el fondo de la imagen. Se puede observar que el mayor problema del
-algoritmo es la tasa de falsos positivos, mientras que los falsos negativos son
+rendimiento del experimento. La~\autoref{fig:mascaras} concluye claramente que
+el algoritmo es capaz de distinguir correctamente entre el núcleo, el citoplasma
+y el fondo de la imagen. Se puede observar que el mayor problema del algoritmo
+es la tasa de falsos positivos, mientras que los falsos negativos son
 relativamente escasos. Se puede asegurar que el algoritmo clasifica pixeles
 entre núcleo y resto de manera muy eficaz.
 
@@ -1051,8 +1041,8 @@ dimensionalidad.
 \subsubsection{Análisis de las capas del modelo}
 
 La justificación por la cual no se realizaron experimentos para encontrar una
-arquitectura particular para el problema es el \hyperlink{abbr}{TL}. Esta forma de
-construir nuevos modelos de manera incremental basándose en conocimiento
+arquitectura particular para el problema es el \hyperlink{abbr}{TL}. Esta forma
+de construir nuevos modelos de manera incremental basándose en conocimiento
 anterior es el motor que guía no solo el aprendizaje humano sino toda la
 ciencia.
 
@@ -1061,7 +1051,7 @@ VGG19 entrenada en \emph{ImageNet} al problema expuesto en esta tesis. Mostramos
 una selección aleatoria, de cierto número de capas, de los filtros que se
 aplican a la imagen al transitar por las capas de la red. 
 
-La~\autoref{fig:filtros} muestra los filtros de algunas capas de la primera a
+La~\autoref{fig:filtros} representa los filtros de algunas capas de la primera a
 las capas superiores. Los filtros de las capas inferiores tienden a buscar
 patrones sencillos como colores y su relación con la región de la imagen.
 Subsecuentemente, vemos que la capas \emph{block2\_conv2} y \emph{block3\_conv1}
@@ -1069,40 +1059,40 @@ detectan patrones más complejos y granulados que detectan patrones como líneas
 verticales o bordes. Es en la capa \emph{block4\_conv4} que podemos ver patrones
 sumamente complejos y difíciles de interpretar.
 
-\begin{figure}[H] 
+\begin{figure}[] 
   \begin{subfigure}[b]{0.5\linewidth}
     \centering
-    \includegraphics[width=0.75\linewidth]{capitulo_sdac/filtros-block1_conv1.pdf} 
+    \includegraphics[width=0.9\linewidth]{capitulo_sdac/filtros-block1_conv1.pdf} 
     \caption{Filtros block1\_conv1}\label{fig7:aa}
     \vspace{4ex}
   \end{subfigure}%% 
   \begin{subfigure}[b]{0.5\linewidth}
     \centering
-    \includegraphics[width=0.75\linewidth]{capitulo_sdac/filtros-block2_conv2.pdf} 
+    \includegraphics[width=0.9\linewidth]{capitulo_sdac/filtros-block2_conv2.pdf} 
     \caption{Filtros block2\_conv2}\label{fig7:bb}
     \vspace{4ex}
   \end{subfigure} 
   \begin{subfigure}[b]{0.5\linewidth}
     \centering
-    \includegraphics[width=0.75\linewidth]{capitulo_sdac/filtros-block3_conv1.pdf} 
+    \includegraphics[width=0.9\linewidth]{capitulo_sdac/filtros-block3_conv1.pdf} 
     \caption{Filtros block3\_conv1}\label{fig7:cc}
   \end{subfigure}%%
   \begin{subfigure}[b]{0.5\linewidth}
     \centering
-    \includegraphics[width=0.75\linewidth]{capitulo_sdac/filtros-block4_conv4.pdf} 
+    \includegraphics[width=0.9\linewidth]{capitulo_sdac/filtros-block4_conv4.pdf} 
     \caption{Filtros block4\_conv4}\label{fig7:dd}
   \end{subfigure} 
   \caption{Visualización de filtros convolucionales}\label{fig:filtros} 
 \end{figure}
 
-Finalmente, se muestran (\autoref{fig:convultima}) los filtros de la última capa
+Finalmente, se observan (\autoref{fig:convultima}) los filtros de la última capa
 \emph{block5\_conv4}, tales filtros muestran una complejidad bastante alta, con
 tintes psicodélicos, que muestran las abstracciones que hace la red para poder
 interpretar el contenido de una imagen.
 
-\begin{figure}[H] 
+\begin{figure}[] 
   \centering
-  \includegraphics[width=0.8\textwidth]{capitulo_sdac/filtros-block5_conv4.pdf}
+  \includegraphics[width=0.9\textwidth]{capitulo_sdac/filtros-block5_conv4.pdf}
   \caption{Filtros de la última capa: block5\_conv4}\label{fig:convultima}
 \end{figure}
 
@@ -1119,7 +1109,7 @@ activar, el modelo sería demasiado complejo para la tarea. Quizás sea esta la
 razón por la cual otras arquitecturas más grandes no funcionaron para este
 problema.
 
-  \begin{figure}[H] % "[t!]" placement specifier just for this example
+  \begin{figure}[] % "[t!]" placement specifier just for this example
     \begin{subfigure}{0.40\textwidth}
       \includegraphics[width=\linewidth]{capitulo_sdac/xcancerseed_activaciones(0).pdf}
       \caption{Block1\_pool}\label{fig:ay}
@@ -1188,8 +1178,8 @@ comparativas.
 La~\autoref{fig:saliency} se compone de las imágenes muestra y los mapas
 respectivos. ReLU nos permite ver que las decisiones fueron tomadas en base al
 contenido de la imagen y los pixeles negros añadidos durante el proceso de
-aumentación de datos no influyeron en la decisión. El método normal nos muestra
-que los pixeles usados para la decisión fueron aquellos pertenecientes al núcleo
+aumentación de datos no influyeron en la decisión. El método normal confirma que
+los pixeles usados para la decisión fueron aquellos pertenecientes al núcleo
 celular. Finalizando con el método guiado que confirma que el núcleo fue el
 factor de decisión; aunque el método induce cierto ruido que se manifiesta en
 los bordes, los otros no tienen este comportamiento.
@@ -1222,12 +1212,12 @@ los bordes, los otros no tienen este comportamiento.
 
   El método \emph{Gradient-weighted Class Activation Mapping} genera una máscara
   que es superpuesta en la imagen de activación para ver que parte de la imagen
-  contribuyó más a la activación. La~\autoref{fig:cam} nos muestra estos
-  gradientes de activación para las muestras. Podemos ver que,
-  satisfactoriamente, la parte con mayor peso en la activación se concentra en
-  el núcleo. Debido a la naturaleza del modelo y su inicialización aleatoria y
-  de optimización, estas activaciones no siempre se interceptan el núcleo exacto,
-  pero sin duda alguna este fue el que culminó la toma de decisión de la capa.
+  contribuyó más a la activación. La~\autoref{fig:cam} enseña estos gradientes
+  de activación para las muestras; podemos ver que, satisfactoriamente, la parte
+  con mayor peso en la activación se concentra en el núcleo. Debido a la
+  naturaleza del modelo y su inicialización aleatoria y de optimización, estas
+  activaciones no siempre se interceptan el núcleo exacto, pero sin duda alguna
+  este fue el que culminó la toma de decisión de la capa.
 
   \begin{figure}[H] 
       \begin{subfigure}[b]{0.5\linewidth}
@@ -1268,31 +1258,31 @@ de oclusión arrojan que también es robusto antes esta prueba de estrés.
   \begin{figure}[H] % "[t!]" placement specifier just for this example
     \begin{subfigure}{0.40\textwidth}
     \includegraphics[width=\linewidth]{capitulo_sdac/occlusion-carcinoma_in_situ0.pdf}
-    \caption{Oclusión para \emph{carcinoma\_in\_situ}}\label{fig:a}
+    \caption{\emph{carcinoma\_in\_situ}}\label{fig:a}
     \end{subfigure}\hspace*{\fill}
     \begin{subfigure}{0.40\textwidth}
     \includegraphics[width=\linewidth]{capitulo_sdac/occlusion-light_dysplastic13.pdf}
-    \caption{Oclusión para \emph{light\_dysplastic}}\label{fig:b}
+    \caption{\emph{light\_dysplastic}}\label{fig:b}
     \end{subfigure}
     
     \medskip
     \begin{subfigure}{0.40\textwidth}
     \includegraphics[width=\linewidth]{capitulo_sdac/occlusion-moderate_dysplastic25.pdf}
-    \caption{Oclusión para \emph{moderate\_dysplastic}}\label{fig:cc}
+    \caption{\emph{moderate\_dysplastic}}\label{fig:cc}
     \end{subfigure}\hspace*{\fill}
     \begin{subfigure}{0.40\textwidth}
     \includegraphics[width=\linewidth]{capitulo_sdac/occlusion-normal_columnar34.pdf}
-    \caption{Oclusión para \emph{normal\_columnar}}\label{fig:dd}
+    \caption{\emph{normal\_columnar}}\label{fig:dd}
     \end{subfigure}
     
     \medskip
     \begin{subfigure}{0.40\textwidth}
     \includegraphics[width=\linewidth]{capitulo_sdac/occlusion-normal_intermediate44.pdf}
-    \caption{Oclusión para \emph{normal\_intermediate}}\label{fig:c}
+    \caption{\emph{normal\_intermediate}}\label{fig:c}
     \end{subfigure}\hspace*{\fill}
     \begin{subfigure}{0.40\textwidth}
     \includegraphics[width=\linewidth]{capitulo_sdac/occlusion-normal_superficiel59.pdf}
-    \caption{Oclusión para \emph{normal\_superficiel}}\label{fig:d}
+    \caption{\emph{normal\_superficiel}}\label{fig:d}
     \end{subfigure}
 
     % \hspace*{\fill}
@@ -1401,8 +1391,10 @@ iteraciones; por ello el benchmark usa 10.
   Ensemble & 5 & 99 & 89.7 & 96.5 & - & - \\
   Ens & 5 & - & - & - & - & 0.884 \\
   dis(S+M) & 5 & - & - & - & - & 0.964 \\
+  \rowcolor{azul}
   DeepPap & 5 & \(98.2 \pm 1.2\) & \(98.3 \pm 0.9\) & \(98.3 \pm 0.7\) & \(98.3 \pm 0.3\) & 0.998 \\
-  Tesis2 & 10 & \(\mathbf{0.99857}\) & \(\mathbf{0.99979}\) & \(\mathbf{99.86}\) & \(\mathbf{0.99918}\) & \textbf{0.99918} \\ \bottomrule
+  \rowcolor{verde}
+  \textbf{Tesis binario} & \textbf{10} & \(\mathbf{0.99857}\) & \(\mathbf{0.99979}\) & \(\mathbf{99.86}\) & \(\mathbf{0.99918}\) & \textbf{0.99918} \\ \bottomrule
   \end{tabular}%
   }
   \caption{Comparativa para el problema binario}\label{tabla:comparativa2}

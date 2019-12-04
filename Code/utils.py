@@ -16,6 +16,17 @@ from tensorflow.keras.utils import to_categorical
 import matplotlib
 import math
 from IPython.display import clear_output
+
+map_normal_anormal = {
+    'normal_superficiel': 0,
+    'normal_intermediate': 0,
+    'normal_columnar': 0,
+    'light_dysplastic': 1,
+    'moderate_dysplastic': 1,
+    'severe_dysplastic': 1,
+    'carcinoma_in_situ': 1
+}
+
 def get_size_statistics(source):
     heights = []
     widths = []
@@ -222,7 +233,7 @@ def grafica_kfold(cv, X, y, n_splits, num_classes, nom_archivo, dpi=500, lw=20):
     legend1 = ax.legend(handles, 
                         labels,
                         loc="lower center", 
-                        title="Clases",  ncol=7)
+                        title="Clases",  ncol=num_classes)
     
     ax.add_artist(legend1)
     yticklabels = list(range(n_splits)) + ['Clase']

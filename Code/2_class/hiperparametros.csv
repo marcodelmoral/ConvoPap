@@ -1,0 +1,12 @@
+,Valor
+BATCH_SIZE,64
+WIDTH,256
+HEIGHT,256
+LR,1e-05
+OPT,<tensorflow.python.keras.optimizer_v2.adam.Adam object at 0x0000025F81064848>
+SEED,111091
+EPOCHS,30
+DROPOUT,"[0.5, 0.5]"
+KFOLD_SPLITS,10
+FC_LAYERS,"[1024, 1024]"
+NUM_CLASSES,2

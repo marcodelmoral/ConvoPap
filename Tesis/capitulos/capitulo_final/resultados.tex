@@ -15,12 +15,15 @@ asertividad necesaria para asistir al experto.
 
 \begin{table}[H]
     \centering
-    \resizebox{0.5\textwidth}{!}{%
+    \resizebox{1\textwidth}{!}{%
     \begin{tabular}{@{}lll@{}}
     \toprule
-    Experimento & Exactitud & Pérdida \\ \midrule
+    \textbf{Experimento} & \textbf{Exactitud} & \textbf{Pérdida} \\ \midrule
+    \rowcolor{azul}
     Binario & 99.86\% & 0.0038 \\
+    \rowcolor{verde}
     Multi-clase & 99.58\% & 0.013 \\
+    \rowcolor{media}
     Segmentación & 90.20\% & -0.9 \\ \bottomrule
     \end{tabular}%
     }
@@ -36,7 +39,8 @@ Incluimos un reporte sumamente detallado generado por PyCM. Aparte de las
 pruebas ya expuestas en las secciones de evaluación, nos da otros estadísticos
 generales extra para la evaluación así como estimaciones cualitativas de algunas
 métricas e indicadores. Se pudo obtener un rendimiento excepcional en todas las
-métricas evaluadas para el problema multi-clase. 
+métricas evaluadas para el problema multi-clase. Este reporte se encuentra en el
+\autoref{appendix:reporte}. 
 
-\includepdf[pages=-]{capitulos/capitulo_final/reporte_html.pdf}
+
 

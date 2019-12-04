@@ -34,11 +34,31 @@
 \usepackage{ragged2e}
 \usepackage{imakeidx}
 \usepackage{emptypage}
+\usepackage{pdflscape}
+% \usepackage{etoolbox}
+\usepackage{colortbl}
+
+%%%%%%%%%% HERE COMES THE PATCH %%%%%%%%%%
 \usepackage{etoolbox}
+
+\makeatletter
+\pretocmd\start@align
+{%
+  \let\everycr\CT@everycr
+  \CT@start
+}{}{}
+\apptocmd{\endalign}{\CT@end}{}{}
+\makeatother
+%%%%%%%%%% END PATCH %%%%%%%%%%
+
+\usepackage[bottom]{footmisc}
 \definecolor{LightCyan}{rgb}{0.88,1,1}
 \definecolor{titlepagecolor}{cmyk}{1,.60,0,.40}
 \definecolor{namecolor}{cmyk}{1,.50,0,.10}
-\definecolor{portadaa}{RGB}{73, 86, 120} 
+\definecolor{portadaa}{RGB}{73, 86, 120}
+\definecolor{azul}{rgb}{0.768, 0.729, 0.949}
+\definecolor{verde}{rgb}{0.847, 0.949, 0.729}
+\definecolor{media}{rgb}{0.909, 0.670, 0.886} 
 \renewcommand{\bibfont}{\normalfont\small}
 % times new roman e interlineado
 % \usepackage{newtxtext}
@@ -63,11 +83,13 @@
 \def\pagedeclaration#1{, \dotfill\hyperlink{page.#1}{#1}} 
 
 \hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    filecolor=magenta,      
-    urlcolor=cyan,
-    citecolor=red,
+    % colorlinks=true,
+    % linkcolor=blue,
+    % filecolor=magenta,      
+    % urlcolor=cyan,
+    % citecolor=red,
+    %frenchlinks=true,
+    hidelinks=true,
     pdfauthor={Marco Julio Del Moral Argumedo},
     pdftitle={Despliegue en Hardware de un Sistema de Diagnóstico Asistido por Computadora basado en Deep Learning para la clasificación y detección de células de cáncer cervicouterino en un examen de Papanicolau},
     pdfsubject={Tesis de maestría en Ingeniería Industrial},
@@ -81,12 +103,12 @@
 \tikzset{block/.style={draw,thick,text width=2cm,minimum height=1cm,align=center},
          line/.style={-latex}
 }
-\usemintedstyle{borland} 
+\usemintedstyle{colorful} 
 
 \frenchspacing
 \addbibresource{references.bib}
 \raggedbottom{}
-\newcommand*\rot{\rotatebox{90}}
+\newcommand*\rot{\rotatebox{45}}
 \newcommand*\OK{\ding{51}}
 
 \pagestyle{fancy}
@@ -137,13 +159,13 @@
 \thispagestyle{empty}
     \null\vspace{\stretch{1}}
         \begin{flushright}
-            A mi madre, \textbf{América Argumedo}, todo surge de y vuelve a ella. \\
-            A mi hermana, \textbf{María Fernanda}, mi ángel de la guarda. \\
-            A mi familia, por el apoyo perpetuo. \\
-            A mis amigos, la familia que uno escoge. \\
-            A mis profesores, por esforzarse en mi. \\
-            A \textbf{Sashimi}, por darme las ganas de ser grande. \\
-            A mi madrina, \textbf{Lili de la Vega}, por amarme como un hijo.
+            A mi madre, \textbf{América Argumedo}, esta obra es una oda a su existencia. \\
+            A mi hermana, \textbf{María Fernanda}, mi alma gemela y ángel de la guarda. \\
+            A mi \textbf{familia}, por el amor infinito. \\
+            A mis \textbf{amigos}, gracias por el preternatural apoyo. \\
+            A mis \textbf{profesores}, por esforzarse en mi. \\
+            A mi madrina, \textbf{Lili de la Vega}, por amarme como un hijo. \\
+            A \textbf{Sashimi}, por motivarme a quebrantar ilusorios límites.
         \end{flushright}
 \vspace{\stretch{2}}\null{}
 
@@ -168,18 +190,35 @@
 Se extiende un supremo agradecimiento a las personas, instituciones y empresas
 que catalizaron la realización del trabajo que expone esta tesis:
 
-A mi Madre, por su desinteresada financiamiento económico, afectivo e
-intelectual que culminaron en las condiciones absolutas para la creación de este
-trabajo y que inciden directamente en la calidad del mismo.
+A mi Madre, la inspiración misma de todos mis actos, el núcleo del cual surge
+toda la maravilla que permea mi vida, lo que me da la potencia de ser un hombre
+grande y bueno. El interactuar con ella, de cualquier forma posible, es la
+experiencia más satisfactoria que puede tener cualquier ser humano. Se le
+agradece por su increíble financiamiento económico, afectivo e intelectual que
+culminaron en las condiciones absolutas para la creación de este trabajo y que
+inciden directamente en la calidad del mismo. 
 
-Al Doctor Alberto Aguilar-Laserre, por el andamiaje metodológico y mental en el
-cual no solo se soporta este trabajo, sino todos los logros alcanzados durante
-la realización del mismo.
+Doctor Alberto Aguilar-Laserre, un sentimiento tan grande difícilmente puede ser
+codificado en palabra escrita, pero extiendo un magnánimo agradecimiento por el
+andamiaje metodológico y mental en el cual no solo se soporta este trabajo, sino
+todos los logros alcanzados durante la realización de este, los derivados y
+subsecuentes. La intersección perfecta entre un mentor, profesor y amigo.
 
 Al Doctor Rubén Posada-Gómez por enseñarme a hacer matemáticas con una
-computadora. Al Maestro Magno González-Huerta por creer en mi. Al Maestro
-Constantino Moras-Sánchez por motivarme a entrar a la maestría. A la Doctora
-Catherine Azzaro-Pantel por recibirme amablemente en su laboratorio en Francia.
+computadora, detonando la curiosidad para el aprendizaje y desarrollo de las
+herramientas que cimentan este trabajo y conjugando todas mis fases
+intelectuales en una sola, convirtiéndome en un ingeniero completo.
+
+Se agrade con cariño y afecto al Maestro Magno González-Huerta por creer en mi y
+darme la oportunidad de demostrar el empeño y dedicación expuestos aquí. 
+
+Al Maestro Constantino Moras-Sánchez por motivarme a entrar a la maestría, por
+el afecto y el apoyo recibidos, más allá del deber académico; el trato más
+humano que he recibido. 
+
+A la Doctora Catherine Azzaro-Pantel por recibirme amablemente en su laboratorio
+en Francia, por compartir empáticamente la emoción de mi presencia en su país y
+por el interés sincero en mis proyectos.
 
 Al Consejo Nacional de Ciencia y Tecnología CONACyT, por su apoyo económico para
 obtener el grado. A mi escuela, el Instituto Tecnológico de Orizaba por
@@ -192,6 +231,9 @@ apoyarme.
 A la empresa Nvidia por la donación de la tarjeta Titan V, la más avanzada para
 Inteligencia Artificial y por cumplir uno de mis sueños más viejos. A Google por
 democratizar la tecnología más avanzada en su tipo. 
+
+A todas las personas que incidieron positivamente en la creación de esta tesis,
+un agradecimiento seguido de una abrazo enorme y bello.
 
 \frontmatter 
 \pagenumbering{roman}
@@ -273,6 +315,8 @@ democratizar la tecnología más avanzada en su tipo.
 
 \chapter{Resultados por época}\label{appendix:entrenamiento}
 \input{capitulos/apendice_entrenamiento/apendice_entrenamiento}
+\chapter{Reporte PyCM}\label{appendix:reporte}
+\includepdf[pages=-]{capitulos/capitulo_final/reporte_html.pdf}
 \addcontentsline{toc}{chapter}{Bibliografía}
 \printbibliography{}
 % \addcontentsline{toc}{chapter}{Índice}

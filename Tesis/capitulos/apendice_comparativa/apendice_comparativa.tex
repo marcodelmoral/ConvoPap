@@ -1,5 +1,6 @@
 En este anexo se mostrarán los resultados de los experimentos para buscar el
-mejor algoritmo para TL aplicado al análisis de imágenes citológicas de  \hyperlink{abbr}{CCU}. 
+mejor algoritmo para TL aplicado al análisis de imágenes citológicas de
+\hyperlink{abbr}{CCU}. 
 
 \section{DenseNet201}
 En la~\autoref{fig:DenseNet201_total} las gráficas de exactitud y pérdida tanto
@@ -7,7 +8,7 @@ en entrenamiento como en validación. Se nota que el modelo se desempeña bien e
 ambas métricas en la fase de entrenamiento, sin embargo, la exactitud en
 validación se estanca en 86\%.
 
-La~\autoref{tabla:densenet} muestra época por época los valores de cada métrica
+La~\autoref{tabla:densenet} agrega época por época los valores de cada métrica
 de evaluación. Podemos ver claramente que la exactitud en validación alcanza su
 meseta a partir de la época número dos. Quizás con mayor entrenamiento pueda
 alcanzar mejores exactitudes.
@@ -131,10 +132,11 @@ debajo y por arriba del 80\%.
     \caption{Tabla de resultados InceptionV3}\label{tabla:v3}
     \end{table}
 \section{MobileNet}
-El rendimiento de esta red se muestra en la~\autoref{fig:mobile_total}, donde se nota
-la tendencia a mejorar del modelo conforme pasan las épocas, aunque lo hace muy lentamente.
-La~\autoref{tabla:mobile} nos muestra que la exactitud en validación se estanca alrededor
-del 88\%, es probable que mayor entrenamiento mejore la exactitud.
+El rendimiento de esta red se da en la~\autoref{fig:mobile_total}, donde se nota
+la tendencia a mejorar del modelo conforme pasan las épocas, aunque lo hace muy
+lentamente. La~\autoref{tabla:mobile} compila que la exactitud en validación se
+estanca alrededor del 88\%, es probable que mayor entrenamiento mejore la
+exactitud.
 \begin{figure}[H]
     \centering
     \begin{subfigure}[b]{0.6\textwidth}
@@ -209,7 +211,7 @@ superar el 80\% de exactitud, puede que con mayor entrenamiento esto se logre.
     \caption{Tabla de resultados MobileNetV2}\label{tabla:mobilev2}
     \end{table}
 \section{NASNetLarge}
-La~\autoref{fig:naslarge_total} muestra el rendimiento de esta red, excelente rendimiento
+La~\autoref{fig:naslarge_total} compila el rendimiento de esta red, excelente rendimiento
 en entrenamiento con un rendimiento en validación que no cumple el cometido.
 La~\autoref{tabla:naslarge} nos muestra que si bien la exactitud en validación
 aumenta, lo hace a una tasa demasiado baja, aunque mayor entrenamiento si se
@@ -418,9 +420,10 @@ validación y entrenamiento se mantuvieron bastante cercanas.
     \caption{Tabla de resultados VGG19}\label{tabla:vgg19}
     \end{table}
 \section{Xception}
-Por último, tenemos una red cuyo rendimiento se muestra en la Figura~\autoref{fig:excep_total},
-su rendimiento comparado con las dos arquitecturas anteriores fue mediocre.
-La Tabla~\autoref{tabla:xcep} muestra que la red en lugar de mejorar, empeoró con el tiempo.
+Por último, tenemos una red cuyo rendimiento está compilado en la
+Figura~\autoref{fig:excep_total}, su rendimiento comparado con las dos
+arquitecturas anteriores fue mediocre. La Tabla~\autoref{tabla:xcep} muestra que
+la red en lugar de mejorar, empeoró con el tiempo.
 \begin{figure}[H]
     \centering
     \begin{subfigure}[b]{0.6\textwidth}

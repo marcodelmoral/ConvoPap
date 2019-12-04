@@ -418,7 +418,7 @@ del prototipo y la impresión 3D. El centro cuenta con dos tipos de impresora 3D
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth,angle=270,origin=c]{capitulo_sdac/impresora_resina}
+    \includegraphics[width=0.7\textwidth,angle=270,origin=c]{capitulo_sdac/impresora_resina}
     \caption{Impresora Form2 de resina fotopolímera}\label{fig:resina}
 \end{figure}
 
@@ -474,7 +474,7 @@ impresora 3D mientras se dispone a imprimir el adaptador de la cámara.
 %     \caption{Interface táctil de la impresora Form2}\label{fig:primer_prototipo_resina}
 % \end{figure}
 
-El prototipo terminado se muestra en la \autoref{fig:primer_prototipo_resina}.
+El prototipo terminado se puede ver en la \autoref{fig:primer_prototipo_resina}.
 Claramente se observa la muesca del cable y la base que genera la impresora como
 estructura del diseño.
 
@@ -485,8 +485,9 @@ estructura del diseño.
 \end{figure}
 
 Podemos ver el resultado de la impresión de las tres piezas del adaptador en la
-\autoref{fig:resina_adaptador}. También se muestra la tapa trasera que mantiene
-la cámara en su sitio y evitaría, en un material opaco, el paso de la luz.
+\autoref{fig:resina_adaptador}. También se proporciona la tapa trasera que
+mantiene la cámara en su sitio y evitaría, en un material opaco, el paso de la
+luz.
 
 \begin{figure}[H]
     \centering
@@ -498,7 +499,7 @@ El prototipo no tuvo un ajuste perfecto debido a que el conector de cable plano
 de la cámara usada está al frente mientras que en la cámara Raspberry está
 atrás. Para ello se tuvo que modificar el archivo CAD del adaptador para
 ajustarlo a la cámara de la Jetson Nano. Se puede observar que se trasladó la
-muestra del cable a su antípoda y se horadó una brecha del lado de la nueva
+muesca del cable a su antípoda y se horadó una brecha del lado de la nueva
 muesca para alojar el conector de cable plano (\autoref{fig:adaptadores}).
 
 \begin{figure}[H]
@@ -632,8 +633,8 @@ impresión de todas las piezas de la carcasa.
 
 Un ejemplo del uso final de la carcasa se puede ver en la \autoref{fig:preview}.
 La parte frontal deja ver la instalación de la pantalla con una muestra del uso
-de la cámara mientras que la parte trasera muestra el agujero de disipación para
-el ventilador Noctua, los puertos de la Jetson así como aperturas para las
+de la cámara mientras que la parte trasera deja ver el agujero de disipación
+para el ventilador Noctua, los puertos de la Jetson así como aperturas para las
 antenas WiFi. Se puede reducir el volumen del sistema cambiando las antenas por
 receptores USB de tamaño
 pequeño\footnote{\url{https://www.thingiverse.com/thing:3922565}}.
@@ -655,7 +656,7 @@ pequeño\footnote{\url{https://www.thingiverse.com/thing:3922565}}.
 
 \subsection{Creación del software}
 
-La \autoref{fig:diagrama_sistema} muestra el diagrama del sistema. El modelo
+La \autoref{fig:diagrama_sistema} deja ver el diagrama del sistema. El modelo
 guardado en archivo binario \emph{.h5} se alimenta al intérprete de
 \emph{Tensorflow Lite}, que se comunica con el \hyperlink{abbr}{GPU} de Jetson
 para hacer inferencia. Todo está orquestado por el módulo \emph{Kivy} que sirve
@@ -783,7 +784,7 @@ general.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{capitulo_sdac/kivy}
+    \includegraphics[width=0.6\textwidth]{capitulo_sdac/kivy}
     \caption{La arquitectura de Kivy}\label{fig:kivy}
 \end{figure}
 
@@ -798,9 +799,9 @@ En la \autoref{fig:gui} tenemos un ejemplo de pantalla principal para el
 sistema. Esta interface es sencilla y fácil de usar. Una vez presionado el botón
 correspondiente nos dirigirá a la siguiente ventana para utilizar la inferencia.
 
-\begin{figure}[H]
+\begin{figure}[]
     \centering
-    \includegraphics[width=0.8\textwidth]{capitulo_sdac/gui}
+    \includegraphics[width=0.9\textwidth]{capitulo_sdac/gui}
     \caption{Linux personalizado de Nvidia en Jetson}\label{fig:gui}
 \end{figure}
 
@@ -809,9 +810,9 @@ desde el microscopio. La célula se muestra en pantalla y posterior activación
 del botó indicado, se procesa y genera una gráfica de barras; donde se indica la
 probabilidad de pertenecer a alguna de las siete clases.
 
-\begin{figure}[H]
+\begin{figure}[]
     \centering
-    \includegraphics[width=0.8\textwidth]{capitulo_sdac/gui2}
+    \includegraphics[width=0.9\textwidth]{capitulo_sdac/gui2}
     \caption{Linux personalizado de Nvidia en Jetson}\label{fig:gui2}
 \end{figure}
 
@@ -833,8 +834,8 @@ En la \autoref{fig:prototipo_final} podemos observar la pantalla conectada a la
 Jetson mostrando la interface gráfica creada para el sistema. No se muestra
 puntero en la pantalla ya que todo el control es mediante impulsos táctiles.
 
-\begin{figure}[H]
+\begin{figure}[]
     \centering
-    \includegraphics[width=0.5\textwidth]{capitulo_sdac/prototipo_final}
+    \includegraphics[width=\textwidth]{capitulo_sdac/prototipo_final}
     \caption{Muestra del prototipo con la interface del sistema}\label{fig:prototipo_final}
 \end{figure}
