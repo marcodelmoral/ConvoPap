@@ -471,7 +471,7 @@ entrenamiento.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{capitulo_sdac/perdida_2.pdf}
+    \includegraphics[width=0.75\textwidth]{capitulo_sdac/perdida_2.pdf}
     \caption{Gráfico de pérdida, se nota fluctuación en validación}\label{fig:perdida_seg}
 
 \end{figure}
@@ -484,7 +484,7 @@ próximas entre si.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{capitulo_sdac/exactitud_2.pdf}
+    \includegraphics[width=0.75\textwidth]{capitulo_sdac/exactitud_2.pdf}
     \caption{Gráfico de Intersección sobre Unión}\label{fig:acc_total_seg}
 
 \end{figure}
@@ -977,7 +977,7 @@ entre núcleo y resto de manera muy eficaz.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{capitulo_sdac/muestreo_mascaras_segmentacion}
+    \includegraphics[width=1\textwidth]{capitulo_sdac/muestreo_mascaras_segmentacion}
     \caption{Muestreo de máscaras de validación}\label{fig:mascaras}
 \end{figure}
 
@@ -992,7 +992,7 @@ contienen solo una.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{capitulo_sdac/test_segmentacion}
+    \includegraphics[width=0.7\textwidth]{capitulo_sdac/test_segmentacion}
     \caption{Pruebas en imagen de laminilla}\label{fig:laminilla}
 \end{figure}
 
@@ -1110,35 +1110,35 @@ razón por la cual otras arquitecturas más grandes no funcionaron para este
 problema.
 
   \begin{figure}[] % "[t!]" placement specifier just for this example
-    \begin{subfigure}{0.40\textwidth}
+    \begin{subfigure}{0.450\textwidth}
       \includegraphics[width=\linewidth]{capitulo_sdac/xcancerseed_activaciones(0).pdf}
       \caption{Block1\_pool}\label{fig:ay}
     \end{subfigure}\hspace*{\fill}
-    \begin{subfigure}{0.40\textwidth}
+    \begin{subfigure}{0.450\textwidth}
       \includegraphics[width=\linewidth]{capitulo_sdac/xcancerblock1_pool-MaxPool_0.pdf}
       \caption{Block1\_pool}\label{fig:by}
     \end{subfigure}
     
     \medskip
-    \begin{subfigure}{0.40\textwidth}
+    \begin{subfigure}{0.450\textwidth}
       \includegraphics[width=\linewidth]{capitulo_sdac/xcancerblock2_pool-MaxPool_0.pdf}
       \caption{Block2\_pool}\label{fig:cy}
     \end{subfigure}\hspace*{\fill}
-    \begin{subfigure}{0.40\textwidth}
+    \begin{subfigure}{0.450\textwidth}
       \includegraphics[width=\linewidth]{capitulo_sdac/xcancerblock3_pool-MaxPool_0.pdf}
       \caption{Block3\_pool}\label{fig:dy}
     \end{subfigure}
     
     \medskip
-    \begin{subfigure}{0.40\textwidth}
+    \begin{subfigure}{0.450\textwidth}
       \includegraphics[width=\linewidth]{capitulo_sdac/xcancerblock4_pool-MaxPool_0.pdf}
       \caption{Block4\_pool}\label{fig:ey}
     \end{subfigure}\hspace*{\fill}
-    \begin{subfigure}{0.40\textwidth}
+    \begin{subfigure}{0.450\textwidth}
       \includegraphics[width=\linewidth]{capitulo_sdac/xcancerblock5_pool-MaxPool_0.pdf}
       \caption{Block5\_pool}\label{fig:fy}
     \end{subfigure}
-    \caption{Activaciones de capas \emph{MaxPool} intermedias con entrada de célula cancerígena}\label{fig:inter}
+    \caption{Activaciones de capas \emph{MaxPool} con entrada de célula cancerígena}\label{fig:inter}
     \end{figure}
 
 Las activaciones en la última capa, si bien son bastante abstractas, ofrecen
@@ -1187,24 +1187,24 @@ los bordes, los otros no tienen este comportamiento.
   \begin{figure}[H] 
     \begin{subfigure}[b]{0.5\linewidth}
       \centering
-      \includegraphics[width=0.75\linewidth]{capitulo_sdac/muestras_saliency.pdf} 
+      \includegraphics[width=1\linewidth]{capitulo_sdac/muestras_saliency.pdf} 
       \caption{Muestras}\label{fig7:a} 
       \vspace{4ex}
     \end{subfigure}%% 
     \begin{subfigure}[b]{0.5\linewidth}
       \centering
-      \includegraphics[width=0.75\linewidth]{capitulo_sdac/saliency_relu.pdf} 
+      \includegraphics[width=1\linewidth]{capitulo_sdac/saliency_relu.pdf} 
       \caption{Prominencia ReLU}\label{fig7:b} 
       \vspace{4ex}
     \end{subfigure} 
     \begin{subfigure}[b]{0.5\linewidth}
       \centering
-      \includegraphics[width=0.75\linewidth]{capitulo_sdac/saliency_normal.pdf} 
+      \includegraphics[width=1\linewidth]{capitulo_sdac/saliency_normal.pdf} 
       \caption{Prominencia normal}\label{fig7:c} 
     \end{subfigure}%%
     \begin{subfigure}[b]{0.5\linewidth}
       \centering
-      \includegraphics[width=0.75\linewidth]{capitulo_sdac/saliency_guided.pdf} 
+      \includegraphics[width=1\linewidth]{capitulo_sdac/saliency_guided.pdf} 
       \caption{Prominencia guided}\label{fig7:d} 
     \end{subfigure} 
     \caption{Visualización de mapas de prominencia y comparativa}\label{fig:saliency} 
@@ -1222,24 +1222,24 @@ los bordes, los otros no tienen este comportamiento.
   \begin{figure}[H] 
       \begin{subfigure}[b]{0.5\linewidth}
         \centering
-        \includegraphics[width=0.75\linewidth]{capitulo_sdac/muestras_saliency.pdf} 
+        \includegraphics[width=1\linewidth]{capitulo_sdac/muestras_saliency.pdf} 
         \caption{Muestras}\label{fig7:ab}
         \vspace{4ex}
       \end{subfigure}%% 
       \begin{subfigure}[b]{0.5\linewidth}
         \centering
-        \includegraphics[width=0.75\linewidth]{capitulo_sdac/cam_relu.pdf} 
+        \includegraphics[width=1\linewidth]{capitulo_sdac/cam_relu.pdf} 
         \caption{Cam ReLU}\label{fig7:ba}
         \vspace{4ex}
       \end{subfigure} 
       \begin{subfigure}[b]{0.5\linewidth}
         \centering
-        \includegraphics[width=0.75\linewidth]{capitulo_sdac/cam_normal.pdf} 
+        \includegraphics[width=1\linewidth]{capitulo_sdac/cam_normal.pdf} 
         \caption{Cam normal}\label{fig7:cd}
       \end{subfigure}%%
       \begin{subfigure}[b]{0.5\linewidth}
         \centering
-        \includegraphics[width=0.75\linewidth]{capitulo_sdac/cam_guided.pdf} 
+        \includegraphics[width=1\linewidth]{capitulo_sdac/cam_guided.pdf} 
         \caption{Cam guided}\label{fig7:dc}
       \end{subfigure} 
       \caption{Grad-CAM: Gradient-weighted Class Activation Mapping y muestras de comparativa}\label{fig:cam} 
